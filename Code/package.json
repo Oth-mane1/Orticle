@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tw:build": "postcss ./Source/style.css -o ./Public/style.css --env development",
-    "tw:prod": "postcss build ./Source/style.css -o ./Public/style.css --env production"
+    "tw:build": "postcss ./Source/styles/style.css -o ./Public/styles/style.css --env development",
+    "tw:prod": "postcss build ./Source/styles/style.css -o ./Public/styles/style.css --env production"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
