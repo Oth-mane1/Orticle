@@ -14,6 +14,16 @@
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.0.4"
   },
-  "author": "",
+  "contributors": [{
+      "name": "Othmane Ouirdy",
+      "email": "othmane.ouirdy@gmail.com",
+      "url": "https://github.com/Oth-mane1"
+    },
+    {
+      "name": "Oumaima moughazli",
+      "email": "moughazlioumaima@gmail.com",
+      "url": "https://github.com/Moughazli20"
+    }
+  ],
   "license": "ISC"
 }
