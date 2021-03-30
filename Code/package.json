@@ -25,5 +25,9 @@
       "url": "https://github.com/Moughazli20"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Oth-mane1/Orticle"
+  },
   "license": "ISC"
 }
