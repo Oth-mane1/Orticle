@@ -7,29 +7,34 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
     <title>Orticle•</title>
-</head>
 
-<body class="bg-gray-50 px-10 py-4">
-    <header class="text-gray-900">
-        <nav class="flex justify-between items-center">
-            <div><img src="images/orticleLogo.svg" alt="Orticle logo" draggable="false"></div>
-            <div>
-                <ul class="flex w-96 justify-between">
-                    <li><a class="text-oblue underline font-bold" href="#">Accueil</a></li>
-                    <li><a class="hover:text-oblue" href="#">Télécharger</a></li>
-                    <li><a class="hover:text-oblue" href="#">Supporte</a></li>
-                    <li><a class="hover:text-oblue" href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div>
-                <button class="text-oblue hover:bg-gray-200 hover:text-white transition duration-300 p-1 px-4 rounded-full">Se connecter</button>
-                <button class="bg-oblue text-white p-1 px-4 rounded-full">S'inscrire</button>
-            </div>
-        </nav>
-    </header>
-    <footer>
+<body>
+    <div class="bg-gray-50 sm:px-4 lg:px-10 py-4 font-semibold">
+        <header class="text-gray-900">
+            <nav class="flex justify-between items-center sm:flex-col md:flex-row">
+                <div><img src="images/orticleLogo.svg" style="max-width: none;" alt="Orticle logo" draggable="false">
+                </div>
+                <div>
+                    <ul class="flex lg:w-96 md:w-80 sm:w-72 justify-between sm:flex-col md:flex-row">
+                        <li><a class="text-oblue underline font-bold" href="#">Accueil</a></li>
+                        <li><a class="hover:text-oblue" href="#">Télécharger</a></li>
+                        <li><a class="hover:text-oblue" href="#">Supporte</a></li>
+                        <li><a class="hover:text-oblue" href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="flex sm:flex-col md:h-auto sm:h-20 sm:justify-between md:flex-row sm:w-52 md:w-auto">
+                    <button class="text-oblue hover:bg-gray-200 transition duration-300 py-1 px-4 rounded-full">Se
+                        connecter</button>
+                    <button class="bg-oblue hover:opacity-90 transition duration-300 text-white py-1 px-4 rounded-full">S'inscrire</button>
+                </div>
+                <button class="hover:bg-gray-200 rounded-md w-10 m-1"><img src="images/menu.svg" alt="Menu" width="100%" height="100%" draggable="false"></button>
+            </nav>
+        </header>
+        <section class="h-96"></section>
+        <footer>
 
-    </footer>    
+        </footer>
+    </div>
 </body>
 
 </html>
