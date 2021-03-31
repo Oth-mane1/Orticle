@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'oblue': '#558EB4'
+        'oblue': '#558EB4',
+        'ogrey':'#CCCCCC'
       }
     },
   },
