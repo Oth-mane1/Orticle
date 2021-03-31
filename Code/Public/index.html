@@ -33,9 +33,8 @@
                     class="bg-oblue hover:opacity-90 transition duration-300 text-white py-px md:py-1 px-8 md:px-4 rounded-full">S'inscrire</button>
             </div>
             <button
-                class="hover:bg-gray-300 rounded-md w-8 p-1 absolute right-1 top-3 md:hidden transition outline-none"
-                id="menu">
-                <img src="images/menu.svg" class="w-8" width="32" height="32" alt="Menu" draggable="false">
+                class="hover:bg-gray-200 rounded-md w-8 h-8 p-1 absolute bg-center bg-no-repeat right-1 top-3 md:hidden transition outline-none"
+                id="menu" style="background-image: url(images/menu.svg);" aria-label="menu">
             </button>
         </nav>
     </header>
@@ -59,12 +58,17 @@
         </ul>
     </footer>
     <script>
-        document.getElementById('menu').addEventListener('click', () => {
+        document.getElementById('menu').addEventListener('click', function () {
             document.getElementsByClassName('nv')[0].classList.toggle('hidden');
             document.getElementsByClassName('nv')[1].classList.toggle('hidden');
-            document.querySelector('nav button img').setAttribute('src',
-                document.querySelector('nav button img').getAttribute('src') == "images/menu.svg" ?
-                "./images/close.svg" : "images/menu.svg");
+            this.style.transition = 'all 0.2s';
+            if (this.getAttribute('aria-label') == 'menu') {
+                this.style.backgroundImage = "url(./images/close.svg)";
+                this.setAttribute('aria-label', 'close');
+            } else {
+                this.style.backgroundImage = "url(./images/menu.svg)";
+                this.setAttribute('aria-label', 'menu');
+            }
         });
     </script>
 </body>
