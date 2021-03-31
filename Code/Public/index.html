@@ -35,7 +35,7 @@
             <button
                 class="hover:bg-gray-200 rounded-md w-8 p-1 absolute right-1 top-3 md:hidden transition outline-none"
                 id="menu">
-                <img src="images/menu-right.svg" alt="Menu" draggable="false">
+                <img src="images/menu-right.svg" class="w-8" width="32" height="32" alt="Menu" draggable="false">
             </button>
         </nav>
     </header>
@@ -46,7 +46,7 @@
         <figure class="flex justify-center flex-col items-center m-3">
             <img src="images/OFooter.svg" class="w-28 md:w-40 mb-4" style="max-width: none;" alt="Orticle logo"
                 draggable="false">
-            <figcaption style="letter-spacing: 0.4rem">Orticle Company&COPY;</figcaption>
+            <figcaption style="letter-spacing: 0.5rem">Orticle Company&COPY;</figcaption>
         </figure>
 
         <ul class="flex justify-between items-center flex-row py-4 mx-12 md:mx-32 flex-wrap">
@@ -62,6 +62,9 @@
         document.getElementById('menu').addEventListener('click', () => {
             document.getElementsByClassName('nv')[0].classList.toggle('hidden');
             document.getElementsByClassName('nv')[1].classList.toggle('hidden');
+            document.querySelector('nav button img').setAttribute('src',
+                document.querySelector('nav button img').getAttribute('src') == "images/menu-right.svg" ?
+                "./images/close.svg" : "images/menu-right.svg");
         });
     </script>
 </body>
