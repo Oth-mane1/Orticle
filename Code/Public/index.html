@@ -11,7 +11,8 @@
 
 <body class="bg-gray-50 font-semibold">
     <header class=" fixed text-gray-900 w-full md:relative">
-        <nav class="flex py-3 md:px-5 justify-between items-center flex-col md:flex-row relative w-full md:w-auto md:static shadow-md md:shadow-none">
+        <nav
+            class="flex py-3 md:px-5 justify-between items-center flex-col md:flex-row relative w-full md:w-auto md:static shadow-md md:shadow-none">
             <div>
                 <img src="images/orticleLogo.svg" style="max-width: none;" alt="Orticle logo" draggable="false">
             </div>
@@ -25,10 +26,18 @@
             </div>
             <div class="hidden md:block nv w-auto"
                 class="flex flex-col md:h-auto sm:h-20 sm:justify-between md:flex-row sm:w-52 md:w-auto">
-                <button class="text-oblue hover:bg-gray-200 transition duration-300 py-px md:py-1 px-8 md:px-4 rounded-full">Se connecter</button>
-                <button class="bg-oblue hover:opacity-90 transition duration-300 text-white py-px md:py-1 px-8 md:px-4 rounded-full">S'inscrire</button>
+                <button
+                    class="text-oblue hover:bg-gray-200 transition duration-300 py-px md:py-1 px-8 md:px-4 rounded-full">Se
+                    connecter</button>
+                <button
+                    class="bg-oblue hover:opacity-90 transition duration-300 text-white py-px md:py-1 px-8 md:px-4 rounded-full">S'inscrire</button>
             </div>
+<<<<<<< HEAD
             <button class="hover:bg-gray-200 rounded-md w-8 p-1 absolute right-1 top-3 md:hidden transition outline-none" id="menu">
+=======
+            <button class="hover:bg-gray-200 rounded-md w-8 absolute right-1 top-3 md:hidden transition outline-none"
+                id="menu">
+>>>>>>> af0cc1517da643f35b3b1139780adc3061bd0281
                 <img src="images/menu-right.svg" alt="Menu" draggable="false">
             </button>
         </nav>
@@ -36,11 +45,25 @@
     <section class="h-96"></section>
     <section class="h-96"></section>
     <section class="h-96"></section>
-    <footer>
+    <footer class="p-4 bg-ogrey">
 
+        <figure class="flex justify-center flex-col items-center m-6">
+            <img src="images/OFooter.svg" class="w-40 mb-4" style="max-width: none;" alt="Orticle logo" draggable="false">
+            <figcaption style="letter-spacing: 0.4rem">Orticle Company&COPY;</figcaption>
+        </figure>
+        
+            <ul class="flex justify-between flex-rowpx-32 py-6 mx-12 my-6 ">
+                <li><a class="hover:text-oblue" href="#">Accueil</a></li>
+                <li><a class="hover:text-oblue" href="#">Télécharger</a></li>
+                <li><a class="hover:text-oblue" href="#">Supporte</a></li>
+                <li><a class="hover:text-oblue" href="#">FAQ</a></li>
+                <li><a class="hover:text-oblue" href="#">Terms</a></li>
+                <li><a class="hover:text-oblue" href="#">Connecter</a></li>
+            </ul>
+        
     </footer>
     <script>
-        document.getElementById('menu').addEventListener('click', ()=>{
+        document.getElementById('menu').addEventListener('click', () => {
             document.getElementsByClassName('nv')[0].classList.toggle('hidden');
             document.getElementsByClassName('nv')[1].classList.toggle('hidden');
         });
