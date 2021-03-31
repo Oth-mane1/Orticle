@@ -33,9 +33,9 @@
                     class="bg-oblue hover:opacity-90 transition duration-300 text-white py-px md:py-1 px-8 md:px-4 rounded-full">S'inscrire</button>
             </div>
             <button
-                class="hover:bg-gray-200 rounded-md w-8 p-1 absolute right-1 top-3 md:hidden transition outline-none"
+                class="hover:bg-gray-200 rounded-md w-8 p-1 focus:ring-2 absolute right-1 top-3 md:hidden transition outline-none"
                 id="menu">
-                <img src="images/menu-right.svg" class="w-8" width="32" height="32" alt="Menu" draggable="false">
+                <img src="images/menu.svg" class="w-8" width="32" height="32" alt="Menu" draggable="false">
             </button>
         </nav>
     </header>
@@ -63,8 +63,8 @@
             document.getElementsByClassName('nv')[0].classList.toggle('hidden');
             document.getElementsByClassName('nv')[1].classList.toggle('hidden');
             document.querySelector('nav button img').setAttribute('src',
-                document.querySelector('nav button img').getAttribute('src') == "images/menu-right.svg" ?
-                "./images/close.svg" : "images/menu-right.svg");
+                document.querySelector('nav button img').getAttribute('src') == "images/menu.svg" ?
+                "./images/close.svg" : "images/menu.svg");
         });
     </script>
 </body>
