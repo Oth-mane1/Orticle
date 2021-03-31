@@ -32,7 +32,9 @@
                 <button
                     class="bg-oblue hover:opacity-90 transition duration-300 text-white py-px md:py-1 px-8 md:px-4 rounded-full">S'inscrire</button>
             </div>
-            <button class="hover:bg-gray-200 rounded-md w-8 p-1 absolute right-1 top-3 md:hidden transition outline-none" id="menu">
+            <button
+                class="hover:bg-gray-200 rounded-md w-8 p-1 absolute right-1 top-3 md:hidden transition outline-none"
+                id="menu">
                 <img src="images/menu-right.svg" alt="Menu" draggable="false">
             </button>
         </nav>
@@ -40,22 +42,21 @@
     <section class="h-96"></section>
     <section class="h-96"></section>
     <section class="h-96"></section>
-    <footer class="p-4 bg-ogrey">
-
-        <figure class="flex justify-center flex-col items-center m-6">
-            <img src="images/OFooter.svg" class="w-40 mb-4" style="max-width: none;" alt="Orticle logo" draggable="false">
+    <footer class="p-2 bg-ogrey">
+        <figure class="flex justify-center flex-col items-center m-3">
+            <img src="images/OFooter.svg" class="w-28 md:w-40 mb-4" style="max-width: none;" alt="Orticle logo"
+                draggable="false">
             <figcaption style="letter-spacing: 0.4rem">Orticle Company&COPY;</figcaption>
         </figure>
-        
-            <ul class="flex justify-between flex-row px-32 py-6 mx-12 my-6 flex-1">
-                <li><a class="hover:text-oblue" href="#">Accueil</a></li>
-                <li><a class="hover:text-oblue" href="#">Télécharger</a></li>
-                <li><a class="hover:text-oblue" href="#">Supporte</a></li>
-                <li><a class="hover:text-oblue" href="#">FAQ</a></li>
-                <li><a class="hover:text-oblue" href="#">Terms</a></li>
-                <li><a class="hover:text-oblue" href="#">Connecter</a></li>
-            </ul>
-        
+
+        <ul class="flex justify-between items-center flex-row py-4 mx-12 md:mx-32 flex-wrap">
+            <li class="flex-auto p-3 text-center"><a class="hover:text-oblue" href="#">Accueil</a></li>
+            <li class="flex-auto p-3 text-center"><a class="hover:text-oblue" href="#">Télécharger</a></li>
+            <li class="flex-auto p-3 text-center"><a class="hover:text-oblue" href="#">Supporte</a></li>
+            <li class="flex-auto p-3 text-center"><a class="hover:text-oblue" href="#">FAQ</a></li>
+            <li class="flex-auto p-3 text-center"><a class="hover:text-oblue" href="#">Terms</a></li>
+            <li class="flex-auto p-3 text-center"><a class="hover:text-oblue" href="#">Connecter</a></li>
+        </ul>
     </footer>
     <script>
         document.getElementById('menu').addEventListener('click', () => {
