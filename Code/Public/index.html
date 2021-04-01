@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/menu.js" defer></script>
     <title>Orticle•</title>
 </head>
 
@@ -57,20 +58,6 @@
             <li class="flex-auto p-3 text-center"><a class="hover:text-oblue" href="#">Connecter</a></li>
         </ul>
     </footer>
-    <script>
-        document.getElementById('menu').addEventListener('click', function () {
-            document.getElementsByClassName('nv')[0].classList.toggle('hidden');
-            document.getElementsByClassName('nv')[1].classList.toggle('hidden');
-            this.style.transition = 'all 0.2s';
-            if (this.getAttribute('aria-label') == 'menu') {
-                this.style.backgroundImage = "url(./images/close.svg)";
-                this.setAttribute('aria-label', 'close');
-            } else {
-                this.style.backgroundImage = "url(./images/menu.svg)";
-                this.setAttribute('aria-label', 'menu');
-            }
-        });
-    </script>
 </body>
 
 </html>
