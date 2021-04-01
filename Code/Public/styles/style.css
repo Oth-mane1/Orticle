@@ -19,7 +19,7 @@ button:focus {
 }
 
 #menu {
-  background-image: url(images/menu.svg);
+  background-image: url('../images/menu.svg');
 }
 
 /* ! tailwindcss v2.0.4 | MIT License | https://tailwindcss.com */
