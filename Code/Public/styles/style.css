@@ -14,12 +14,12 @@
   background-color: inherit;
 }
 
-* {
-  outline: none;
-}
-
 button:focus {
   outline: 0 !important;
+}
+
+#menu {
+  background-image: url(images/menu.svg);
 }
 
 /* ! tailwindcss v2.0.4 | MIT License | https://tailwindcss.com */
