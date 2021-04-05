@@ -1,54 +1,54 @@
+input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+}
 
-        input[type="checkbox"] {
-            position: absolute;
-            visibility: hidden;
-        }
-        .tab {
-            border-radius: 10px;
-            color: #000000;
-            overflow: hidden;
-        }
-        .tab-label {
-            display: flex;
-            justify-content: space-between;
-            padding: 1em;
-            background: #CCCCCC;
-            font-weight: bold;
-            cursor: pointer;
-            /* Icon */
-        }
-        .tab-label::after {
-            content: "❯";
-            width: 1em;
-            height: 1em;
-            text-align: center;
-            transition: all 0.35s;
-        }
-        .tab-content {
-            max-height: 0;
-            padding: 0 1em;
-            color: #000000;
-            background: white;
-            transition: all 0.35s;
-        }
-        .tab-close {
-            display: flex;
-            justify-content: flex-end;
-            padding: 1em;
-            font-size: 0.75em;
-            background: #CCCCCC;
-            cursor: pointer;
-        }
-        .tab-close:hover {
-            background: #CCCCCC;
-        }
-        input:checked+.tab-label {
-            background: #CCCCCC;
-        }
-        input:checked+.tab-label::after {
-            transform: rotate(90deg);
-        }
-        input:checked~.tab-content {
-            max-height: 100vh;
-            padding: 1em;
-        }
+.tab {
+    border-radius: 10px;
+    color: #000000;
+    overflow: hidden;
+}
+
+.tab-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: #CCCCCC;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.tab-label:hover {
+    background: #d8d7d7;
+}
+
+.tab-label::after {
+    content: "❯";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+}
+
+.tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    font-weight: normal;
+    color: #000000;
+    background: #CCCCCC;
+    transition: all 0.35s;
+}
+
+input:checked+.tab-label {
+    background: #CCCCCC;
+}
+
+input:checked+.tab-label::after {
+    transform: rotate(90deg);
+}
+
+input:checked~.tab-content {
+    max-height: 100vh;
+    padding: 1em;
+}
