@@ -3,7 +3,8 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   purge: [
     'Public/**/*.css',
-    'Public/**/*.html'
+    'Public/**/*.js',
+    'Public/*.html'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -154,6 +155,6 @@ module.exports = {
     },
   },
   plugins: [
-    // require('@tailwindcss/forms')
+    require('@tailwindcss/forms')
   ],
 }
