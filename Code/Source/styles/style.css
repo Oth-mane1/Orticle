@@ -13,6 +13,12 @@
     background-color: inherit;
 }
 
+/* Custom selection */
+::selection{
+    background-color: #558EB4;
+    color: #ececec;
+}
+
 button:focus {
     outline: 0 !important;
 }
