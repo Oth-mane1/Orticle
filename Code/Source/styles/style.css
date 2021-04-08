@@ -16,7 +16,7 @@
 /* Custom selection */
 ::selection{
     background-color: #558EB4;
-    color: #ececec;
+    color: #f0f0f0;
 }
 
 button:focus {
