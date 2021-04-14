@@ -1,11 +1,14 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: [
-    'Public/**/*.css',
-    'Public/**/*.js',
-    'Public/*.html'
-  ],
+  purge: {
+    enabled: true,
+    content: [
+      'Public/*.html'
+    ],
+    keyframes: true,
+    variables: true
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
@@ -150,7 +153,7 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus'],
 
-    extend: {      
+    extend: {
       backgroundColor: ['active']
     },
   },
