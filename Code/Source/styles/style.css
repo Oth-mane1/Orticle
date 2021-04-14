@@ -23,10 +23,6 @@ button:focus {
     outline: 0 !important;
 }
 
-#menu {
-    background-image: url('../images/menu.svg');
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
