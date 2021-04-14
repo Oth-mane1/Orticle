@@ -14,13 +14,51 @@
 }
 
 /* Custom selection */
-::selection{
+::selection {
     background-color: #558EB4;
     color: #f0f0f0;
 }
 
 button:focus {
     outline: 0 !important;
+}
+
+
+.active {
+    width: auto !important;
+    height: auto !important;
+}
+
+.active svg path {
+    fill: #397BA7 !important;
+}
+
+.active svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.active label {
+    display: block !important;
+    color: #397BA7 !important;
+}
+
+
+.active-side {
+    background-color: #397BA7;
+}
+
+.active-side:hover {
+    background-color: #397BA7;
+}
+
+.active-side svg path {
+    fill: #FFFFFF !important;
+}
+
+.active-side label {
+    color: #FFFFFF !important;
+    font-weight: 450 !important;
 }
 
 @tailwind base;
