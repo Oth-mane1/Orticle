@@ -2,7 +2,7 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: {
-    enabled: true,
+    enabled: false,
     content: [
       'Public/*.html'
     ],
@@ -28,8 +28,9 @@ module.exports = {
 
     extend: {
       colors: {
-        oblue: '#558EB4',
-        ogrey: '#CCCCCC'
+        oblue: '#397BA7',
+        ogrey: '#CCCCCC',
+        oblack: '#1E1E24'
       }
     },
   },
