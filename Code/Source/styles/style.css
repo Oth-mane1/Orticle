@@ -45,11 +45,11 @@ button:focus {
 
 
 .active-side {
-    background-color: #397BA7;
+    background-color: #397BA7 !important;
 }
 
 .active-side:hover {
-    background-color: #397BA7;
+    background-color: #397BA7 !important;
 }
 
 .active-side svg path {
