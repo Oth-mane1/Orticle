@@ -23,6 +23,9 @@ button:focus {
     outline: 0 !important;
 }
 
+input {
+    outline: none !important;
+}
 
 .active {
     width: auto !important;
@@ -42,7 +45,6 @@ button:focus {
     display: block !important;
     color: #397BA7 !important;
 }
-
 
 .active-side {
     background-color: #397BA7 !important;
