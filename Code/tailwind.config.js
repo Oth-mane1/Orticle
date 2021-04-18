@@ -29,6 +29,7 @@ module.exports = {
     extend: {
       colors: {
         oblue: '#397BA7',
+        "ogrey-light": '#E0E0E0',
         ogrey: '#CCCCCC',
         oblack: '#1E1E24'
       }
