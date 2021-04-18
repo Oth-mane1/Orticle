@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/orticleStyle.css">
+    <title>Orticle | Orticle•</title>
+</head>
+
+<body class="bg-gray-50">
+    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey z-50">
+        <a href="search.html"><img src="../images/app/search.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
+                alt="Search icon" draggable="false"></a>
+        <img src="../images/orticleLogo.svg" class="h-7" alt="Orticle Logo" draggable="false">
+        <a href="account.html"><img src="../images/app/account.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
+                alt="Search icon" draggable="false"></a>
+    </nav>
+    <nav class="hidden md:flex flex-col justify-between items-center py-3 md:fixed top-0 left-0 w-64 h-screen bg-ogrey"
+        style="min-height: 450px;">
+        <div class="w-full flex flex-col justify-center items-center">
+            <a href="../index.html" class="mb-10">
+                <img src="../images/orticleLogo.svg" class="h-8" alt="Orticle Logo" draggable="false">
+            </a>
+
+            <div class="w-full px-3">
+                <ul>
+                    <li>
+                        <a href="explore.html"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16 14.24C15.024 14.24 14.24 15.024 14.24 16C14.24 16.976 15.024 17.76 16 17.76C16.976 17.76 17.76 16.976 17.76 16C17.76 15.024 16.976 14.24 16 14.24ZM16 0C7.168 0 0 7.168 0 16C0 24.832 7.168 32 16 32C24.832 32 32 24.832 32 16C32 7.168 24.832 0 16 0ZM19.504 19.504L6.4 25.6L12.496 12.496L25.6 6.4L19.504 19.504Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Explorer</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="orticle.html"
+                            class="active-side flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6 21.8607C2.41463 19.8357 0 16.05 0 11.7143C0 5.24643 5.37439 0 12 0C18.6256 0 24 5.24643 24 11.7143C24 16.05 21.5854 19.8357 18 21.8607V26C18 26.6321 17.4768 27.1429 16.8293 27.1429H7.17073C6.52317 27.1429 6 26.6321 6 26V21.8607ZM7.60976 29.4286H16.3902C16.5512 29.4286 16.6829 29.5571 16.6829 29.7143V30.8571C16.6829 31.4893 16.1598 32 15.5122 32H8.48781C7.84024 32 7.31707 31.4893 7.31707 30.8571V29.7143C7.31707 29.5571 7.44878 29.4286 7.60976 29.4286Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Orticles</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="article.html"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M30.2223 32H1.77777C1.30628 32 0.854097 31.8315 0.520699 31.5313C0.187301 31.2313 0 30.8244 0 30.4V1.6C0 1.17565 0.187301 0.768687 0.520699 0.468629C0.854097 0.168571 1.30628 0 1.77777 0H30.2223C30.6937 0 31.1459 0.168571 31.4793 0.468629C31.8127 0.768687 32 1.17565 32 1.6V30.4C32 30.8244 31.8127 31.2313 31.4793 31.5313C31.1459 31.8315 30.6937 32 30.2223 32ZM7.11111 6.4V12.8H14.2223V6.4H7.11111ZM7.11111 16V19.2H24.8889V16H7.11111ZM7.11111 22.4V25.6H24.8889V22.4H7.11111ZM17.7777 8V11.2H24.8889V8H17.7777Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Articles</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="category.html"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.7264 0.805035L7.46112 11.0021C6.7706 12.1091 7.57901 13.5515 8.89271 13.5515H21.4064C22.7201 13.5515 23.5285 12.1091 22.838 11.0021L16.5896 0.805035C15.9327 -0.268345 14.3832 -0.268345 13.7264 0.805035Z"
+                                    fill="#397BA7" />
+                                <path
+                                    d="M24.4211 32C28.6068 32 32 28.6211 32 24.4528C32 20.2847 28.6068 16.9056 24.4211 16.9056C20.2353 16.9056 16.8421 20.2847 16.8421 24.4528C16.8421 28.6211 20.2353 32 24.4211 32Z"
+                                    fill="#397BA7" />
+                                <path
+                                    d="M1.68421 31.1615H11.7895C12.7158 31.1615 13.4737 30.4068 13.4737 29.4843V19.4213C13.4737 18.4989 12.7158 17.7443 11.7895 17.7443H1.68421C0.757896 17.7443 0 18.4989 0 19.4213V29.4843C0 30.4068 0.757896 31.1615 1.68421 31.1615Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Catégories</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="search.html"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23.4641 20.6365H21.9813L21.4557 20.13C23.7081 17.5037 24.872 13.9207 24.2337 10.1125C23.3516 4.89737 18.9968 0.732789 13.7411 0.0949704C5.80123 -0.880517 -0.881035 5.79783 0.0950263 13.7331C0.73322 18.9857 4.90025 23.3379 10.1184 24.2196C13.9288 24.8573 17.514 23.6943 20.1419 21.4432L20.6487 21.9684V23.4504L28.626 31.4232C29.3956 32.1923 30.6532 32.1923 31.4228 31.4232C32.1924 30.654 32.1924 29.3972 31.4228 28.628L23.4641 20.6365ZM12.2019 20.6365C7.52811 20.6365 3.75525 16.8659 3.75525 12.1948C3.75525 7.52369 7.52811 3.75305 12.2019 3.75305C16.8757 3.75305 20.6487 7.52369 20.6487 12.1948C20.6487 16.8659 16.8757 20.6365 12.2019 20.6365Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Search</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="compte.html"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16 0C7.168 0 0 7.168 0 16C0 24.832 7.168 32 16 32C24.832 32 32 24.832 32 16C32 7.168 24.832 0 16 0ZM16 4.8C18.656 4.8 20.8 6.944 20.8 9.6C20.8 12.256 18.656 14.4 16 14.4C13.344 14.4 11.2 12.256 11.2 9.6C11.2 6.944 13.344 4.8 16 4.8ZM16 27.52C12 27.52 8.464 25.472 6.4 22.368C6.448 19.184 12.8 17.44 16 17.44C19.184 17.44 25.552 19.184 25.6 22.368C23.536 25.472 20 27.52 16 27.52Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Compte</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w-full px-3">
+            <a href="../index.html"
+                class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
+                <img src="../images/app/logout.svg" class="h-6 mr-3" alt="log out icon" draggable="false">
+                <label class="text-gray-800 cursor-pointer">Se deconnecter</label>
+            </a>
+        </div>
+    </nav>
+    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey z-50">
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="explore.html" class="flex flex-col items-center justify-center w-8 h-8">
+                <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16 14.24C15.024 14.24 14.24 15.024 14.24 16C14.24 16.976 15.024 17.76 16 17.76C16.976 17.76 17.76 16.976 17.76 16C17.76 15.024 16.976 14.24 16 14.24ZM16 0C7.168 0 0 7.168 0 16C0 24.832 7.168 32 16 32C24.832 32 32 24.832 32 16C32 7.168 24.832 0 16 0ZM19.504 19.504L6.4 25.6L12.496 12.496L25.6 6.4L19.504 19.504Z"
+                        fill="#1E1E24" />
+                </svg>
+                <label class="hidden text-sm h-4">Explorer</label>
+            </a>
+        </div>
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="orticle.html" class="active flex flex-col items-center justify-center w-8 h-8">
+                <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6 21.8607C2.41463 19.8357 0 16.05 0 11.7143C0 5.24643 5.37439 0 12 0C18.6256 0 24 5.24643 24 11.7143C24 16.05 21.5854 19.8357 18 21.8607V26C18 26.6321 17.4768 27.1429 16.8293 27.1429H7.17073C6.52317 27.1429 6 26.6321 6 26V21.8607ZM7.60976 29.4286H16.3902C16.5512 29.4286 16.6829 29.5571 16.6829 29.7143V30.8571C16.6829 31.4893 16.1598 32 15.5122 32H8.48781C7.84024 32 7.31707 31.4893 7.31707 30.8571V29.7143C7.31707 29.5571 7.44878 29.4286 7.60976 29.4286Z"
+                        fill="#1E1E24" />
+                </svg>
+
+                <label class="hidden text-sm h-4">Orticle</label>
+            </a>
+        </div>
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="article.html" class="flex flex-col items-center justify-center w-8 h-8">
+                <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M30.2223 32H1.77777C1.30628 32 0.854097 31.8315 0.520699 31.5313C0.187301 31.2313 0 30.8244 0 30.4V1.6C0 1.17565 0.187301 0.768687 0.520699 0.468629C0.854097 0.168571 1.30628 0 1.77777 0H30.2223C30.6937 0 31.1459 0.168571 31.4793 0.468629C31.8127 0.768687 32 1.17565 32 1.6V30.4C32 30.8244 31.8127 31.2313 31.4793 31.5313C31.1459 31.8315 30.6937 32 30.2223 32ZM7.11111 6.4V12.8H14.2223V6.4H7.11111ZM7.11111 16V19.2H24.8889V16H7.11111ZM7.11111 22.4V25.6H24.8889V22.4H7.11111ZM17.7777 8V11.2H24.8889V8H17.7777Z"
+                        fill="#1E1E24" />
+                </svg>
+
+                <label class="hidden text-sm h-4">Article</label>
+            </a>
+        </div>
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="category.html" class="flex flex-col items-center justify-center w-8 h-8">
+                <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.7264 0.805035L7.46112 11.0021C6.7706 12.1091 7.57901 13.5515 8.89271 13.5515H21.4064C22.7201 13.5515 23.5285 12.1091 22.838 11.0021L16.5896 0.805035C15.9327 -0.268345 14.3832 -0.268345 13.7264 0.805035Z"
+                        fill="#1E1E24" />
+                    <path
+                        d="M24.4211 32C28.6068 32 32 28.6211 32 24.4528C32 20.2847 28.6068 16.9056 24.4211 16.9056C20.2353 16.9056 16.8421 20.2847 16.8421 24.4528C16.8421 28.6211 20.2353 32 24.4211 32Z"
+                        fill="#1E1E24" />
+                    <path
+                        d="M1.68421 31.1615H11.7895C12.7158 31.1615 13.4737 30.4068 13.4737 29.4843V19.4213C13.4737 18.4989 12.7158 17.7443 11.7895 17.7443H1.68421C0.757896 17.7443 0 18.4989 0 19.4213V29.4843C0 30.4068 0.757896 31.1615 1.68421 31.1615Z"
+                        fill="#1E1E24" />
+                </svg>
+
+                <label class="hidden text-sm h-4">Catégories</label>
+            </a>
+        </div>
+    </nav>
+
+    <main class="my-12 md:ml-64 md:my-0">
+        <header class="flex justify-center mx-5 mt-16 md:m-5">
+            <img src="../images/app/ideas.svg" alt="Catégorie icon" draggable="false">
+            <h1 class="font-bold text-4xl text-oblue ml-3">Ajouter un Orticle</h1>
+        </header>
+        <section class="m-7">
+            <div>
+                <label for="titre" class="block font-semibold text-2xl text-oblack mb-2">✨ Titre :</label>
+                <input type="text"
+                    class="w-full text-xl text-oblack p-2 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
+                    id="titre" placeholder="Entrer le titre d'orticle">
+            </div>
+            <div class="flex justify-between mt-4">
+                <div class="w-7/12">
+                    <label for="source" class="block font-semibold text-xl text-gray-700 mb-2">🌐 Source :</label>
+                    <input type="text"
+                        class="w-full text-lg text-oblue py-1 px-2 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
+                        id="source" placeholder="Entrer la source d'orticle">
+                </div>
+                <div class="w-4/12">
+                    <label for="category" class="block font-semibold text-xl text-gray-700 mb-2">🔣 Catégorie :</label>
+                    <select id="category"
+                        class="w-full text-lg text-oblue py-1 px-3 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md">
+                        <option>United States</option>
+                        <option>Canada</option>
+                        <option>Mexico</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section class="m-7">
+            <h2 class="text-2xl font-semibold">💡 Orticles</h2>
+            <div class="grid gap-5 grid-cols-1 md:grid-cols-2 p-3">
+                <!-- Orticle -->
+                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
+                    <div>
+                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                        <p>
+                            Ipsa, facere distinctio facilis quas
+                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
+                            voluptatum
+                            corrupti recusandae architecto perferendis ipsam
+                        </p>
+                    </div>
+                    <div class="mt-3 flex justify-end">
+                        <button id="edit">
+                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <style>
+                                    #edit path:hover {
+                                        fill: rgb(0, 168, 36);
+                                    }
+                                </style>
+                                <path
+                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                        <button id="delete">
+                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <style>
+                                    #delete path:hover {
+                                        fill: rgb(196, 34, 34);
+                                    }
+                                </style>
+                                <path
+                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Orticle -->
+                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
+                    <div>
+                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                        <p>
+                            Ipsa, facere distinctio facilis quas
+                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
+                            voluptatum
+                            corrupti recusandae architecto perferendis ipsam
+                        </p>
+                    </div>
+                    <div class="mt-3 flex justify-end">
+                        <button id="edit">
+                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <style>
+                                    #edit path:hover {
+                                        fill: rgb(0, 168, 36);
+                                    }
+                                </style>
+                                <path
+                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                        <button id="delete">
+                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <style>
+                                    #delete path:hover {
+                                        fill: rgb(196, 34, 34);
+                                    }
+                                </style>
+                                <path
+                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Orticle -->
+                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
+                    <div>
+                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                        <p>
+                            Ipsa, facere distinctio facilis quas
+                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
+                            voluptatum
+                            corrupti recusandae architecto perferendis ipsam
+                        </p>
+                    </div>
+                    <div class="mt-3 flex justify-end">
+                        <button id="edit">
+                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <style>
+                                    #edit path:hover {
+                                        fill: rgb(0, 168, 36);
+                                    }
+                                </style>
+                                <path
+                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                        <button id="delete">
+                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <style>
+                                    #delete path:hover {
+                                        fill: rgb(196, 34, 34);
+                                    }
+                                </style>
+                                <path
+                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Orticle Editable -->
+                <div class="flex flex-col justify-between bg-ogrey-light p-5 rounded-xl overflow-hidden">
+                    <div>
+                        <input class="block w-full px-1 mb-4 text-xl border-2 border-oblue rounded-md bg-transparent" type="text" id="title" placeholder="Titre...">
+                        <textarea class="w-full p-1 border-2 mb-4 border-oblue rounded-md bg-transparent outline-none" id="" cols="20" rows="5" placeholder="Orticle..."></textarea>
+                    </div>
+                    <div class="flex justify-between">
+                        <button class="px-4 py-0.5 text-gray-50 bg-oblue rounded-full">Ajouter</button>
+                        <span>500/500</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
