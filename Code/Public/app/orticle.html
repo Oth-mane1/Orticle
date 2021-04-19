@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
+    <script src="../scripts/addOrticle.js" defer></script>
     <title>Orticle | Orticle•</title>
 </head>
 
@@ -135,7 +136,7 @@
                         d="M16 14.24C15.024 14.24 14.24 15.024 14.24 16C14.24 16.976 15.024 17.76 16 17.76C16.976 17.76 17.76 16.976 17.76 16C17.76 15.024 16.976 14.24 16 14.24ZM16 0C7.168 0 0 7.168 0 16C0 24.832 7.168 32 16 32C24.832 32 32 24.832 32 16C32 7.168 24.832 0 16 0ZM19.504 19.504L6.4 25.6L12.496 12.496L25.6 6.4L19.504 19.504Z"
                         fill="#1E1E24" />
                 </svg>
-                <label class="hidden text-sm h-4">Explorer</label>
+                <label class="hidden h-5 tracking-wide font-semibold">Explorer</label>
             </a>
         </div>
         <div class="p-1 hover:bg-gray-300 rounded-md">
@@ -147,7 +148,7 @@
                         fill="#1E1E24" />
                 </svg>
 
-                <label class="hidden text-sm h-4">Orticle</label>
+                <label class="hidden h-5 tracking-wide font-semibold">Orticle</label>
             </a>
         </div>
         <div class="p-1 hover:bg-gray-300 rounded-md">
@@ -159,7 +160,7 @@
                         fill="#1E1E24" />
                 </svg>
 
-                <label class="hidden text-sm h-4">Article</label>
+                <label class="hidden h-5 tracking-wide font-semibold">Article</label>
             </a>
         </div>
         <div class="p-1 hover:bg-gray-300 rounded-md">
@@ -177,7 +178,7 @@
                         fill="#1E1E24" />
                 </svg>
 
-                <label class="hidden text-sm h-4">Catégories</label>
+                <label class="hidden h-5 tracking-wide font-semibold">Catégories</label>
             </a>
         </div>
     </nav>
@@ -228,109 +229,17 @@
                         </p>
                     </div>
                     <div class="mt-3 flex justify-end">
-                        <button id="edit">
+                        <button class="edit">
                             <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <style>
-                                    #edit path:hover {
-                                        fill: rgb(0, 168, 36);
-                                    }
-                                </style>
                                 <path
                                     d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
                                     fill="#323232" />
                             </svg>
                         </button>
-                        <button id="delete">
+                        <button class="delete">
                             <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <style>
-                                    #delete path:hover {
-                                        fill: rgb(196, 34, 34);
-                                    }
-                                </style>
-                                <path
-                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <!-- Orticle -->
-                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
-                    <div>
-                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                        <p>
-                            Ipsa, facere distinctio facilis quas
-                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                            voluptatum
-                            corrupti recusandae architecto perferendis ipsam
-                        </p>
-                    </div>
-                    <div class="mt-3 flex justify-end">
-                        <button id="edit">
-                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <style>
-                                    #edit path:hover {
-                                        fill: rgb(0, 168, 36);
-                                    }
-                                </style>
-                                <path
-                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                        <button id="delete">
-                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <style>
-                                    #delete path:hover {
-                                        fill: rgb(196, 34, 34);
-                                    }
-                                </style>
-                                <path
-                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <!-- Orticle -->
-                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
-                    <div>
-                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                        <p>
-                            Ipsa, facere distinctio facilis quas
-                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                            voluptatum
-                            corrupti recusandae architecto perferendis ipsam
-                        </p>
-                    </div>
-                    <div class="mt-3 flex justify-end">
-                        <button id="edit">
-                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <style>
-                                    #edit path:hover {
-                                        fill: rgb(0, 168, 36);
-                                    }
-                                </style>
-                                <path
-                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                        <button id="delete">
-                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <style>
-                                    #delete path:hover {
-                                        fill: rgb(196, 34, 34);
-                                    }
-                                </style>
                                 <path
                                     d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
                                     fill="#323232" />
@@ -341,12 +250,22 @@
                 <!-- Orticle Editable -->
                 <div class="flex flex-col justify-between bg-ogrey-light p-5 rounded-xl overflow-hidden">
                     <div>
-                        <input class="block w-full px-1 mb-4 text-xl border-2 border-oblue rounded-md bg-transparent" type="text" id="title" placeholder="Titre...">
-                        <textarea class="w-full p-1 border-2 mb-4 border-oblue rounded-md bg-transparent outline-none" id="" cols="20" rows="5" placeholder="Orticle..."></textarea>
+                        <input class="block w-full p-1 mb-4 text-xl border-2 border-oblue rounded-md bg-transparent"
+                            type="text" id="title" placeholder="Titre...">
+                        <textarea class="w-full p-1 border-2 mb-4 border-oblue rounded-md bg-transparent outline-none"
+                            id="orticle" cols="20" rows="5" placeholder="Orticle..."></textarea>
                     </div>
                     <div class="flex justify-between">
-                        <button class="px-4 py-0.5 text-gray-50 bg-oblue rounded-full">Ajouter</button>
-                        <span>500/500</span>
+                        <button id="resetOrt" class="p-1 text-gray-50">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.25 0.999958C7.16002 0.859958 2.99002 4.93996 2.99002 9.99996H1.20002C0.750021 9.99996 0.530021 10.54 0.850021 10.85L3.64002 13.65C3.84002 13.85 4.15002 13.85 4.35002 13.65L7.14002 10.85C7.46002 10.54 7.23002 9.99996 6.79002 9.99996H4.99002C4.99002 6.09996 8.17002 2.94996 12.09 2.99996C15.81 3.04996 18.94 6.17996 18.99 9.89996C19.04 13.81 15.89 17 11.99 17C10.38 17 8.89002 16.45 7.71002 15.52C7.31002 15.21 6.75002 15.24 6.39002 15.6C5.97002 16.03 6.00002 16.73 6.47002 17.1C7.99002 18.29 9.91002 19 11.99 19C17.04 19 21.13 14.83 20.99 9.73996C20.86 5.04996 16.94 1.12996 12.25 0.999958ZM11.74 5.99996C11.33 5.99996 10.99 6.33996 10.99 6.74996V10.43C10.99 10.78 11.18 11.11 11.48 11.29L14.6 13.14C14.96 13.35 15.42 13.23 15.63 12.88C15.84 12.52 15.72 12.06 15.37 11.85L12.49 10.14V6.73996C12.49 6.33996 12.16 5.99996 11.74 5.99996Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                        <button id="addOrt" class="px-4 py-0.5 text-gray-50 bg-oblue rounded-full">Ajouter</button>
+                        <p><span id="charLeft">500</span>/500</p>
                     </div>
                 </div>
             </div>
