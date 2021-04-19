@@ -70,6 +70,18 @@ input {
   font-weight: 450 !important;
 }
 
+.delete:hover path {
+  fill: rgb(196, 34, 34);
+}
+
+.edit:hover path {
+  fill: rgb(0, 168, 36);
+}
+
+#resetOrt:hover path {
+  fill: red;
+}
+
 /* ! tailwindcss v2.1.1 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */

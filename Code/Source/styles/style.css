@@ -63,6 +63,17 @@ input {
     font-weight: 450 !important;
 }
 
+.delete:hover path {
+    fill: rgb(196, 34, 34);
+}
+
+.edit:hover path {
+    fill: rgb(0, 168, 36);
+}
+
+#resetOrt:hover path {
+    fill: red;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
