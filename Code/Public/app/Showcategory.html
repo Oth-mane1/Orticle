@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
-    <script src="../scripts/addOrticle.js" defer></script>
-    <title>Orticle | Orticle•</title>
+    <title>Catégories | Orticle•</title>
 </head>
 
 <body class="bg-gray-50">
@@ -18,7 +17,7 @@
         <a href="account.html"><img src="../images/app/account.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
     </nav>
-    <nav class="hidden md:flex flex-col justify-between items-center py-3 md:fixed top-0 left-0 w-64 h-screen rounded-r-2xl bg-ogrey"
+    <nav class="hidden md:flex flex-col justify-between items-center py-3 md:fixed top-0 left-0 w-64 rounded-r-2xl h-screen bg-ogrey"
         style="min-height: 450px;">
         <div class="w-full flex flex-col justify-center items-center">
             <a href="../index.html" class="mb-10">
@@ -43,7 +42,7 @@
 
                     <li>
                         <a href="orticle.html"
-                            class="active-side flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
                             <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -71,7 +70,7 @@
 
                     <li>
                         <a href="category.html"
-                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            class="active-side flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
                             <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -140,7 +139,7 @@
             </a>
         </div>
         <div class="p-1 hover:bg-gray-300 rounded-md">
-            <a href="orticle.html" class="active flex flex-col items-center justify-center w-8 h-8">
+            <a href="orticle.html" class="flex flex-col items-center justify-center w-8 h-8">
                 <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -164,7 +163,7 @@
             </a>
         </div>
         <div class="p-1 hover:bg-gray-300 rounded-md">
-            <a href="category.html" class="flex flex-col items-center justify-center w-8 h-8">
+            <a href="category.html" class="active flex flex-col items-center justify-center w-8 h-8">
                 <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -184,123 +183,192 @@
     </nav>
 
     <main class="mb-20 mt-16 md:ml-64 md:my-0">
-        <header class="flex flex-col justify-center items-center mx-5 mt-16 md:m-5">
-            <div class="flex">
-                <img src="../images/app/category.svg" class="h-10" alt="Catégorie icon" draggable="false">
-                <h1 class="font-bold text-center text-4xl text-oblue ml-3">Explorer Orticle par categories</h1>
-            </div>
-            <p class="font-semibold text-2xl">Explorer Orticle par categories</p>
+        <header class="flex justify-center mx-5 mt-16 md:m-5">
+            <img src="../images/app/category.svg" alt="Catégorie icon">
+            <h1 class="font-bold text-4xl text-oblue ml-3">Explorer Orticle par categories</h1>
         </header>
-        <section class="m-14">
-            <div class="grid gap-5 grid-cols-1 md:grid-cols-3">
-                <!-- Category -->
-                <a href="#" class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            🖥
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Computer
-                        </p>
-                    </div>
-                </a>
-                <!-- Category -->
-                <a href="#" class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            📈
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Économie
-                        </p>
-                    </div>
-                </a>
-                <!-- Category -->
-                <a href="#"class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            💰
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Finance
-                        </p>
-                    </div>
-                </a>
-                <!-- Category -->
-                <a href="#"class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            👨‍👩‍👧‍👦
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Sociologie
-                        </p>
-                    </div>
-                </a>
-                <a href="#"class="bg-oblue rounded-2xl">
-                    <!-- Category -->
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            👨🏼‍⚕️
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Psychologie
-                        </p>
-                    </div>
-                </a>
-                <!-- Category -->
-                <a href="#"class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            🌍
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Envirenement
-                        </p>
-                    </div>
-                </a>
-                <!-- Category -->
-                <a href="#"class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            🔬
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Science
-                        </p>
-                    </div>
-                </a>
-                <!-- Category -->
-                <a href="#"class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            👨🏼‍💼
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Politique
-                        </p>
-                    </div>
-                </a>
-                <!-- Category -->
-                <a href="#"class="bg-oblue rounded-2xl">
-                    <div
-                        class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <h2 class="text-gray-50 text-7xl font-semibold mb-6">
-                            📰
-                        </h2>
-                        <p class="text-xl text-center font-semibold">
-                            Presse
-                        </p>
-                    </div>
-                </a>
+        <section class="m-7">
+            <h1 class="inline-block px-5 py-0.5 mb-4 bg-oblue text-lg font-medium text-gray-50 rounded-md">
+                🧭 Explorer
+            </h1>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+                <!-- Orticle -->
+                <div class="bg-oblue rounded-2xl">
+                    <article
+                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <h2 class="font-semibold text-2xl">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                </h2>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="#">
+                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                </a>
+
+                            </div>
+                            <div class="min-w-max flex items-start mt-1">
+                                <span
+                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
+                                <button class="py-1 px-2">
+                                    <img src="../images/app/options.svg" class="h-5" alt="Menu options"
+                                        draggable="false">
+                                </button>
+                            </div>
+                        </header>
+                        <section class="grid grid-cols-3 gap-3">
+                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                                <p>
+                                    Ipsa, facere distinctio facilis quas
+                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
+                                    voluptatum
+                                    corrupti recusandae architecto perferendis ipsam.
+                                </p>
+                            </div>
+                            <p
+                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                Lorem ipsum
+                                dolor sit amet consectetur.
+                            </p>
+                            <p
+                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                3 autre
+                                idées</p>
+                        </section>
+                    </article>
+                </div>
+                <!-- Article -->
+                <div class="bg-oblue rounded-2xl">
+                    <article
+                        class="bg-ogrey-light p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <h2 class="font-semibold text-2xl">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                    elit.
+                                </h2>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="#">
+                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                </a>
+                            </div>
+                            <button class="py-1 px-2 mt-1.5">
+                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                    draggable="false">
+                            </button>
+                        </header>
+                        <section class="flex flex-col justify-between items-center">
+                            <p class="mb-5 text-lg">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat temporibus unde quo
+                                cupiditate
+                                vitae. Impedit, eveniet nisi corrupti asperiores vero deleniti saepe ipsum accusantium!
+                                Illo
+                                et
+                                esse nesciunt aperiam deleniti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Modi
+                                consectetur qui saepe architecto quisquam eius?
+                            </p>
+
+                            <a href="#"
+                                class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
+                                <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
+                                <span class="ml-2">Lire la suite</span>
+                            </a>
+                        </section>
+                    </article>
+                </div>
+                <!-- Article -->
+                <div class="bg-oblue rounded-2xl">
+                    <article
+                        class="bg-ogrey-light p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <h2 class="font-semibold text-2xl">Lorem ipsum, dolor sit amet consectetur adipisicing
+                                    elit.
+                                </h2>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="#">
+                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                </a>
+                            </div>
+                            <button class="py-1 px-2 mt-1.5">
+                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                    draggable="false">
+                            </button>
+                        </header>
+                        <section class="flex flex-col justify-between items-center">
+                            <p class="mb-5 text-lg">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat temporibus unde quo
+                                cupiditate
+                                vitae. Impedit, eveniet nisi corrupti asperiores vero deleniti saepe ipsum accusantium!
+                                Illo
+                                et
+                                esse nesciunt aperiam deleniti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Modi
+                                consectetur qui saepe architecto quisquam eius?
+                            </p>
+
+                            <a href="#"
+                                class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
+                                <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
+                                <span class="ml-2">Lire la suite</span>
+                            </a>
+                        </section>
+                    </article>
+                </div>
+                <!-- Orticle -->
+                <div class="bg-oblue rounded-2xl">
+                    <article
+                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <h2 class="font-semibold text-2xl">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                </h2>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="#">
+                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                </a>
+
+                            </div>
+                            <div class="min-w-max flex items-start mt-1">
+                                <span
+                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
+                                <button class="py-1 px-2">
+                                    <img src="../images/app/options.svg" class="h-5" alt="Menu options"
+                                        draggable="false">
+                                </button>
+                            </div>
+                        </header>
+                        <section class="grid grid-cols-3 gap-3">
+                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                                <p>
+                                    Ipsa, facere distinctio facilis quas
+                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
+                                    voluptatum
+                                    corrupti recusandae architecto perferendis ipsam.
+                                </p>
+                            </div>
+                            <p
+                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                Lorem ipsum
+                                dolor sit amet consectetur.
+                            </p>
+                            <p
+                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                3 autre
+                                idées</p>
+                        </section>
+                    </article>
+                </div>
+            </div>
         </section>
     </main>
 </body>
