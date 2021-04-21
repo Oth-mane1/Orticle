@@ -47,7 +47,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-gray-50">
     <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey">
         <a href="search.html"><img src="../images/app/search.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
@@ -218,17 +218,17 @@
             </a>
         </div>
     </nav>
-
-
-
-    <main class="pb-16 md:pb-6 md:ml-64 md:my-0 h-full mt-12 md:mt-0 bg-gray-100 pt-3">
-        <header class="flex justify-center mx-5 md:m-5">
-            <img src="../images/app/article.svg" alt="Catégorie icon" draggable="false">
-            <h1 class="font-bold text-4xl text-oblue ml-3">Article</h1>
+    <main class="pb-16 md:pb-6 md:ml-64 md:my-0 h-full mt-12 md:mt-0 pt-3">
+        <header class="flex flex-col items-center mx-5 mt-5 mb-10">
+            <div class="flex justify-center">
+                <img src="../images/app/article.svg" alt="Catégorie icon" draggable="false">
+                <h1 class="font-bold text-4xl text-oblue ml-3">Article</h1>
+            </div>
+            <p class="font-semibold text-xl">
+                ✨ Explorer les article que vous avez créez et ajouter des autre.
+            </p>
         </header>
         <section class="m-5">
-            <h1 class="inline-block px-5 py-0.5 mb-4 bg-oblue text-lg font-medium text-gray-50 rounded-md">✨Vos articles
-            </h1>
             <div class="flex flex-col mx-6">
                 <div class="flex flex-row h-full mr-6 md:mr-10 lg:mr-60">
                     <article class="bg-ogrey-light p-4 h-full rounded-xl w-full">
@@ -363,7 +363,7 @@
                 </div>
                 <div class=" bg-ogrey w-3/6 h-52 self-end pt-10 rounded-xl pr-0  xl:-mt-40">
                     <a href="ajoutArticle.html" class="w-full flex flex-col items-center text-center">
-                        <img src="../images/app/add.svg" alt="Internet Icon" class="">
+                        <img src="../images/app/add.svg" alt="Internet Icon" class="w-1/3 md:w-1/5 mb-3">
                         <h1 class="text-xl font-semibold tracking-wide">Ajouter un article</h1>
                     </a>
                 </div>
