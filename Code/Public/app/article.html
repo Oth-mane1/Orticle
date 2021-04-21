@@ -12,8 +12,8 @@
             height: 400px;
             width: 50px;
             background: linear-gradient(90deg, #CCCCCC 50%, transparent 50%),
-                linear-gradient(90deg, #F0F0F0 100%, transparent 100%),
-                linear-gradient(0deg, #F0F0F0 100%, transparent 100%),
+                linear-gradient(90deg, rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%),
+                linear-gradient(0deg, rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%),
                 linear-gradient(0deg, #CCCCCC 50%, transparent 50%);
             background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
             background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
@@ -27,9 +27,9 @@
             height: 400px;
             width: 50px;
             background: linear-gradient(90deg, #CCCCCC 50%, transparent 50%),
-                linear-gradient(90deg, #F0F0F0 100%, transparent 100%),
+                linear-gradient(90deg, rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%),
                 linear-gradient(0deg, #CCCCCC 50%, transparent 50%),
-                linear-gradient(0deg, #F0F0F0 100%, transparent 100%);
+                linear-gradient(0deg, rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%);
             background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
             background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
             background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
@@ -48,7 +48,7 @@
 </head>
 
 <body class="bg-gray-50">
-    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey">
+    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey" style="z-index: 1;">
         <a href="search.html"><img src="../images/app/search.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
         <img src="../images/orticleLogo.svg" class="h-7" alt="Orticle Logo" draggable="false">
@@ -163,7 +163,7 @@
             </a>
         </div>
     </nav>
-    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey">
+    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey" style="z-index: 1;">
         <div class="p-1 hover:bg-gray-300 rounded-md">
             <a href="explore.html" class="flex flex-col items-center justify-center w-8 h-8">
                 <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
@@ -218,7 +218,7 @@
             </a>
         </div>
     </nav>
-    <main class="pb-16 md:pb-6 md:ml-64 md:my-0 h-full mt-12 md:mt-0 pt-3">
+    <main class="pb-16 md:pb-6 md:ml-64 md:my-0 h-full mt-12 md:mt-0 pt-2 md:pt-0">
         <header class="flex flex-col items-center mx-5 mt-5 mb-10">
             <div class="flex justify-center">
                 <img src="../images/app/article.svg" alt="Catégorie icon" draggable="false">
@@ -361,7 +361,7 @@
                     <div id="border1" class="mt-52 md:mt-36">
                     </div>
                 </div>
-                <div class=" bg-ogrey w-3/6 h-52 self-end pt-10 rounded-xl pr-0  xl:-mt-40">
+                <div class=" bg-ogrey w-3/6 py-6 self-end rounded-xl pr-0  xl:-mt-40">
                     <a href="addArticle.html" class="w-full flex flex-col items-center text-center">
                         <img src="../images/app/add.svg" alt="Internet Icon" class="w-1/3 md:w-1/5 mb-3">
                         <h1 class="text-xl font-semibold tracking-wide">Ajouter un article</h1>
