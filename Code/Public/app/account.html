@@ -10,7 +10,6 @@
 </head>
 
 <body class="bg-gray-50">
-    <!-- ActionBar -->
     <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey" style="z-index: 1;">
         <a href="search.html"><img src="../images/app/search.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
@@ -18,8 +17,6 @@
         <a href="account.html"><img src="../images/app/account.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
     </nav>
-
-    <!-- SideBAr -->
     <nav class="hidden md:flex flex-col justify-between items-center py-3 md:fixed top-0 left-0 w-64 rounded-r-2xl h-screen bg-ogrey">
         <div class="w-full flex flex-col justify-center items-center">
             <a href="../index.html" class="mb-10">
@@ -128,8 +125,6 @@
             </a>
         </div>
     </nav>
-
-    <!-- NavBAr -->
     <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey"  style="z-index: 1;">
         <div class="p-1 hover:bg-gray-300 rounded-md">
             <a href="explore.html" class="active flex flex-col items-center justify-center w-8 h-8">
@@ -181,11 +176,6 @@
             </a>
         </div>
     </nav>
-
-
-
-
-
     <main class="pt-16 md:ml-64 md:pt-6 lg:pt-10 mb-20 md:mb-10 lg:mb-0">
         <section class="flex flex-col items-center lg:px-20 xl:px-56 lg:flex-row justify-between w-full ">
             <div class="flex flex-row">
@@ -208,50 +198,41 @@
                 </div>
             </diV>
         </section>
-
         <section class="pt-6 px-10 mt-6 md:mt-0 md:px-10 lg:py-10 xl:px-40 w-full">
-
             <h2 class="text-xl md:text-2xl font-semibold tracking-wide text-left mb-3">ℹ️ Informations personnelles :</h2>
             <div
                 class="flex flex-col content-center md:text-right p-6 bg-owhite border-oblue border-solid border-2 rounded-lg">
                 <div class="flex flex-wrap w-full lg:grid md:grid-cols-4 md:gap-2 py-6">
-                    <label for="Nom" class="md:text-base xl:text-lg col-end-2">Nom :</label>
+                    <label for="Nom"class="xl:text-lg col-end-2">Nom :</label>
                     <input type="text" id="Nom"
-                        class="form-input mt-1 block w-full col-span-2 md:ml-14 border-gray-400 border-2 rounded-md px-2 " />
+                        class="block w-full col-span-2 md:ml-14 mt-2 md:mt-0 text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md" />
                 </div>
-
                 <div class="flex flex-wrap w-full lg:grid md:grid-cols-4 md:gap-2 py-6">
-                    <label for="prénom" class="md:text-base xl:text-lg col-end-2">Prénom :</label>
+                    <label for="prénom" class="xl:text-lg col-end-2">Prénom :</label>
                     <input type="text" id="prénom"
-                        class="form-input mt-1 block w-full col-span-2 md:ml-14 border-gray-400 border-2 rounded-md px-2" />
+                        class="block w-full col-span-2 md:ml-14 mt-2 md:mt-0 text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md" />
                 </div>
-
-
                 <div class="flex flex-wrap w-full lg:grid md:grid-cols-4 md:gap-2 py-6">
-                    <label for="NomUtli" class="md:text-base xl:text-lg md:col-end-2">Nom d'utilisateur : </label>
+                    <label for="NomUtli" class="xl:text-lg md:col-end-2">Nom d'utilisateur : </label>
                     <input type="text" id="NomUtli"
-                        class="form-input mt-1 block w-full col-span-2 md:ml-14 border-gray-400 border-2 rounded-md px-2" />
+                        class="block w-full col-span-2 md:ml-14 mt-2 md:mt-0 text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md" />
                 </div>
-
-
                 <div class="flex flex-wrap w-full lg:grid lg:grid-cols-4 lg:gap-2 py-6">
-                    <label for="email" class="md:text-base xl:text-lg lg:col-end-2">E-mail :</label>
+                    <label for="email" class="xl:text-lg lg:col-end-2">E-mail :</label>
                     <input type="text" id="email"
-                        class="form-input mt-1 block w-full col-span-2 md:ml-14 border-gray-400 border-2 rounded-md px-2" />
+                        class="block w-full col-span-2 md:ml-14 mt-2 md:mt-0 text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md" />
                 </div>
                 <div class="flex flex-wrap w-full lg:grid lg:grid-cols-4 lg:gap-2 py-6">
-                    <label for="MP" class="md:text-base xl:text-lg col-end-2">Mot de passe :</label>
+                    <label for="MP" class="xl:text-lg col-end-2">Mot de passe :</label>
                     <input type="text" id="MP"
-                        class="form-input mt-1 block w-full col-span-2 md:ml-14 border-gray-400 border-2 rounded-md px-2" />
+                        class="block w-full col-span-2 md:ml-14 mt-2 md:mt-0 text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md" />
                 </div>
                 <button
-                    class="bg-oblue md:max-w-max text-lg self-center active:bg-gray-600 hover:opacity-80 transition duration-200 text-white py-1.5 px-10 rounded-full">
+                    class="bg-oblue md:max-w-max text-lg self-center active:bg-gray-600 hover:opacity-80 transition duration-200 text-white py-1 px-10 rounded-full">
                     Modifier
                 </button>
             </div>
         </section>
-
-
         <section class="pt-6 px-10 xl:px-40 w-full">
             <h2 class="text-xl md:text-2xl font-semibold mb-3">🔣 Catégories :</h2>
             <div class="border-oblue border-solid border-2 rounded-lg p-6">
@@ -364,8 +345,6 @@
                             </p>
                         </div>
                     </a>
-
-
                 </div>
             </div>
             </div>
@@ -377,7 +356,7 @@
                     <p class="tracking-wide text-lg ml-4">Votre compte sera supprimé définitivement</p>
                 </div>
                 <button style="background-color: rgb(204, 6, 6);"
-                    class="mt-4 md:max-w-max text-lg active:bg-gray-600 hover:opacity-80 transition duration-200 text-white py-1.5 px-10 rounded-full">
+                    class="mt-4 md:max-w-max text-lg active:bg-gray-600 hover:opacity-80 transition duration-200 text-white py-1 px-10 rounded-full">
                     Supprimer
                 </button>
             </div>
