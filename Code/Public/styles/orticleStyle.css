@@ -74,8 +74,9 @@ input {
   fill: rgb(196, 34, 34);
 }
 
-.edit:hover path {
-  fill: rgb(0, 168, 36);
+#textOrt:empty:not(:focus)::before {
+  content: attr(aria-placeholder);
+  color: #969595;
 }
 
 #resetOrt:hover path {
