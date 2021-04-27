@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
     <script src="../scripts/addOrticle.js" defer></script>
+    <script src="../scripts/orticleEditor.js" defer></script>
     <title>Ajouter un Orticle 💡 | Orticle•</title>
 </head>
 
@@ -205,100 +206,28 @@
                 <div class="w-full md:w-4/12">
                     <label for="category" class="block font-semibold text-xl text-gray-700 mb-2">🔣 Catégorie :</label>
                     <select id="category"
-                        class="w-full h-9 text-lg text-oblue py-1 px-3 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md">
-                        <option>United States</option>
-                        <option>Canada</option>
-                        <option>Mexico</option>
+                        class="w-full h-9 text-lg text-oblue py-1 px-3 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md outline-none">
+                        <option>🖥 Computer</option>
+                        <option>📈 Économie</option>
+                        <option>💰 Finance</option>
                     </select>
                 </div>
             </div>
         </section>
         <section class="m-7">
             <h2 class="text-2xl mb-2 font-semibold">💡 Orticles</h2>
-            <div class="grid gap-5 grid-cols-1 md:grid-cols-2">
+            <div id="orticleContent" class="grid gap-5 grid-cols-1 md:grid-cols-2">
                 <!-- Orticle -->
-                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
+                <div class="orticle flex flex-col justify-between bg-oblue p-4 rounded-xl overflow-hidden">
                     <div>
-                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                        <p>
-                            Ipsa, facere distinctio facilis quas
-                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                            voluptatum
-                            corrupti recusandae architecto perferendis ipsam
-                        </p>
+                        <textarea cols="20" rows="2" placeholder="Titre..."
+                            class="w-full overflow-hidden border-white border-dashed border-2 border-opacity-0 focus:border-opacity-100 hover:border-opacity-100 transition duration-300 text-gray-50 bg-transparent text-xl font-semibold p-1.5 outline-none">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </textarea>
+                        <textarea cols="20" rows="5" placeholder="Orticle..."
+                            class="w-full overflow-hidden border-black border-dashed border-2 border-opacity-0 focus:border-opacity-100 hover:border-opacity-100 transition duration-300 text-gray-900 bg-transparent text-lg p-1.5 mb-2 outline-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ea hic, animi sapiente voluptates dignissimos repellat distinctio, deleniti non aliquam porro veritatis dolores? Architecto inventore, sed deserunt culpa nemo quam.
+                        </textarea>
                     </div>
                     <div class="mt-3 flex justify-end">
-                        <button class="edit">
-                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                        <button class="delete">
-                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <!-- Orticle -->
-                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
-                    <div>
-                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                        <p>
-                            Ipsa, facere distinctio facilis quas
-                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                            voluptatum
-                            corrupti recusandae architecto perferendis ipsam
-                        </p>
-                    </div>
-                    <div class="mt-3 flex justify-end">
-                        <button class="edit">
-                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                        <button class="delete">
-                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <!-- Orticle -->
-                <div class="flex flex-col justify-between bg-oblue p-5 rounded-xl overflow-hidden">
-                    <div>
-                        <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                        <p>
-                            Ipsa, facere distinctio facilis quas
-                            sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                            voluptatum
-                            corrupti recusandae architecto perferendis ipsam
-                        </p>
-                    </div>
-                    <div class="mt-3 flex justify-end">
-                        <button class="edit">
-                            <svg class="h-5" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0 19.2807V23.3334C0 23.7067 0.293293 24 0.666574 24H4.71934C4.89265 24 5.06596 23.9333 5.18595 23.8L19.7439 9.25538L14.7446 4.25608L0.199972 18.8007C0.0666575 18.934 0 19.094 0 19.2807ZM23.6101 5.38925C24.13 4.86932 24.13 4.02944 23.6101 3.50951L20.4905 0.389946C19.9706 -0.129982 19.1307 -0.129982 18.6107 0.389946L16.1711 2.82961L21.1704 7.82891L23.6101 5.38925V5.38925Z"
-                                    fill="#323232" />
-                            </svg>
-                        </button>
                         <button class="delete">
                             <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -310,15 +239,104 @@
                     </div>
                 </div>
                 <!-- Orticle Editable -->
-                <div id="orticle" class="flex flex-col justify-between bg-ogrey-light p-5 rounded-xl overflow-hidden">
+                <div id="idee" class="flex flex-col justify-between bg-ogrey-light p-5 rounded-xl overflow-hidden">
                     <div>
-                        <input class="block w-full p-1 mb-4 text-xl border-2 border-oblue rounded-md bg-transparent"
-                            type="text" id="titleOrt" placeholder="Titre...">
-                        <textarea class="w-full p-1 border-2 mb-4 border-oblue rounded-md bg-transparent outline-none"
-                            id="textOrt" cols="20" rows="5" placeholder="Orticle..."></textarea>
+                        <textarea
+                            class="block w-full p-1.5 mb-4 text-xl font-semibold border-2 border-oblue rounded-md bg-transparent outline-none"
+                            type="text" id="titleOrt" cols="30" rows="1" placeholder="Titre..."></textarea>
+                        <div class="w-full p-1.5 border-2 border-oblue rounded-md bg-transparent outline-none"
+                            style="height: 150px;" id="textOrt" aria-placeholder="Orticle..." contenteditable></div>
+                    </div>
+                    <div class="flex justify-between pt-1 px-3 rounded-full bg-oblue my-3">
+                        <div>
+                            <!-- Undo  -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="undo">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.625 10C12.3125 10 9.3125 11.2375 7 13.25L4.6375 10.8875C3.85 10.1 2.5 10.65 2.5 11.7625V18.75C2.5 19.4375 3.0625 20 3.75 20H10.7375C11.85 20 12.4125 18.65 11.625 17.8625L9.2375 15.475C10.975 14.025 13.1875 13.125 15.6375 13.125C19.5875 13.125 23 15.425 24.625 18.75C24.9625 19.45 25.7625 19.8 26.5 19.55C27.3875 19.2625 27.8375 18.25 27.4375 17.4C25.2875 13.025 20.8125 10 15.625 10Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Redo -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="redo">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M23.0001 13.25C20.6876 11.2375 17.6876 10 14.3751 10C9.17505 10 4.70005 13.025 2.57505 17.4125C2.17505 18.25 2.62505 19.25 3.51255 19.55C4.25005 19.8 5.05005 19.45 5.38755 18.75C7.01255 15.425 10.4251 13.125 14.3751 13.125C16.8126 13.125 19.0376 14.025 20.7751 15.475L18.3876 17.8625C17.6001 18.65 18.1501 20 19.2626 20H26.2501C26.9376 20 27.5001 19.4375 27.5001 18.75V11.7625C27.5001 10.65 26.1501 10.0875 25.3626 10.875L23.0001 13.25Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div>
+                            <!-- Bold -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="bold">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.7999 14.3867C22.0933 13.4933 22.9999 12.0267 22.9999 10.6667C22.9999 7.65334 20.6666 5.33334 17.6666 5.33334H10.6666C9.93325 5.33334 9.33325 5.93334 9.33325 6.66668V22.6667C9.33325 23.4 9.93325 24 10.6666 24H18.3733C21.1333 24 23.6533 21.7467 23.6666 18.9733C23.6799 16.9333 22.5333 15.1867 20.7999 14.3867V14.3867ZM13.3333 8.66668H17.3333C18.4399 8.66668 19.3333 9.56001 19.3333 10.6667C19.3333 11.7733 18.4399 12.6667 17.3333 12.6667H13.3333V8.66668ZM17.9999 20.6667H13.3333V16.6667H17.9999C19.1066 16.6667 19.9999 17.56 19.9999 18.6667C19.9999 19.7733 19.1066 20.6667 17.9999 20.6667Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Italic -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="italic">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.3333 7.33334C13.3333 8.44001 14.2267 9.33334 15.3333 9.33334H16.28L11.72 20H10C8.89333 20 8 20.8933 8 22C8 23.1067 8.89333 24 10 24H16.6667C17.7733 24 18.6667 23.1067 18.6667 22C18.6667 20.8933 17.7733 20 16.6667 20H15.72L20.28 9.33334H22C23.1067 9.33334 24 8.44001 24 7.33334C24 6.22668 23.1067 5.33334 22 5.33334H15.3333C14.2267 5.33334 13.3333 6.22668 13.3333 7.33334Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Underline -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="underline">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.0534 22.6C21.0934 22.08 24.0001 18.4533 24.0001 14.3867V5.66667C24.0001 4.74667 23.2534 4 22.3334 4C21.4134 4 20.6667 4.74667 20.6667 5.66667V14.5333C20.6667 16.76 19.1601 18.7867 16.9734 19.2267C13.9734 19.8533 11.3334 17.56 11.3334 14.6667V5.66667C11.3334 4.74667 10.5867 4 9.66675 4C8.74675 4 8.00008 4.74667 8.00008 5.66667V14.6667C8.00008 19.4267 12.1734 23.2267 17.0534 22.6ZM6.66675 26.6667C6.66675 27.4 7.26675 28 8.00008 28H24.0001C24.7334 28 25.3334 27.4 25.3334 26.6667C25.3334 25.9333 24.7334 25.3333 24.0001 25.3333H8.00008C7.26675 25.3333 6.66675 25.9333 6.66675 26.6667Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Line through -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="linethrough">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16 25.3333C17.4667 25.3333 18.6667 24.1333 18.6667 22.6667V21.3333H13.3333V22.6667C13.3333 24.1333 14.5333 25.3333 16 25.3333ZM6.66667 7.33334C6.66667 8.44001 7.56 9.33334 8.66667 9.33334H13.3333V13.3333H18.6667V9.33334H23.3333C24.44 9.33334 25.3333 8.44001 25.3333 7.33334C25.3333 6.22668 24.44 5.33334 23.3333 5.33334H8.66667C7.56 5.33334 6.66667 6.22668 6.66667 7.33334ZM5.33333 18.6667H26.6667C27.4 18.6667 28 18.0667 28 17.3333C28 16.6 27.4 16 26.6667 16H5.33333C4.6 16 4 16.6 4 17.3333C4 18.0667 4.6 18.6667 5.33333 18.6667Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div>
+                            <!-- Ordred List -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="ol">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 8.75H25C25.6875 8.75 26.25 8.1875 26.25 7.5C26.25 6.8125 25.6875 6.25 25 6.25H10C9.3125 6.25 8.75 6.8125 8.75 7.5C8.75 8.1875 9.3125 8.75 10 8.75ZM25 21.25H10C9.3125 21.25 8.75 21.8125 8.75 22.5C8.75 23.1875 9.3125 23.75 10 23.75H25C25.6875 23.75 26.25 23.1875 26.25 22.5C26.25 21.8125 25.6875 21.25 25 21.25ZM25 13.75H10C9.3125 13.75 8.75 14.3125 8.75 15C8.75 15.6875 9.3125 16.25 10 16.25H25C25.6875 16.25 26.25 15.6875 26.25 15C26.25 14.3125 25.6875 13.75 25 13.75ZM5.625 20H3.125C2.775 20 2.5 20.275 2.5 20.625C2.5 20.975 2.775 21.25 3.125 21.25H5V21.875H4.375C4.025 21.875 3.75 22.15 3.75 22.5C3.75 22.85 4.025 23.125 4.375 23.125H5V23.75H3.125C2.775 23.75 2.5 24.025 2.5 24.375C2.5 24.725 2.775 25 3.125 25H5.625C5.975 25 6.25 24.725 6.25 24.375V20.625C6.25 20.275 5.975 20 5.625 20ZM3.125 6.25H3.75V9.375C3.75 9.725 4.025 10 4.375 10C4.725 10 5 9.725 5 9.375V5.625C5 5.275 4.725 5 4.375 5H3.125C2.775 5 2.5 5.275 2.5 5.625C2.5 5.975 2.775 6.25 3.125 6.25ZM5.625 12.5H3.125C2.775 12.5 2.5 12.775 2.5 13.125C2.5 13.475 2.775 13.75 3.125 13.75H4.75L2.65 16.2C2.55 16.3125 2.5 16.4625 2.5 16.6V16.875C2.5 17.225 2.775 17.5 3.125 17.5H5.625C5.975 17.5 6.25 17.225 6.25 16.875C6.25 16.525 5.975 16.25 5.625 16.25H4L6.1 13.8C6.2 13.6875 6.25 13.5375 6.25 13.4V13.125C6.25 12.775 5.975 12.5 5.625 12.5V12.5Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Unordred List -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="ul">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5 13.125C3.9625 13.125 3.125 13.9625 3.125 15C3.125 16.0375 3.9625 16.875 5 16.875C6.0375 16.875 6.875 16.0375 6.875 15C6.875 13.9625 6.0375 13.125 5 13.125ZM5 5.625C3.9625 5.625 3.125 6.4625 3.125 7.5C3.125 8.5375 3.9625 9.375 5 9.375C6.0375 9.375 6.875 8.5375 6.875 7.5C6.875 6.4625 6.0375 5.625 5 5.625ZM5 20.625C3.9625 20.625 3.125 21.475 3.125 22.5C3.125 23.525 3.975 24.375 5 24.375C6.025 24.375 6.875 23.525 6.875 22.5C6.875 21.475 6.0375 20.625 5 20.625ZM10 23.75H25C25.6875 23.75 26.25 23.1875 26.25 22.5C26.25 21.8125 25.6875 21.25 25 21.25H10C9.3125 21.25 8.75 21.8125 8.75 22.5C8.75 23.1875 9.3125 23.75 10 23.75ZM10 16.25H25C25.6875 16.25 26.25 15.6875 26.25 15C26.25 14.3125 25.6875 13.75 25 13.75H10C9.3125 13.75 8.75 14.3125 8.75 15C8.75 15.6875 9.3125 16.25 10 16.25ZM8.75 7.5C8.75 8.1875 9.3125 8.75 10 8.75H25C25.6875 8.75 26.25 8.1875 26.25 7.5C26.25 6.8125 25.6875 6.25 25 6.25H10C9.3125 6.25 8.75 6.8125 8.75 7.5Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <div class="flex justify-between">
-                        <button id="resetOrt" class="p-1 text-gray-50">
+                        <button id="resetOrt" class="p h-40-1 text-gray-50">
                             <svg width="21" height="19" viewBox="0 0 21 19" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -326,7 +344,10 @@
                                     fill="#323232" />
                             </svg>
                         </button>
-                        <button id="addOrt" class="px-4 py-0.5 text-gray-50 bg-oblue rounded-full">Ajouter</button>
+                        <button id="addOrt"
+                            class="bg-oblue text-lg active:bg-gray-600 hover:opacity-90 transition text-white py-0.5 px-5 rounded-full">
+                            Ajouter
+                        </button>
                         <p><span id="charLeft">500</span>/500</p>
                     </div>
                 </div>
