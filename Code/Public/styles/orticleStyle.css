@@ -79,8 +79,22 @@ input {
   color: #969595;
 }
 
+#textOrt {
+  min-height: 150px;
+}
+
 #resetOrt:hover path {
   fill: red;
+}
+
+#idee ul {
+  list-style: disc;
+  margin-left: 15px;
+}
+
+#idee ol {
+  list-style: decimal;
+  margin-left: 15px;
 }
 
 /* ! tailwindcss v2.1.1 | MIT License | https://tailwindcss.com */
