@@ -80,12 +80,12 @@ input {
     fill: red;
 }
 
-#idee ul {
+#idee ul, .orticle ul {
     list-style: disc;
     margin-left: 15px;
 }
 
-#idee ol {
+#idee ol, .orticle ol {
     list-style: decimal;
     margin-left: 15px;
 }
