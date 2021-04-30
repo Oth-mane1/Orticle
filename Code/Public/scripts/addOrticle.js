@@ -4,20 +4,13 @@ const title = document.getElementById('titleOrt');
 const textOrt = document.getElementById('textOrt');
 const reset = document.getElementById('resetOrt');
 const add = document.getElementById('addOrt');
-const dlt = document.querySelectorAll('.delete');
+
 
 // Reset orticle text
 reset.addEventListener('click', function (e) {
     title.value = '';
     textOrt.value = '';
 })
-
-// Remove an orticle
-dlt.forEach(element => {
-    element.addEventListener('click', function (e) {
-        e.target.parentElement.parentElement.parentElement.parentElement.remove()
-    })
-});
 
 // Add new orticle
 add.addEventListener('click', function (e) {
@@ -26,13 +19,13 @@ add.addEventListener('click', function (e) {
     var content = `
         <div>
             <textarea cols="20" rows="2" placeholder="Titre..."
-                class="w-full overflow-hidden border-white border-dashed border-2 border-opacity-0 focus:border-opacity-100 
-                hover:border-opacity-100 transition duration-300 text-gray-50 bg-transparent text-xl font-semibold p-1.5 outline-none">${title.value}
+                class="title w-full overflow-hidden border-white border-dashed border-2 border-opacity-0 focus:border-opacity-100 
+                hover:border-opacity-100 transition duration-500 text-gray-50 bg-transparent text-xl font-semibold p-1.5 outline-none">${title.value}
             </textarea>
-            <textarea cols="20" rows="5" placeholder="Orticle..."
-                class="w-full overflow-hidden border-black border-dashed border-2 border-opacity-0 focus:border-opacity-100
-                    hover:border-opacity-100 transition duration-300 text-gray-900 bg-transparent text-lg p-1.5 mb-2 outline-none">${textOrt.innerText}
-            </textarea>
+            <div cols="20" rows="5" placeholder="Orticle..." contenteditable="true"
+                class="idea w-full overflow-hidden border-black border-dashed border-2 border-opacity-0 focus:border-opacity-100 
+                hover:border-opacity-100 transition duration-500 text-gray-900 bg-transparent text-lg p-1.5 mb-2 outline-none">${textOrt.innerHTML}
+            </div>
         </div>
         <div class="mt-3 flex justify-end">
             <button class="delete">
@@ -46,10 +39,16 @@ add.addEventListener('click', function (e) {
         </div>
         `
     div.innerHTML = content;
-    div.addEventListener('click', function (e) {
-        e.target.parentElement.parentElement.parentElement.parentElement.remove()
-    })
     orticle.insertBefore(div, idee);
+
+    // Remove an orticle
+    const dlt = document.querySelectorAll('.delete');
+    
+    dlt.forEach(element => {
+        element.addEventListener('click', function (e) {
+            e.currentTarget.parentElement.parentElement.remove();
+        })
+    });
 
     // Clear the content
     title.value = '';
