@@ -4,12 +4,26 @@ const title = document.getElementById('titleOrt');
 const textOrt = document.getElementById('textOrt');
 const reset = document.getElementById('resetOrt');
 const add = document.getElementById('addOrt');
+const charleft = document.getElementById('charLeft');
 
 
 // Reset orticle text
 reset.addEventListener('click', function (e) {
     title.value = '';
     textOrt.value = '';
+})
+
+// Count the input char
+textOrt.addEventListener('keydown', (e)=>{
+    if (charleft.innerText <= 0 && e.code !== 'Backspace' && e.code !== 'Delete') {
+        e.preventDefault();
+        charleft.style.color = 'red';
+    }
+    else
+    {
+        charleft.style.color = 'black';
+        charleft.innerText = 500 - ++textOrt.innerText.length;
+    }
 })
 
 // Add new orticle
