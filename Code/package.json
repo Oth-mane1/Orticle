@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/www",
+    "start": "@powershell $env:DEBUG='orticle:server'; node bin/www",
     "tw:build": "postcss ./Source/styles/style.css -o ./Public/styles/orticleStyle.css --env development",
     "tw:prod": "postcss build ./Source/styles/style.css -o ./Public/styles/orticleStyle.css --env production"
   },
