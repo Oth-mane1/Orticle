@@ -6,7 +6,7 @@
 
 require('dotenv').config();
 var app = require('../app');
-var debug = require('debug')('code:server');
+var debug = require('debug')('orticle:server');
 var http = require('http');
 
 /**
@@ -26,9 +26,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, ()=>{
-  console.log(`Server Alive At http://localhost:${port}`)
-});
+server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -88,6 +86,6 @@ function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+    : addr.port;
+  debug(`Server Alive At http://localhost:${bind}`);
 }
