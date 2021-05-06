@@ -1,5 +1,8 @@
 var express = require('express');
 var path = require('path');
+var sql = require('mssql');
+var dbConfig = require('../dbConfig');
+
 var router = express.Router();
 
 /* GET the index page */
@@ -34,10 +37,10 @@ router.get('/conditions', (req, res, next) => {
 router.route('/support')
     .all((req, res, next) => {
         res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/html');;
         next();
     })
     .get((req, res, next) => {
+        res.setHeader('Content-Type', 'text/html');
         res.sendFile(path.resolve('public', 'support.html'));
     })
     .post((req, res, next) => {
@@ -45,8 +48,33 @@ router.route('/support')
         var prenom = req.body.prenom;
         var mail = req.body.mail;
         var message = req.body.message;
-        console.log(req.body)
-        res.send('Thank you!');
+
+        const pool = new sql.ConnectionPool(dbConfig)
+
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return
+            }
+            var request = new sql.Request(pool);
+            request.input('nomSup', nom);
+            request.input('prenomSup', prenom);
+            request.input('emailSup', mail);
+            request.input('msgSup', message);
+            request.execute('createSupport', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return
+                }
+
+                console.log(recordsets);
+                res.statusCode = 201;
+                res.setHeader('Content-Type', 'text/plain');
+                res.end(`Merci ${prenom}! Votre message a bien été transferé.`);
+            });
+        })
     })
 
 module.exports = router;
