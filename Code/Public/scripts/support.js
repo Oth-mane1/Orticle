@@ -24,22 +24,19 @@ env.addEventListener('click', () => {
             })
         }).then((res) => {
             if (res.status == 201) {
-                env.enabled = true
-                env.innerHTML = 'Envoyer'
                 swal.fire("Message envoyé avec succès", `Merci pour votre message ${prenom.value}! notre support va vous répondre au plus delai possible.`, "success")
                 nom.value = ''
                 prenom.value = ''
                 mail.value = ''
                 message.value = ''
             } else {
-                env.enabled = true
-                env.innerHTML = 'Envoyer'
                 swal.fire("Avertissement", "Une erreur s'est produit veuillez réessayer plus tard", "warning")
             }
         }).catch((error) => {
-            env.enabled = true
-            env.innerHTML = 'Envoyer'
             swal.fire("Erreur", "Une erreur s'est produit au niveau du serveur veuillez réessayer plus tard", "error")
+        }).finally(()=>{            
+            env.disabled = false
+            env.innerHTML = 'Envoyer'
         })
     }
 })
