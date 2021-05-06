@@ -15,7 +15,8 @@
     "express": "^4.17.1",
     "hbs": "^4.1.2",
     "http-errors": "^1.8.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mssql": "^6.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
