@@ -14,7 +14,7 @@ AS
 		)
 	END
 	ELSE
-		THROW 55555, 'le nom d''utilisateur existe déja', 0
+		THROW 55555, 'le nom d''utilisateur existe dÃ©ja', 11
 GO
 
 CREATE PROCEDURE getUserInfos @id INT
@@ -37,7 +37,7 @@ AS
 		WHERE IdUtl = @usrID
 	END
 	ELSE
-		THROW 55555, 'le nom d''utilisateur existe déja', 0
+		THROW 55555, 'le nom d''utilisateur existe dÃ©ja', 0
 GO
 
 CREATE PROCEDURE deleteUser @id INT
@@ -57,6 +57,7 @@ BEGIN
 
 	Return @ex
 END
+GO
 
 CREATE PROCEDURE connectUser
 @usrname NVARCHAR(255), @mdp NVARCHAR(255),@state INT output
@@ -100,7 +101,6 @@ AS
 	WHERE Article.IdArticle = @id
 GO
 
-
 --Orticle--
 CREATE PROCEDURE getOrticle @id INT
 AS
@@ -127,7 +127,7 @@ AS
 	WHERE Orticle.IdOrt = @id
 GO
 
---Idée--
+--IdÃ©e--
 CREATE PROCEDURE getIdee @id INT
 AS
 	SELECT * FROM idee
@@ -141,7 +141,6 @@ AS
 	VALUES(
 			@IdOrt,
 			@titreIde,
-			@corpsIde,
 			@corpsIde
 	)
 GO
