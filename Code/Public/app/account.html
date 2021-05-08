@@ -6,18 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
+    <link rel="stylesheet" href="../styles/checkedCategory.css">
     <script src="../scripts/account.js" defer></script>
     <title>Compte 🔒 | Orticle•</title>
-    <style>
-        input[type="checkbox"] {
-            position: absolute;
-            visibility: hidden;
-        }
-
-        input[type=checkbox]:checked+div {
-            background-color: #397BA7;
-        }
-    </style>
 </head>
 
 <body class="bg-gray-50">
@@ -256,9 +247,9 @@
             <h2 class="text-xl md:text-2xl font-semibold mb-3">🔣 Catégories :</h2>
             <div class=" border-oblue border-solid border-2 rounded-lg p-6">
                 <div class="grid gap-5 grid-cols-1 md:grid-cols-3">
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck1">
-                        <input type="checkbox" id="chck1">
-                        <div id="label1"
+                    <label class="bg-oblue rounded-2xl" for="computer">
+                        <input type="checkbox" class="favCategory" value="computer" id="computer">
+                        <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
                                 🖥
@@ -268,8 +259,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck2">
-                        <input type="checkbox" id="chck2">
+                    <label class="bg-oblue rounded-2xl" for="economie">
+                        <input type="checkbox" class="favCategory" value="economie" id="economie">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -280,8 +271,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck3">
-                        <input type="checkbox" id="chck3">
+                    <label class="bg-oblue rounded-2xl" for="finance">
+                        <input type="checkbox" class="favCategory" value="finance" id="finance">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -292,8 +283,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck4">
-                        <input type="checkbox" id="chck4">
+                    <label class="bg-oblue rounded-2xl" for="sociologie">
+                        <input type="checkbox" class="favCategory" value="sociologie" id="sociologie">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -304,8 +295,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-labe bg-oblue rounded-2xl" for="chck5">
-                        <input type="checkbox" id="chck5">
+                    <label class="tab-labe bg-oblue rounded-2xl" for="psychologie">
+                        <input type="checkbox" class="favCategory" value="psychologie" id="psychologie">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -316,8 +307,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck6">
-                        <input type="checkbox" id="chck6">
+                    <label class="bg-oblue rounded-2xl" for="envirenement">
+                        <input type="checkbox" class="favCategory" value="envirenement" id="envirenement">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -328,8 +319,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck7">
-                        <input type="checkbox" id="chck7">
+                    <label class="bg-oblue rounded-2xl" for="science">
+                        <input type="checkbox" class="favCategory" value="science" id="science">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -340,8 +331,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck8">
-                        <input type="checkbox" id="chck8">
+                    <label class="bg-oblue rounded-2xl" for="politique">
+                        <input type="checkbox" class="favCategory" value="politique" id="politique">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -352,8 +343,8 @@
                             </p>
                         </div>
                     </label>
-                    <label class="tab-label bg-oblue rounded-2xl" for="chck9">
-                        <input type="checkbox" id="chck9">
+                    <label class="bg-oblue rounded-2xl" for="presse">
+                        <input type="checkbox" class="favCategory" value="presse" id="presse">
                         <div
                             class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                             <h2 class="text-gray-50 text-7xl font-semibold mb-6">
@@ -371,7 +362,6 @@
                         Modifier
                     </button>
                 </diV>
-            </div>
             </div>
         </section>
         <section class="pt-6 px-10 md:px-20 lg:py-10 xl:px-80 w-full">

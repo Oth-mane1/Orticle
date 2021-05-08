@@ -1,0 +1,8 @@
+input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+input[type=checkbox]:checked+div {
+    background-color: #397BA7;
+}
