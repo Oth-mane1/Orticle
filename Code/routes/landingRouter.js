@@ -1,9 +1,11 @@
-var express = require('express');
-var path = require('path');
-var sql = require('mssql');
-var dbConfig = require('../dbConfig');
+const express = require('express');
+const signInRouter = require('./signInRouter');
+const signUpRouter = require('./signUpRouter');
+const path = require('path');
+const sql = require('mssql');
+const dbConfig = require('../dbConfig');
 
-var router = express.Router();
+const router = express.Router();
 
 /* GET the index page */
 router.get('/', (req, res, next) => {
@@ -66,6 +68,7 @@ router.route('/support')
                 if (err) {
                     console.log(err);
                     res.statusCode = 500;
+                    res.end();
                     return
                 }
 
@@ -76,5 +79,8 @@ router.route('/support')
             });
         })
     })
+
+router.use('/signUp', signUpRouter);
+router.use('/signIn', signInRouter);
 
 module.exports = router;
