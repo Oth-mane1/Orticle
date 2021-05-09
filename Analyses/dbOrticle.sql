@@ -82,3 +82,11 @@ CREATE TABLE support(
     emailSup NVARCHAR(255) NOT NULL,
     msgSup NVARCHAR(255) NOT NULL
 );
+
+CREATE TABLE UtilisateurFav (
+	idUtl INT NOT NULL,
+	idCat INT NOT NULL
+	CONSTRAINT PK_UtlFav PRIMARY KEY (idUtl, idCat),
+	CONSTRAINT FK_Utl FOREIGN KEY (idUtl) REFERENCES Utilisateur (idUtl),
+	CONSTRAINT FK_Cat FOREIGN KEY (idCat) REFERENCES Categorie (idCat)
+)
