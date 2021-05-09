@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles/landingStyle.css" />
+    <link rel="stylesheet" href="styles/checkedCategory.css" />
+    <script src="scripts/signUp.js" defer></script>
+    <script src="scripts/sweetAlert.js" defer></script>
     <title>S'inscrire | Orticle•</title>
 </head>
 
@@ -36,47 +39,170 @@
                 <img src="images/wave__.svg" class="-mt-1" alt="wave" draggable="false" />
             </div>
 
-            <div class="text-center mt-6">
-                <h1 class="tracking-widest text-3xl md:text-4xl text-oblue font-semibold md:font-bold py-2 ">
-                    S'inscrire</h1>
-                <p class="text-lg px-1.5">Vos idées comptent! Rejoignez la communauté!</p>
-            </div>
-
-            <form class="py-9 flex justify-center flex-col items-center">
-                <div class="w-full px-14 md:px-20 my-3">
-                    <label for="nom" class="text-lg">Nom</label>
-                    <input type="text" id="nom"
-                        class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
+            <form>
+                <div id="signupSec">
+                    <div class="text-center mt-6">
+                        <h1 class="tracking-widest text-3xl md:text-4xl text-oblue font-semibold md:font-bold py-2 ">
+                            S'inscrire</h1>
+                        <p class="text-lg px-1.5">Vos idées comptent! Rejoignez la communauté!</p>
+                    </div>
+                    <div class="py-9 flex justify-center flex-col items-center">
+                        <div class="w-full px-14 md:px-20 my-3">
+                            <label for="nom" class="text-lg">Nom</label>
+                            <input type="text" id="nom"
+                                class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
+                        </div>
+                        <div class="w-full px-14 md:px-20 my-3">
+                            <label for="prenom" class="text-lg">Prénom</label>
+                            <input type="text" id="prenom"
+                                class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
+                        </div>
+                        <div class="w-full px-14 md:px-20 my-3">
+                            <label for="user" class="text-lg">Nom d'utilisateur</label>
+                            <input type="text" id="user"
+                                class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
+                        </div>
+                        <div class="w-full px-14 md:px-20 my-3">
+                            <label for="mail" class="text-lg">E-mail</label>
+                            <input type="email" id="mail"
+                                class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
+                        </div>
+                        <div class="w-full px-14 md:px-20 my-3">
+                            <label for="mdp" class="text-lg">Mot de passe</label>
+                            <input type="password" id="mdp"
+                                class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
+                        </div>
+                        <button type="button" id="signUp"
+                            class="mt-6 w-32 h-10 text-lg bg-oblue active:bg-gray-600 hover:opacity-90 transition duration-200 text-white py-1.5 px-6 rounded-full">
+                            S'inscrire
+                        </button>
+                        <p class="mt-10">
+                            Vous avez déja un compte? <a class="text-oblue" href="signIn">Connecter-vous</a>
+                        </p>
+                    </div>
                 </div>
-
-                <div class="w-full px-14 md:px-20 my-3">
-                    <label for="prenom" class="text-lg">Prénom</label>
-                    <input type="text" id="prenom"
-                        class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
+                
+                <div id="favCatSec" class="hidden justify-center flex-col items-center">
+                    <div class="text-center mt-6">
+                        <h1 class="tracking-widest text-3xl md:text-4xl text-oblue font-semibold md:font-bold py-2 ">
+                            Catégories</h1>
+                        <p class="text-lg px-1.5">Dites nous de quoi vous êtes intéressé? Selectionner 3 categorie</p>
+                    </div>
+                    <div class="grid gap-5 grid-cols-2 md:grid-cols-3 p-5">
+                        <label class="bg-oblue rounded-2xl" for="computer">
+                            <input type="checkbox" class="favCategory" data-id="1" value="computer" id="computer">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    🖥
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Computer
+                                </p>
+                            </div>
+                        </label>
+                        <label class="bg-oblue rounded-2xl" for="economie">
+                            <input type="checkbox" class="favCategory" data-id="2" value="economie" id="economie">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    📈
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Économie
+                                </p>
+                            </div>
+                        </label>
+                        <label class="bg-oblue rounded-2xl" for="finance">
+                            <input type="checkbox" class="favCategory" data-id="3" value="finance" id="finance">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    💰
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Finance
+                                </p>
+                            </div>
+                        </label>
+                        <label class="bg-oblue rounded-2xl" for="sociologie">
+                            <input type="checkbox" class="favCategory" data-id="4" value="sociologie" id="sociologie">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    👨‍👩‍👧‍👦
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Sociologie
+                                </p>
+                            </div>
+                        </label>
+                        <label class="tab-labe bg-oblue rounded-2xl" for="psychologie">
+                            <input type="checkbox" class="favCategory" data-id="5" value="psychologie" id="psychologie">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    👨🏼‍⚕️
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Psychologie
+                                </p>
+                            </div>
+                        </label>
+                        <label class="bg-oblue rounded-2xl" for="envirenement">
+                            <input type="checkbox" class="favCategory" data-id="6" value="envirenement" id="envirenement">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    🌍
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Envirenement
+                                </p>
+                            </div>
+                        </label>
+                        <label class="bg-oblue rounded-2xl" for="science">
+                            <input type="checkbox" class="favCategory" data-id="7" value="science" id="science">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    🔬
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Science
+                                </p>
+                            </div>
+                        </label>
+                        <label class="bg-oblue rounded-2xl" for="politique">
+                            <input type="checkbox" class="favCategory" data-id="8" value="politique" id="politique">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    👨🏼‍💼
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Politique
+                                </p>
+                            </div>
+                        </label>
+                        <label class="bg-oblue rounded-2xl" for="presse">
+                            <input type="checkbox" class="favCategory" data-id="9" value="presse" id="presse">
+                            <div
+                                class="flex flex-col justify-between items-center bg-ogrey-light p-5 rounded-xl overflow-hidden transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                                <h2 class="text-gray-50 text-6xl font-semibold mb-6">
+                                    📰
+                                </h2>
+                                <p class="text-xl text-center font-semibold">
+                                    Presse
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                    <button type="button" id="termine" disabled
+                        class="mt-6 w-32 h-10 text-lg bg-oblue active:bg-gray-600 hover:opacity-90 transition duration-200 text-white py-1.5 px-6 rounded-full">
+                        Terminer
+                    </button>
                 </div>
-
-                <div class="w-full px-14 md:px-20 my-3">
-                    <label for="user" class="text-lg">Nom d'utilisateur</label>
-                    <input type="text" id="user"
-                        class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
-                </div>
-
-                <div class="w-full px-14 md:px-20 my-3">
-                    <label for="mail" class="text-lg">E-mail</label>
-                    <input type="email" id="mail"
-                        class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
-                </div>
-
-                <div class="w-full px-14 md:px-20 my-3">
-                    <label for="mdp" class="text-lg">Mot de passe</label>
-                    <input type="password" id="mdp"
-                        class="block w-full p-2 bg-ogrey outline-none border-none rounded-md focus:ring-2 focus:ring-oblue" />
-                </div>
-                <button type="button"
-                    class="mt-6 bg-oblue active:bg-gray-600 hover:opacity-90 transition duration-200 text-white py-1.5 px-6 rounded-full">Connecter</button>
-
-                <p class="mt-10">Vous avez déja un compte? <a class="text-oblue" href="signIn">Connecter-vous</a></p>
-
             </form>
         </section>
     </main>
