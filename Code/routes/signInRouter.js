@@ -1,8 +1,20 @@
 const express = require('express');
 const path = require('path');
-const router = express.Router();
 const sql = require('mssql');
 const dbConfig = require('../dbConfig');
+
+const router = express.Router();
+
+// Redirect to explore if authenticated
+router.use((req, res, next) => {
+    if (req.session.username) {        
+        res.redirect('/app/explore');
+        res.end();
+    }
+    else{
+        next();
+    }
+})
 
 /* GET the SignUp page */
 router.route('/')
@@ -45,11 +57,10 @@ router.route('/')
                     res.end('Le nom d\'utilisateur ou le mot de passe sont incorrects');
                     return
                 }
-                //TODO: sesseion
+                            
                 res.statusCode = 200;
-                res.setHeader('Content-Type', 'text/plain');
-                // res.send(`Welcome ${user}!`);
-                res.sendFile(path.resolve('public', 'app', 'explore.html'))
+                req.session.username = user;
+                res.redirect('app/explore');
                 res.end();
             });
         })
