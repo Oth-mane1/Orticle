@@ -174,10 +174,10 @@
             // 
             // main
             // 
-            this.main.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.main.Location = new System.Drawing.Point(96, 0);
+            this.main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main.Location = new System.Drawing.Point(94, 0);
             this.main.Name = "main";
-            this.main.Size = new System.Drawing.Size(1846, 1666);
+            this.main.Size = new System.Drawing.Size(1848, 836);
             this.main.TabIndex = 3;
             // 
             // Form1
