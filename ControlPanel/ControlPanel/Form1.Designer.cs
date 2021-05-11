@@ -177,14 +177,14 @@
             this.main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main.Location = new System.Drawing.Point(94, 0);
             this.main.Name = "main";
-            this.main.Size = new System.Drawing.Size(1848, 836);
+            this.main.Size = new System.Drawing.Size(1462, 836);
             this.main.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1942, 836);
+            this.ClientSize = new System.Drawing.Size(1556, 836);
             this.Controls.Add(this.main);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
