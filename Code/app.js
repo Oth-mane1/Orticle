@@ -15,7 +15,7 @@ app.use(session({
     secret: 'orticle-secret-sesseion',
     saveUninitialized: false,
     resave: false,
-    store: fileStore()
+    store: new fileStore({logFn:()=>{}})
 }))
 
 // view engine setup
@@ -33,19 +33,6 @@ app.use('/scripts', express.static(path.join(__dirname, 'public', 'scripts')));
 app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 
 app.use('/', landingRouter);
-
-// If user not authenticated redirec to signIn
-app.use((req, res, next) => {
-    if (!req.session.username) {
-        res.statusCode = 401;
-        res.redirect('/signIn');
-        res.end();
-    }
-    else{
-        next();
-    }
-})
-
 app.use('/app', appRouter);
 
 // catch 404 and forward to error handler
