@@ -6,11 +6,8 @@ const dbConfig = require('../dbConfig');
 
 /* GET the SignUp page */
 router.route('/')
-    .all((req, res, next) => {
-        res.statusCode = 200;
-        next();
-    })
     .get((req, res, next) => {
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
         res.sendFile(path.resolve('public', 'signUp.html'));
     })
@@ -26,8 +23,7 @@ router.route('/')
         pool.connect(err => {
             if (err) {
                 console.log(err)
-                res.statusCode = 401;
-                return
+                return res.statusCode = 401;                
             }
             var request = new sql.Request(pool);
             request.input('nom', nom);
@@ -39,14 +35,12 @@ router.route('/')
                 if (err) {
                     console.log(err);
                     res.statusCode = 500;
-                    res.end();
-                    return
+                    return res.end();                    
                 }
 
                 if (recordsets.returnValue == -1) {
                     res.statusCode = 409;
-                    res.end('Le nom d\'utilisateur existe déja');
-                    return
+                    return res.end('Le nom d\'utilisateur existe déja');                    
                 }
 
                 console.log(recordsets);
@@ -70,8 +64,7 @@ router.route('/categories')
         pool.connect(err => {
             if (err) {
                 console.log(err)
-                res.statusCode = 401;
-                return
+                return res.statusCode = 401;                
             }
 
             var request = new sql.Request(pool);
@@ -83,8 +76,7 @@ router.route('/categories')
                 if (err) {
                     console.log(err);
                     res.statusCode = 500;
-                    res.end();
-                    return
+                    return res.end();                    
                 }
 
                 console.log(recordsets);
