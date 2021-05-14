@@ -7,16 +7,15 @@ const router = express.Router();
 
 // Redirect to explore if authenticated
 router.use((req, res, next) => {
-    if (req.session.username) {        
-        res.redirect('/app/explore');
-        res.end();
+    if (req.session.username) {
+        return res.redirect('/app/explore');
     }
-    else{
-        next();
+    else {
+        return next();
     }
 })
 
-/* GET the SignUp page */
+/* GET the SignIn page */
 router.route('/')
     .get((req, res, next) => {
         res.statusCode = 200;
@@ -32,7 +31,7 @@ router.route('/')
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
-                return
+                return res.end();
             }
 
             var request = new sql.Request(pool);
@@ -42,26 +41,38 @@ router.route('/')
                 if (err) {
                     console.log(err);
                     res.statusCode = 500;
-                    res.end();
-                    return
+                    return res.end();
                 }
 
                 if (recordsets.returnValue == -1) {
                     res.statusCode = 404;
-                    res.end('Le nom d\'utilisateur n\'existe pas');
-                    return
+                    return res.end('Le nom d\'utilisateur n\'existe pas');
                 }
 
                 if (recordsets.returnValue == 0) {
                     res.statusCode = 401;
-                    res.end('Le nom d\'utilisateur ou le mot de passe sont incorrects');
-                    return
+                    return res.end('Le nom d\'utilisateur ou le mot de passe sont incorrects');
                 }
-                            
-                res.statusCode = 200;
-                req.session.username = user;
-                res.redirect('app/explore');
-                res.end();
+
+                var requestInfo = new sql.Request(pool);
+                requestInfo.input('username', user);
+                requestInfo.execute('getUserInfos', (err, recordsets) => {
+                    if (err) {
+                        console.log(err);
+                        res.statusCode = 500;
+                        return res.end();                        
+                    }
+
+                    if (recordsets.recordset.length === 0) {
+                        res.statusCode = 404;
+                        res.setHeader('Content-Type', 'text/plain');
+                        return res.end('Utilisateur non trouvé');                        
+                    }
+
+                    req.session.username = user;
+                    req.session.userid = recordsets.recordset[0].IdUtl;
+                    res.status(200).redirect('app/explore');
+                });
             });
         })
     })
