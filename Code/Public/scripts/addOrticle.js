@@ -10,7 +10,7 @@ const charleft = document.getElementById('charLeft');
 // Reset orticle text
 reset.addEventListener('click', function (e) {
     title.value = '';
-    textOrt.value = '';
+    textOrt.innerHTML = '';
 })
 
 // Count the input char
@@ -22,7 +22,18 @@ textOrt.addEventListener('keydown', (e)=>{
     else
     {
         charleft.style.color = 'black';
-        charleft.innerText = 500 - ++textOrt.innerText.length;
+        charleft.innerText = 500 - textOrt.innerText.length;
+    }
+})
+textOrt.addEventListener('keyup', (e)=>{
+    if (charleft.innerText <= 0 && e.code !== 'Backspace' && e.code !== 'Delete') {
+        e.preventDefault();
+        charleft.style.color = 'red';
+    }
+    else
+    {
+        charleft.style.color = 'black';
+        charleft.innerText = 500 - textOrt.innerText.length;
     }
 })
 
