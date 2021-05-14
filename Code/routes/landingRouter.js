@@ -55,7 +55,7 @@ router.route('/support')
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
-                return
+                return res.end();
             }
             var request = new sql.Request(pool);
             request.input('nomSup', nom);
@@ -70,7 +70,6 @@ router.route('/support')
                     return
                 }
 
-                console.log(recordsets);
                 res.statusCode = 201;
                 res.setHeader('Content-Type', 'text/plain');
                 res.end(`Merci ${prenom}! Votre message a bien été transferé.`);

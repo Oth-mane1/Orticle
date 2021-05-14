@@ -10,9 +10,7 @@ router.use((req, res, next) => {
     if (req.session.username) {
         return res.redirect('/app/explore');
     }
-    else {
-        return next();
-    }
+    next();
 })
 
 /* GET the SignIn page */
@@ -60,13 +58,13 @@ router.route('/')
                     if (err) {
                         console.log(err);
                         res.statusCode = 500;
-                        return res.end();                        
+                        return res.end();
                     }
 
                     if (recordsets.recordset.length === 0) {
                         res.statusCode = 404;
                         res.setHeader('Content-Type', 'text/plain');
-                        return res.end('Utilisateur non trouvé');                        
+                        return res.end('Utilisateur non trouvé');
                     }
 
                     req.session.username = user;
