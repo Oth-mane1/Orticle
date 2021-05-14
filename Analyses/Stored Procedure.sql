@@ -108,8 +108,8 @@ AS
 	WHERE Orticle.IdOrt = @id
 GO
 
-CREATE PROCEDURE createOrticle 
-@IdCat int,@IdUtl int, @sourceOrt NVARCHAR(255), @titreOrt NVARCHAR(255), @dateOrt Date, @nbLike int
+CREATE PROCEDURE dbo.createOrticle 
+@IdCat int, @IdUtl int, @sourceOrt nvarchar(255), @titreOrt nvarchar(255), @nbLike int
 AS
 	INSERT INTO Orticle
 	VALUES(
@@ -117,8 +117,9 @@ AS
 			@IdUtl,
 			@sourceOrt,
 			@titreOrt,
-			@dateOrt
-	)
+			GETDATE(),
+			0
+		)
 GO
 
 CREATE PROCEDURE deleteOrticle @id INT
