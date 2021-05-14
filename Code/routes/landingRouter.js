@@ -1,6 +1,7 @@
 const express = require('express');
 const signInRouter = require('./signInRouter');
 const signUpRouter = require('./signUpRouter');
+const logOutRouter = require('./logoutRouter');
 const path = require('path');
 const sql = require('mssql');
 const dbConfig = require('../dbConfig');
@@ -37,11 +38,8 @@ router.get('/conditions', (req, res, next) => {
 
 /* GET the support page */
 router.route('/support')
-    .all((req, res, next) => {
-        res.statusCode = 200;
-        next();
-    })
     .get((req, res, next) => {
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
         res.sendFile(path.resolve('public', 'support.html'));
     })
@@ -82,5 +80,6 @@ router.route('/support')
 
 router.use('/signUp', signUpRouter);
 router.use('/signIn', signInRouter);
+router.use('/logout', logOutRouter);
 
 module.exports = router;
