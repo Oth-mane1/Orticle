@@ -10,13 +10,25 @@ const landingRouter = require('./routes/landingRouter');
 const appRouter = require('./routes/appRouter');
 
 const app = express();
-app.use(session({
-    name: 'Orticle-Session',
-    secret: 'orticle-secret-sesseion',
-    saveUninitialized: false,
-    resave: false,
-    store: new fileStore({logFn:()=>{}})
-}))
+
+// Debug middleware for render | send
+app.use((req, res, next) => {
+    const render = res.render;
+    const send = res.send;
+    res.render = function renderWrapper(...args) {
+        Error.captureStackTrace(this);
+        return render.apply(this, args);
+    };
+
+    res.send = function sendWrapper(...args) {
+        try {
+            send.apply(this, args);
+        } catch (err) {
+            console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+        }
+    };
+    next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +43,15 @@ app.use(cookieParser());
 app.use('/styles', express.static(path.join(__dirname, 'public', 'styles')));
 app.use('/scripts', express.static(path.join(__dirname, 'public', 'scripts')));
 app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
+
+// Session setup
+app.use(session({
+    name: 'Orticle-Session',
+    secret: 'orticle-secret-sesseion',
+    saveUninitialized: false,
+    resave: false,
+    store: new fileStore({logFn:()=>{}})
+}))
 
 app.use('/', landingRouter);
 app.use('/app', appRouter);
