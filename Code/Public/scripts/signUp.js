@@ -95,7 +95,6 @@ termine.addEventListener('click', () => {
                 cat3: checkedChecks[2].getAttribute('data-id')
             })
         }).then((res) => {
-            console.log(res)
             if (res.status == 201) {
                 swal.fire({
                     title: `C'est terminer ${prenomName}!`,

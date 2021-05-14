@@ -27,7 +27,6 @@ router.route('/:username')
                     return
                 }
 
-                console.log(recordsets);
                 if (recordsets.recordset.length === 0) {
                     res.statusCode = 404;
                     res.setHeader('Content-Type', 'text/plain');
@@ -72,7 +71,6 @@ router.route('/:username')
                     return
                 }
 
-                console.log(recordsets);
                 res.statusCode = 204;
                 res.setHeader('Content-Type', 'text/plain');
                 res.end(`Utilisateur ${username}! a bien été modifier.`);
@@ -129,6 +127,7 @@ router.route('/:username/categories')
                         return
                     }
 
+                    res.statusCode = 200;
                     res.setHeader('Content-Type', 'application/json');
                     res.send(recordsets.recordset)
                     res.end();
