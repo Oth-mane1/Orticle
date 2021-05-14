@@ -43,7 +43,6 @@ router.route('/')
                     return res.end('Le nom d\'utilisateur existe déja');                    
                 }
 
-                console.log(recordsets);
                 res.statusCode = 201;
                 res.setHeader('Content-Type', 'text/plain');
                 res.send(`${recordsets.returnValue}`);
@@ -79,7 +78,6 @@ router.route('/categories')
                     return res.end();                    
                 }
 
-                console.log(recordsets);
                 res.statusCode = 201;
                 res.setHeader('Content-Type', 'text/plain')
                 res.end('U\'utilisateur a bien ajouter ses categories préféré');

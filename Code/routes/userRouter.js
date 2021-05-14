@@ -183,7 +183,6 @@ router.route('/:username/categories')
                         return
                     }
 
-                    console.log(recordsets);
                     res.statusCode = 201;
                     res.setHeader('Content-Type', 'text/plain');
                     res.end(`Utilisateur ${username}! a bien ajouter ses catégories.`);
@@ -238,7 +237,6 @@ router.route('/:username/categories')
                         return
                     }
 
-                    console.log(recordsets);
                     res.statusCode = 201;
                     res.setHeader('Content-Type', 'text/plain');
                     res.end(`Utilisateur ${username}! a bien modifier ses catégories.`);
