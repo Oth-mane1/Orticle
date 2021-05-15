@@ -4,7 +4,8 @@ module.exports = {
   purge: {
     enabled: true,
     content: [
-      'Public/app/*.html'
+      'Public/app/*.html',
+      'views/*.hbs'
     ],
     keyframes: true,
     variables: true
