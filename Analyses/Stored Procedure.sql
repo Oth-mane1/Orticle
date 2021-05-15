@@ -74,6 +74,19 @@ AS
 		THROW 55555, 'le nom d''utilisateur n''existe pas', 2
 GO
 
+CREATE PROCEDURE [dbo].[getUserOrticle]
+    @id INT
+AS
+SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.titreOrt, i.titreIde, i.corpsIde
+FROM Orticle o, categorie c, idee i
+WHERE o.IdUtl = 1 AND o.IdCat = c.idCat AND i.IdOrt = o.IdOrt
+GO
+
+CREATE PROCEDURE [dbo].[getUserArticle] @id INT
+AS
+	SELECT * FROM Article
+	WHERE Article.IdUtl = @id
+GO
 
 -- Article --
 CREATE PROCEDURE getArticle @id INT
