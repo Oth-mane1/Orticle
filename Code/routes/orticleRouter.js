@@ -14,6 +14,76 @@ router.route('/')
         res.sendFile(path.resolve('public', 'app', 'orticle.html'));
     })
 
+/* GET orticle */
+router.route('/:id')
+    .get((req, res, next) => {
+        const idOrt = req.params.id
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return
+            }
+
+            var request = new sql.Request(pool);
+            request.input('id', idOrt);
+            request.execute('getOrticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
+
+                if (!recordsets.recordset[0]) {
+                    res.statusCode = 404;
+                    return res.end(`Orticle ${idOrt} introuvable`)
+                }
+
+                // TODO: Render show orticle page
+                console.log(recordsets)
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(recordsets.recordset);
+            });
+        })
+    })
+    
+/* GET orticle by id */
+router.route('/get/:id')
+    .get((req, res, next) => {
+        const idOrt = req.params.id
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return
+            }
+
+            var request = new sql.Request(pool);
+            request.input('id', idOrt);
+            request.execute('getOrticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
+
+                if (!recordsets.recordset[0]) {
+                    res.statusCode = 404;
+                    return res.end(`Orticle ${idOrt} introuvable`)
+                }
+
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(recordsets.recordset);
+            });
+        })
+    })
+
 /* GET add orticle Page */
 router.route('/add')
     .get((req, res, next) => {
@@ -50,9 +120,9 @@ router.route('/add')
 
                 const table = new sql.Table('idee')
                 table.create = false
-                table.columns.add('IdOrt', sql.Int, {nullable: false})
-                table.columns.add('titreIde', sql.NVarChar(255), {nullable: false})
-                table.columns.add('corpsIde', sql.NVarChar(255), {nullable: false})
+                table.columns.add('IdOrt', sql.Int, { nullable: false })
+                table.columns.add('titreIde', sql.NVarChar(255), { nullable: false })
+                table.columns.add('corpsIde', sql.NVarChar(255), { nullable: false })
                 idees.forEach(element => {
                     table.rows.add(idOrt, element[0], element[1])
                 });
