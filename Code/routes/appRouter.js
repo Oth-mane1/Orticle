@@ -2,6 +2,7 @@ const express = require('express');
 const exploreRouter = require('./exploreRouter');
 const userRouter = require('./userRouter');
 const orticleRouter = require('./orticleRouter');
+const articleRouter = require('./articleRouter');
 const accountRouter = require('./accountRouter');
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.route('/').get((req, res) => {
 
 router.use('/explore', exploreRouter);
 router.use('/orticle', orticleRouter);
+router.use('/article', articleRouter);
 router.use('/user', userRouter);
 router.use('/account', accountRouter);
 
