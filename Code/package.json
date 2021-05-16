@@ -22,6 +22,13 @@
     "session-file-store": "^1.5.0"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express-session": "^1.17.3",
+    "@types/http-errors": "^1.8.0",
+    "@types/morgan": "^1.9.2",
+    "@types/mssql": "^6.0.8",
+    "@types/postlight__mercury-parser": "^2.2.3",
+    "@types/session-file-store": "^1.2.1",
     "autoprefixer": "^10.2.5",
     "cssnano": "^4.1.10",
     "postcss": "^8.2.8",
