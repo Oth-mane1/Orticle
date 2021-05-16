@@ -5,6 +5,78 @@ const dbConfig = require('../dbConfig');
 
 const router = express.Router();
 
+/* GET users Orticle */
+router.route('/orticle')
+    .get((req, res, next) => {
+        const userid = req.session.userid;
+        const pool = new sql.ConnectionPool(dbConfig)
+
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return
+            }
+            var request = new sql.Request(pool);
+            request.input('id', userid);
+            request.execute('getUserOrticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    res.end();
+                    return
+                }
+
+                if (recordsets.recordset.length === 0) {
+                    res.statusCode = 404;
+                    res.setHeader('Content-Type', 'text/plain');
+                    res.end('Orticle non trouvé');
+                    return
+                }
+
+                res.setHeader('Content-Type', 'application/json');
+                res.send(recordsets.recordset)
+                res.end();
+            });
+        })
+    })
+
+/* GET users Orticle */
+router.route('/article')
+    .get((req, res, next) => {
+        const userid = req.session.userid;
+        const pool = new sql.ConnectionPool(dbConfig)
+
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return
+            }
+            var request = new sql.Request(pool);
+            request.input('id', userid);
+            request.execute('getUserArticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    res.end();
+                    return
+                }
+
+                if (recordsets.recordset.length === 0) {
+                    res.statusCode = 404;
+                    res.setHeader('Content-Type', 'text/plain');
+                    res.end('Article non trouvé');
+                    return
+                }
+
+                res.setHeader('Content-Type', 'application/json');
+                res.send(recordsets.recordset)
+                res.end();
+            });
+        })
+    })
+
 /* GET users */
 router.route('/:username')
     .get((req, res, next) => {
@@ -77,6 +149,7 @@ router.route('/:username')
             });
         })
     })
+
 
 /* GET users favorite Category */
 router.route('/:username/categories')
