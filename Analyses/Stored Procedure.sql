@@ -77,9 +77,13 @@ GO
 CREATE PROCEDURE [dbo].[getUserOrticle]
     @id INT
 AS
-SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.titreOrt, i.titreIde, i.corpsIde
-FROM Orticle o, categorie c, idee i
-WHERE o.IdUtl = 1 AND o.IdCat = c.idCat AND i.IdOrt = o.IdOrt
+	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
+	FROM Orticle o, categorie c
+	WHERE o.IdUtl = @id AND o.IdCat = c.idCat
+
+	SELECT i.IdOrt, i.titreIde, i.corpsIde
+	FROM idee i
+	WHERE i.IdOrt IN (SELECT IdOrt FROM Orticle WHERE IdUtl = @id)
 GO
 
 CREATE PROCEDURE [dbo].[getUserArticle] @id INT
@@ -96,7 +100,7 @@ AS
 GO
 
 CREATE PROCEDURE createArticle 
-@IdUtl int, @sourceArt NVARCHAR(255), @titreArt NVARCHAR(255), @dateArt Date, @extraitArt NVARCHAR(255)
+@IdUtl int, @sourceArt NVARCHAR(255), @shortsrcArt NVARCHAR(255), @titreArt NVARCHAR(255), @dateArt Date, @extraitArt NVARCHAR(255)
 AS
 	INSERT INTO Article
 	VALUES(
@@ -104,7 +108,8 @@ AS
 			@sourceArt,
 			@titreArt,
 			@dateArt,
-			@extraitArt
+			@extraitArt,
+			@shortsrcArt
 	)
 GO
 
@@ -115,14 +120,25 @@ AS
 GO
 
 --Orticle--
-CREATE PROCEDURE getOrticle @id INT
+CREATE PROCEDURE getAllOrticle @id INT
 AS
 	SELECT * FROM Orticle
 	WHERE Orticle.IdOrt = @id
 GO
 
+CREATE PROCEDURE getOrticle @id INT
+AS
+	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.idCat, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
+	FROM Orticle o, categorie c
+	WHERE o.IdOrt = @id AND o.IdCat = c.idCat
+
+	SELECT i.titreIde, i.corpsIde
+	FROM idee i
+	WHERE i.IdOrt = @id
+GO
+
 CREATE PROCEDURE dbo.createOrticle 
-@IdCat int, @IdUtl int, @sourceOrt nvarchar(255), @titreOrt nvarchar(255), @nbLike int
+@IdCat int, @IdUtl int, @sourceOrt nvarchar(255), @shortsrcOrt nvarchar(255), @titreOrt nvarchar(255), @nbLike int = 0, @date DATE = GETDATE
 AS
 	INSERT INTO Orticle
 	VALUES(
@@ -130,8 +146,9 @@ AS
 			@IdUtl,
 			@sourceOrt,
 			@titreOrt,
-			GETDATE(),
-			0
+			@date,
+			@nbLike,
+			@sourceOrt
 		)
 GO
 
@@ -139,6 +156,30 @@ CREATE PROCEDURE deleteOrticle @id INT
 AS
 	DELETE FROM Orticle
 	WHERE Orticle.IdOrt = @id
+GO
+
+--Catégorie--
+CREATE PROCEDURE getCategory @id INT, @min INT = 0, @max INT = null
+AS
+	IF (@max is null)
+	BEGIN
+		SET @max = (SELECT COUNT(*) FROM Orticle)
+	END
+	
+	SELECT nomCat
+	FROM categorie
+	WHERE idCat = @id
+
+	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
+	FROM Orticle o
+	JOIN categorie c ON c.idCat = @id
+	WHERE o.IdCat = @id
+	ORDER BY o.dateOrt
+	offset @min rows fetch next @max rows only
+
+	SELECT i.IdOrt, i.titreIde, i.corpsIde
+	FROM idee i
+	WHERE i.IdOrt IN (SELECT IdOrt FROM Orticle WHERE IdCat = @id ORDER BY idOrt offset @min rows fetch next @max rows only)
 GO
 
 --Idée--
