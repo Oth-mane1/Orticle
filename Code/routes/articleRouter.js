@@ -12,30 +12,30 @@ router.route('/')
         // TODO: Render pages with user article
         const userid = req.session.userid;
 
-        const pool = new sql.ConnectionPool(dbConfig)
-        pool.connect(err => {
-            if (err) {
-                console.log(err)
-                res.statusCode = 401;
-                return
-            }
+        // const pool = new sql.ConnectionPool(dbConfig)
+        // pool.connect(err => {
+        //     if (err) {
+        //         console.log(err)
+        //         res.statusCode = 401;
+        //         return
+        //     }
 
-            var request = new sql.Request(pool);
-            request.input('IdUtl', userid);
-            request.input('sourceArt', source);
-            request.input('titreArt', title);
-            request.input('extraitArt', extrait);
-            request.execute('createArticle', (err, recordsets) => {
-                if (err) {
-                    console.log(err);
-                    res.statusCode = 500;
-                    return res.end();
-                }
+        //     var request = new sql.Request(pool);
+        //     request.input('IdUtl', userid);
+        //     request.input('sourceArt', source);
+        //     request.input('titreArt', title);
+        //     request.input('extraitArt', extrait);
+        //     request.execute('createArticle', (err, recordsets) => {
+        //         if (err) {
+        //             console.log(err);
+        //             res.statusCode = 500;
+        //             return res.end();
+        //         }
 
-                res.statusCode = 201;
-                res.end('l\'Article a bien ete creer')
-            });
-        })
+        //         res.statusCode = 201;
+        //         res.end('l\'Article a bien ete creer')
+        //     });
+        // })
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
         res.sendFile(path.resolve('public', 'app', 'article.html'));
@@ -49,7 +49,7 @@ router.route('/add')
         res.sendFile(path.resolve('public', 'app', 'addArticle.html'));
     })
     .post((req, res) => {
-        const { title, source, extrait } = req.body;
+        const { title, source, shortSrc, extrait } = req.body;
         const userid = req.session.userid;
 
         const pool = new sql.ConnectionPool(dbConfig)
@@ -63,6 +63,7 @@ router.route('/add')
             var request = new sql.Request(pool);
             request.input('IdUtl', userid);
             request.input('sourceArt', source);
+            request.input('shortsrcArt', shortSrc);
             request.input('titreArt', title);
             request.input('extraitArt', extrait);
             request.execute('createArticle', (err, recordsets) => {

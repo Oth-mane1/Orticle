@@ -79,7 +79,10 @@ router.route('/get/:id')
 
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
-                res.json(recordsets.recordset);
+                res.json({
+                    orticleInfos:  recordsets.recordsets[0][0],
+                    orticleIdee: recordsets.recordsets[1]
+                });
             });
         })
     })
@@ -92,7 +95,7 @@ router.route('/add')
         res.sendFile(path.resolve('public', 'app', 'addOrticle.html'));
     })
     .post((req, res) => {
-        const { title, source, category, idees } = req.body;
+        const { title, source, shortSrc, category, idees } = req.body;
         const userid = req.session.userid;
 
         const pool = new sql.ConnectionPool(dbConfig)
@@ -107,6 +110,7 @@ router.route('/add')
             request.input('IdCat', category);
             request.input('IdUtl', userid);
             request.input('sourceOrt', source);
+            request.input('shortsrcOrt', shortSrc);
             request.input('titreOrt', title);
             request.execute('createOrticle', (err, recordsets) => {
                 if (err) {
