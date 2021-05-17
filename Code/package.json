@@ -24,6 +24,8 @@
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
     "@types/express-session": "^1.17.3",
+    "@types/handlebars-helpers": "^0.5.2",
+    "@types/hbs": "^4.0.1",
     "@types/http-errors": "^1.8.0",
     "@types/morgan": "^1.9.2",
     "@types/mssql": "^6.0.8",
@@ -31,6 +33,7 @@
     "@types/session-file-store": "^1.2.1",
     "autoprefixer": "^10.2.5",
     "cssnano": "^4.1.10",
+    "handlebars-helpers": "^0.10.0",
     "postcss": "^8.2.8",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.1.1"
