@@ -6,48 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
+    <link rel="stylesheet" href="../styles/animatedBorder.css">
     <title>Orticle 💡 | Orticle•</title>
-    <style>
-        #border1 {
-            height: 400px;
-            width: 50px;
-            background: linear-gradient(90deg, #CCCCCC 50%, transparent 50%),
-                linear-gradient(90deg, rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%),
-                linear-gradient(0deg, rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%),
-                linear-gradient(0deg, #CCCCCC 50%, transparent 50%);
-            background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-            background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
-            background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
-            border-radius: 5px;
-            padding: 10px;
-            animation: dash 20s linear infinite;
-        }
-
-        #border2 {
-            height: 400px;
-            width: 50px;
-            background: linear-gradient(90deg, #CCCCCC 50%, transparent 50%),
-                linear-gradient(90deg,  rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%),
-                linear-gradient(0deg, #CCCCCC 50%, transparent 50%),
-                linear-gradient(0deg,  rgba(249, 250, 251, var(--tw-bg-opacity)) 100%, transparent 100%);
-            background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-            background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
-            background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
-            border-radius: 5px;
-            padding: 10px;
-            animation: dash 20s linear infinite;
-        }
-
-        @keyframes dash {
-            to {
-                background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
-            }
-        }
-    </style>
 </head>
 
 <body class="bg-gray-50">
-    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey" style="z-index: 1;">
+    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey"
+        style="z-index: 1;">
         <a href="search"><img src="../images/app/search.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
         <img src="../images/orticleLogo.svg" class="h-7" alt="Orticle Logo" draggable="false">
@@ -156,14 +121,14 @@
             </div>
         </div>
         <div class="w-full px-3">
-            <a href="/logout"
-                class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
+            <a href="/logout" class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
                 <img src="../images/app/logout.svg" class="h-6 mr-3" alt="log out icon" draggable="false">
                 <label class="text-gray-800 cursor-pointer">Se deconnecter</label>
             </a>
         </div>
     </nav>
-    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey" style="z-index: 1;">
+    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey"
+        style="z-index: 1;">
         <div class="p-1 hover:bg-gray-300 rounded-md">
             <a href="explore" class="flex flex-col items-center justify-center w-8 h-8">
                 <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
@@ -229,10 +194,10 @@
             </p>
         </header>
         <section class="m-5">
-            <div class="flex flex-col mx-6">
-                <div class="flex flex-row h-full mr-6 md:mr-10 lg:mr-60">
+            <div class="flex flex-col justify-start items-center">
+                <div class="w-10/12 bg-oblue rounded-2xl z-50">
                     <article
-                        class="bg-ogrey-light h-full p-4 rounded-xl">
+                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                         <header class="flex justify-between items-start mb-3">
                             <div>
                                 <a href="#">
@@ -274,111 +239,16 @@
                                 idées</p>
                         </section>
                     </article>
-                    <div id="border1" class="mt-72 md:mt-72 lg:mt-52 xl:mt-32 h-full">
-                    </div>
                 </div>
-                <div class="flex flex-row ml-6 md:ml-10 xl:ml-60 md:-mt-32 xl:-mt-40">
-                    <div id="border2" class="mt-80 md:mt-80 lg:mt-40 ">
-                    </div>
-                    <article
-                        class="bg-ogrey-light h-full p-4 rounded-xl">
-                        <header class="flex justify-between items-start mb-3">
-                            <div>
-                                <a href="#">
-                                    <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    </h2>
-                                </a>
-                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
-                                </a>
-
-                            </div>
-                            <div class="min-w-max flex items-start mt-1">
-                                <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
-                        </header>
-                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
-                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                                <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
-                                </p>
-                            </div>
-                            <p
-                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
-                            </p>
-                            <p
-                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
-                        </section>
-                    </article>
+                <div id="anime-border" class="-my-1.5"></div>
+                
+                <div class=" bg-ogrey rounded-xl py-8 px-10">
+                    <a href="orticle/add" class="w-full flex flex-col items-center text-center">
+                        <img src="/images/app/add.svg" alt="Internet Icon" class="w-1/3 md:w-2/5 mb-3">
+                        <h1 class="text-xl font-semibold tracking-wide">Ajouter un orticle</h1>
+                    </a>
                 </div>
             </div>
-            <div class="flex flex-col">
-                <div class="flex flex-row mr-6 md:mr-10 lg:mr-60 md:-mt-32 xl:-mt-40">
-                    <article
-                        class="bg-ogrey-light h-full p-4 rounded-xl">
-                        <header class="flex justify-between items-start mb-3">
-                            <div>
-                                <a href="#">
-                                    <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    </h2>
-                                </a>
-                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
-                                </a>
-
-                            </div>
-                            <div class="min-w-max flex items-start mt-1">
-                                <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
-                        </header>
-                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
-                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                                <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
-                                </p>
-                            </div>
-                            <p
-                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
-                            </p>
-                            <p
-                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
-                        </section>
-                    </article>
-                    <div id="border1" class="mt-52 md:mt-36">
-                    </div>
-                </div>
-                <div class=" bg-ogrey w-3/6 py-6 self-end rounded-xl xl:-mt-40">
-                        <a href="orticle/add" class="w-full flex flex-col items-center text-center">
-                            <img src="../images/app/add.svg" alt="Internet Icon" class="w-1/3 md:w-1/5 mb-3">
-                            <h1 class="text-xl font-semibold tracking-wide">Ajouter un orticle</h1>
-                        </a>
-                </div>
         </section>
     </main>
 </body>
