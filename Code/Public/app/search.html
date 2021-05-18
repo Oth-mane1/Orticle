@@ -119,8 +119,7 @@
             </div>
         </div>
         <div class="w-full px-3">
-            <a href="/logout"
-                class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
+            <a href="/logout" class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
                 <img src="../images/app/logout.svg" class="h-6 mr-3" alt="log out icon" draggable="false">
                 <label class="text-gray-800 cursor-pointer">Se deconnecter</label>
             </a>
@@ -188,15 +187,14 @@
                 🔍 Que cherchez-vous?
             </h1>
             <div class="mt-5 md:mt-10 p-2 bg-ogrey w-full md:w-8/12 relative rounded-3xl shadow-sm">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 sm:text-sm">
-                        <img src="../images/searchVector.svg" alt="searsh icon"
-                            draggable="false" />
-                    </span>
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                    <button class="text-gray-500 sm:text-sm hover:opacity-70">
+                        <img src="../images/searchVector.svg" alt="searsh icon" draggable="false" />
+                    </button>
                 </div>
                 <input type="text" name="titre" id="titre"
-                    class="block w-full pl-10 pr-12 bg-ogrey sm:text-sm border-gray-300 rounded-md font-semibold tracking-wide"
-                    placeholder="Chercher par le titre">
+                    class="block w-full pl-10 pr-24 bg-ogrey border-gray-300 rounded-md tracking-wide"
+                    placeholder="Chercher par un titre, mots ou source de donnée">
                 <div class="absolute inset-y-0 right-0 flex items-center">
                     <select id="type" name="type"
                         class="h-full mr-2 py-0 pl-2 pr-2 md:pr-3 border-transparent bg-transparent text-oblue text-lg rounded-md">
@@ -205,8 +203,7 @@
                     </select>
                 </div>
             </div>
-            <img src="../images/Search.svg" class=" -mt-4 md:mt-0" alt="Compte icon"
-                draggable="false" />
+            <img src="../images/Search.svg" class=" -mt-4 md:mt-0" alt="Compte icon" draggable="false" />
             <p class="text-2xl tracking-wide lg:mx-14">
                 Tout ce qui est bon commence par une
                 bonne question,
