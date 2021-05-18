@@ -54,7 +54,7 @@ app.use(session({
     secret: 'orticle-secret-sesseion',
     saveUninitialized: false,
     resave: false,
-    store: new fileStore({logFn:()=>{}})
+    store: new fileStore({ logFn: () => { } })
 }))
 
 app.use('/', landingRouter);

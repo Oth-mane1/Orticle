@@ -17,7 +17,7 @@ router.use((req, res, next) => {
     next()
 })
 
-// Set-up explore as the root of the app
+// Set explore as the root of the app
 router.route('/').get((req, res) => {
     res.redirect('/app/explore');
 })
