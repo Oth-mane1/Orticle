@@ -207,11 +207,11 @@
                 </div>
             </diV>
         </section>
-        <section class="pt-6 px-10 mt-6 md:mt-0 md:px-10 lg:py-10 xl:px-40 w-full">
+        <section class="pt-6 px-8 mt-6 md:mt-0 lg:py-10 xl:px-32 w-full">
             <h2 class="text-xl md:text-2xl font-semibold tracking-wide text-left mb-3">ℹ️ Informations personnelles :
             </h2>
-            <div
-                class="flex flex-col content-center md:text-right p-6 bg-owhite border-oblue border-solid border-2 rounded-lg">
+            <form id="userInfos" data-id="{{user.IdUtl}}"
+                class="flex flex-col items-center md:text-right p-6 bg-owhite border-oblue border-solid border-2 rounded-lg">
                 <div class="flex flex-wrap w-full lg:grid md:grid-cols-4 md:gap-2 py-6">
                     <label for="nom" class="xl:text-lg col-end-2">Nom :</label>
                     <input type="text" id="nom" value="{{user.nom}}"
@@ -237,15 +237,20 @@
                     <input type="text" id="mdp" value="{{user.mdp}}"
                         class="block w-full col-span-2 md:ml-14 mt-2 md:mt-0 text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md" />
                 </div>
-                <button id="modifierInfo"
-                    class="bg-oblue md:max-w-max text-lg self-center active:bg-gray-600 hover:opacity-80 transition duration-200 text-white py-1 px-10 rounded-full">
+                <div class="flex flex-wrap w-full lg:grid lg:grid-cols-4 lg:gap-2 py-6">
+                    <label for="mdp" class="xl:text-lg col-end-2">Confirmer :</label>
+                    <input type="password" id="cfrmdp" value=""
+                        class="block w-full col-span-2 md:ml-14 mt-2 md:mt-0 text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md" />
+                </div>
+                <button id="modifierInfo" type="button"
+                    class="mt-6 w-32 h-10 text-lg bg-oblue active:bg-gray-600 hover:opacity-90 transition duration-200 text-white py-1.5 px-6 rounded-full">
                     Modifier
                 </button>
-            </div>
+            </form>
         </section>
-        <section class="pt-6 px-10 xl:px-40 w-full">
+        <section class="pt-6 px-8 xl:px-32 w-full">
             <h2 class="text-xl md:text-2xl font-semibold mb-3">🔣 Catégories :</h2>
-            <div class=" border-oblue border-solid border-2 rounded-lg p-6">
+            <div id="categories" class="border-oblue border-solid border-2 rounded-lg p-6" hidden>
                 <div class="grid gap-5 grid-cols-1 md:grid-cols-3">
                     <label class="bg-oblue rounded-2xl" for="computer">
                         <input type="checkbox" class="favCategory" data-id="1" value="computer" id="computer">
@@ -357,14 +362,25 @@
                     </label>
                 </div>
                 <diV class="flex flex-col items-center pt-6">
-                    <button id="modifierCat"
-                        class="bg-oblue md:max-w-max text-lg self-center active:bg-gray-600 hover:opacity-80 transition duration-200 text-white py-1 px-10 rounded-full">
+                    <button id="modifierCat" type="button"
+                        class="mt-6 w-32 h-10 text-lg bg-oblue active:bg-gray-600 hover:opacity-90 transition duration-200 text-white py-1.5 px-6 rounded-full">
                         Modifier
                     </button>
                 </diV>
             </div>
+            <div id="loader" class="h-48 border-oblue border-solid border-2 rounded-lg p-6">
+                <svg class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    style="width: 100%; height:100%; margin: auto; background: none; display: block; shape-rendering: auto;"
+                    viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                    <circle cx="50" cy="50" fill="none" stroke="#397BA7" stroke-width="10" r="32"
+                        stroke-dasharray="150.79644737231007 52.26548245743669">
+                        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
+                            dur="1.8518518518518516s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+                    </circle>
+                </svg>
+            </div>
         </section>
-        <section class="pt-6 px-10 md:px-20 lg:py-10 xl:px-80 w-full">
+        <section class="pt-6 px-8 md:px-20 lg:py-10 xl:px-32 w-full">
             <h2 class="text-xl md:text-2xl font-semibold mb-3">⚠️ Suppression du compte :</h2>
             <div style="border-color: rgb(204, 6, 6);"
                 class="flex flex-col border-solid items-center text-center border-2 rounded-lg p-6">
