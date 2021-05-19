@@ -117,37 +117,90 @@ router.route('/:username')
         var userId = req.body.userId;
         var nom = req.body.nom;
         var prenom = req.body.prenom;
+        var user = req.body.user;
         var mail = req.body.mail;
         var mdp = req.body.mdp;
 
-        const pool = new sql.ConnectionPool(dbConfig)
+        // Check that the user who want to delete his account is the one who is connected
+        if (username == user) {
+            const pool = new sql.ConnectionPool(dbConfig)
 
-        pool.connect(err => {
-            if (err) {
-                console.log(err)
-                res.statusCode = 401;
-                return
-            }
-            var request = new sql.Request(pool);
-            request.input('usrID', userId);
-            request.input('nom', nom);
-            request.input('prenom', prenom);
-            request.input('usrname', username);
-            request.input('mail', mail);
-            request.input('mdp', mdp);
-            request.execute('updateUser', (err, recordsets) => {
+            pool.connect(err => {
                 if (err) {
-                    console.log(err);
-                    res.statusCode = 500;
-                    res.end();
+                    console.log(err)
+                    res.statusCode = 401;
                     return
                 }
+                var request = new sql.Request(pool);
+                request.input('usrID', userId);
+                request.input('nom', nom);
+                request.input('prenom', prenom);
+                request.input('usrname', user);
+                request.input('mail', mail);
+                request.input('mdp', mdp);
+                request.execute('updateUser', (err, recordsets) => {
+                    if (err) {
+                        console.log(err);
+                        res.statusCode = 500;
+                        res.end();
+                        return
+                    }
 
-                res.statusCode = 204;
-                res.setHeader('Content-Type', 'text/plain');
-                res.end(`Utilisateur ${username}! a bien été modifier.`);
-            });
-        })
+                    if (recordsets.returnValue == -1) {
+                        res.statusCode = 409;
+                        return res.end('Le nom d\'utilisateur existe déja');
+                    }
+
+                    req.session.username = user
+                    req.session.userlastn = prenom
+
+                    res.statusCode = 204;
+                    res.setHeader('Content-Type', 'text/plain');
+                    res.end(`Utilisateur ${username}! a bien été modifier.`);
+                });
+            })
+        } else {
+            res.statusCode = 401;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end(`vous n'avez pas l'autorisation de modifier l'utilisateur ${username}!`);
+        }
+    })
+    .delete((req, res, next) => {
+        const parUsername = req.params.username;
+        const sesUsername = req.session.username;
+        const userid = req.session.userid;
+
+        // Check that the user who want to delete his account is the one who is connected
+        if (parUsername == sesUsername) {
+            const pool = new sql.ConnectionPool(dbConfig)
+
+            pool.connect(err => {
+                if (err) {
+                    console.log(err)
+                    res.statusCode = 401;
+                    return
+                }
+                var request = new sql.Request(pool);
+                request.input('id', userid);
+                request.execute('deleteUser', (err, recordsets) => {
+                    if (err) {
+                        console.log(err);
+                        res.statusCode = 500;
+                        res.end();
+                        return
+                    }
+
+                    req.session.destroy();
+                    res.statusCode = 204;
+                    res.setHeader('Content-Type', 'text/plain');
+                    res.end(`L'utilisateur ${sesUsername} a bien été supprimer!`);
+                });
+            })
+        } else {
+            res.statusCode = 401;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end(`vous n'avez pas l'autorisation de supprimer l'utilisateur ${username}!`);
+        }
     })
 
 
@@ -215,7 +268,7 @@ router.route('/:username/categories')
         var cat1 = req.body.cat1;
         var cat2 = req.body.cat2;
         var cat3 = req.body.cat3;
-        
+
         const pool = new sql.ConnectionPool(dbConfig)
 
         pool.connect(err => {
@@ -266,6 +319,7 @@ router.route('/:username/categories')
     })
     .put((req, res, next) => {
         var username = req.params.username;
+        var userId = req.body.userId;
         var cat1 = req.body.cat1;
         var cat2 = req.body.cat2;
         var cat3 = req.body.cat3;
@@ -279,9 +333,12 @@ router.route('/:username/categories')
                 return
             }
 
-            var requestId = new sql.Request(pool);
-            requestId.input('username', username);
-            requestId.execute('getUserInfos', (err, recordsets) => {
+            var request = new sql.Request(pool);
+            request.input('userId', userId);
+            request.input('cat1', cat1);
+            request.input('cat2', cat2);
+            request.input('cat3', cat3);
+            request.execute('updateUserFav', (err, recordsets) => {
                 if (err) {
                     console.log(err);
                     res.statusCode = 500;
@@ -289,33 +346,10 @@ router.route('/:username/categories')
                     return
                 }
 
-                if (recordsets.recordset.length === 0) {
-                    res.statusCode = 404;
-                    res.setHeader('Content-Type', 'text/plain');
-                    res.end('Utilisateur non trouvé');
-                    return
-                }
-
-                var userID = recordsets.recordset[0].IdUtl
-                var request = new sql.Request(pool);
-                request.input('userId', userID);
-                request.input('cat1', cat1);
-                request.input('cat2', cat2);
-                request.input('cat3', cat3);
-                request.execute('updateUserFav', (err, recordsets) => {
-                    if (err) {
-                        console.log(err);
-                        res.statusCode = 500;
-                        res.end();
-                        return
-                    }
-
-                    res.statusCode = 201;
-                    res.setHeader('Content-Type', 'text/plain');
-                    res.end(`Utilisateur ${username}! a bien modifier ses catégories.`);
-                });
+                res.statusCode = 201;
+                res.setHeader('Content-Type', 'text/plain');
+                res.end(`Utilisateur ${username}! a bien modifier ses catégories.`);
             });
-
         })
     })
 
