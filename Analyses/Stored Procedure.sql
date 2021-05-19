@@ -26,18 +26,30 @@ GO
 CREATE PROCEDURE updateUser
 @usrID INT, @nom NVARCHAR(255), @prenom NVARCHAR(255), @usrname NVARCHAR(255), @mail NVARCHAR(255), @mdp NVARCHAR(255)
 AS
-	IF(dbo.checkUser(@usrname) = 0)
+	IF (@usrname = (SELECT usernUtl FROM Utilisateur WHERE IdUtl = @usrID))
 	BEGIN
 		UPDATE Utilisateur 
 		SET nomUtl = @nom,
 			prenomUtl = @prenom,
-			usernUtl = @usrname,
 			emailUtl = @mail,
 			mdpUtl = @mdp
 		WHERE IdUtl = @usrID
 	END
 	ELSE
-		THROW 55555, 'le nom d''utilisateur existe déja', 0
+	BEGIN
+		IF(dbo.checkUser(@usrname) = 0)
+		BEGIN
+			UPDATE Utilisateur 
+			SET nomUtl = @nom,
+				prenomUtl = @prenom,
+				usernUtl = @usrname,
+				emailUtl = @mail,
+				mdpUtl = @mdp
+			WHERE IdUtl = @usrID
+		END
+		ELSE
+			return -1
+	END
 GO
 
 CREATE PROCEDURE deleteUser @id INT
