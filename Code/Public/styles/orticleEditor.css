@@ -1,0 +1,26 @@
+.delete:hover path {
+    fill: rgb(196, 34, 34);
+}
+
+#textOrt:empty:not(:focus)::before {
+    content: attr(aria-placeholder);
+    color: #969595;
+}
+
+#textOrt {
+    min-height: 150px;
+}
+
+#resetOrt:hover path {
+    fill: red;
+}
+
+#newIdea ul, .orticle ul {
+    list-style: disc !important;
+    margin-left: 15px !important;
+}
+
+#newIdea ol, .orticle ol {
+    list-style: decimal !important;
+    margin-left: 15px !important;
+}
