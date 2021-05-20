@@ -1,0 +1,84 @@
+{{#if isOrticle}}
+{{#if results}}
+<p class="text-left"><b>{{ count }} </b>résultats pour <b>« {{ text }} »</b></p>
+{{#each results }}
+<!-- Orticle -->
+<div class="bg-oblue rounded-2xl my-5">
+    <article class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:-translate-y-2"
+        data-id="{{ this.IdOrt }}">
+        <header class="flex flex-col md:flex-row justify-between items-center md:items-start mb-3">
+            <div>
+                <a href="/app/orticle/{{ this.IdOrt }}">
+                    <h2 class="font-semibold text-2xl text-center md:text-left">
+                        {{this.titreOrt}}
+                    </h2>
+                </a>
+            </div>
+            <div class="min-w-max flex items-start mt-1">
+                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                    href="http://{{ this.sourceOrt }}" target="_blank">
+                    <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
+                </a>
+            </div>
+        </header>
+    </article>
+</div>
+{{/each}}
+{{else}}
+<div class="flex items-center flex-col w-full">
+    <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+        Ooops!
+    </h1>
+    <p style="letter-spacing: 0.1rem" class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+        Aucune resultats pour « {{ text }} »
+    </p>
+    <img src="/images/app/empty.svg" class="md:w-6/12" alt="empty Orticle" draggable="false">
+</div>
+{{/if}}
+
+{{else}}
+{{#if results}}
+<p class="text-left"><b>{{ count }} </b>résultats pour <b>« {{ text }} »</b></p>
+{{#each results }}
+<!-- Article -->
+<div class="bg-oblue rounded-2xl my-5">
+    <article class="bg-ogrey-light p-4 h-full rounded-xl z-50 transition-transform transform hover:-translate-y-2"
+        data-id="{{ this.IdArticle }}">
+        <header class="flex flex-col md:flex-row justify-between items-center md:items-start mb-3">
+            <div>
+                <h2 class="font-semibold text-2xl truncate">
+                    {{ this.titreUtl }}
+                </h2>
+            </div>
+            <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                href="http://{{ this.sourceUtl }}" target="_blank">
+                <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
+            </a>
+        </header>
+        <section class="flex flex-col justify-between items-center">
+            <p class="mb-5 text-lg">
+                {{ this.extraitArt }}
+            </p>
+            <a href="http://{{ this.sourceUtl }}" target="_blank"
+                class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
+                <img src="/images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
+                <span class="ml-2">Lire la suite</span>
+            </a>
+        </section>
+    </article>
+</div>
+{{/each}}
+{{else}}
+<div class="flex items-center flex-col w-full">
+    <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+        Ooops!
+    </h1>
+    <p style="letter-spacing: 0.1rem" class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+        Aucune resultats pour « {{ text }} »
+    </p>
+    <img src="/images/app/empty.svg" class="md:w-6/12" alt="empty Orticle" draggable="false">
+</div>
+{{/if}}
+{{/if}}
