@@ -88,9 +88,6 @@ router.route('/add')
                     return res.end();
                 }
                 const idOrt = recordsets.returnValue;
-                console.log(idOrt)
-                console.log(idees)
-
                 const table = new sql.Table('idee')
                 table.create = false
                 table.columns.add('IdOrt', sql.Int, { nullable: false })
@@ -109,7 +106,8 @@ router.route('/add')
                     }
 
                     res.statusCode = 201;
-                    res.end(`Idees bien cree pour l'orticle ${idOrt}`);
+                    res.setHeader('Content-Type', 'text/plain');
+                    res.end(`Idées ont bien été creé pour l'orticle ${idOrt}`);
                 });
             });
         })
