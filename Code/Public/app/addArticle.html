@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/styles/orticleStyle.css">
+    <script src="/scripts/addArticle.js" defer></script>
+    <script src="/scripts/sweetAlert.js" defer></script>
     <title>Ajouter un Article 📝 | Orticle•</title>
 </head>
 
@@ -17,7 +19,8 @@
         <a href="/app/account"><img src="/images/app/account.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
     </nav>
-    <nav class="hidden md:flex flex-col justify-between items-center py-3 md:fixed top-0 rounded-r-2xl left-0 w-64 h-screen bg-ogrey">
+    <nav
+        class="hidden md:flex flex-col justify-between items-center py-3 md:fixed top-0 rounded-r-2xl left-0 w-64 h-screen bg-ogrey">
         <div class="w-full flex flex-col justify-center items-center">
             <a href="/app" class="mb-10">
                 <img src="/images/orticleLogo.svg" class="h-8" alt="Orticle Logo" draggable="false">
@@ -118,8 +121,7 @@
             </div>
         </div>
         <div class="w-full px-3">
-            <a href="/logout"
-                class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
+            <a href="/logout" class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
                 <img src="/images/app/logout.svg" class="h-6 mr-3" alt="log out icon" draggable="false">
                 <label class="text-gray-800 cursor-pointer">Se deconnecter</label>
             </a>
@@ -191,37 +193,43 @@
             <div class="flex flex-col md:flex-row w-8/12 justify-center items-center mt-10">
                 <div class="w-full">
                     <label for="source" class="block font-semibold text-xl text-oblack mb-2">🌐 Source :</label>
-                    <input type="text"
-                        class="w-full text-lg text-oblack p-1 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
+                    <input type="url"
+                        class="w-full text-lg text-oblack p-1.5 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
                         id="source" placeholder="Entrer la source d'article">
                 </div>
-                <button
-                    class="mt-6 bg-oblue md:max-w-max text-base self-center active:bg-gray-600 hover:opacity-80 ml-5 transition duration-200 text-white py-1.5 px-10 rounded-full">
+                <button id="apporter"
+                    class="mt-8 h-10 bg-oblue text-base active:bg-gray-600 hover:opacity-80 ml-5 transition duration-200 text-white py-1.5 px-10 rounded-full">
                     Apporter
                 </button>
             </div>
-
-            <div class="flex flex-col w-full mt-8 md:mt-10">
-                <label for="titre" class="block font-semibold text-2xl text-oblack mb-2">✨ Titre :</label>
-                <input type="text"
-                    class="w-full text-xl text-oblack p-2 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
-                    id="titre" placeholder="Entrer le titre d'article">
+            <div class="w-full" id="content" hidden>
+                <div class="flex flex-col w-full mt-8 md:mt-10">
+                    <label for="titre" class="block font-semibold text-2xl text-oblack mb-2">✨ Titre :</label>
+                    <input type="text"
+                        class="w-full text-xl text-oblack p-2 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
+                        id="titreArt" placeholder="Entrer le titre d'article">
+                </div>
+                <div class="flex flex-col w-full mt-8">
+                    <label for="textOrt" class="block font-semibold text-2xl text-oblack mb-2">📝 Article :</label>
+                    <textarea class="w-full p-2 mb-4 bg-ogrey-light rounded-md ring-offset-1 focus:ring-2 outline-none"
+                        id="textArt" cols="30" rows="10" maxlength="503" placeholder="Article..." readonly></textarea>
+                </div>
+                <div class="flex w-full justify-center mt-10 mb-20">
+                    <button id="partager"
+                        class="bg-oblue h-10 text-base self-center active:bg-gray-600 hover:opacity-80 ml-5 transition duration-200 text-white py-1.5 px-10 rounded-full">
+                        Partager
+                    </button>
+                    <button onclick="window.history.back()"
+                        class="md:max-w-max text-base border-oblue border-2 self-center active:bg-oblue active:text-white hover:opacity-80 ml-5 transition duration-200 text-oblue py-1.5 px-10 rounded-full">
+                        Annuler
+                    </button>
+                </div>
             </div>
-
-            <div class="flex flex-col w-full mt-8">
-                <label for="textOrt" class="block font-semibold text-2xl text-oblack mb-2">📝 Article :</label>
-                <textarea class="w-full p-1 mb-4 bg-ogrey-light rounded-md outline-none"
-                            id="textOrt" cols="30" rows="10" placeholder="Orticle..."></textarea>
-            </div>
-            <div class="flex w-full justify-center mt-10 mb-20">
-                <button
-                    class="bg-oblue md:max-w-max text-base self-center active:bg-gray-600 hover:opacity-80 ml-5 transition duration-200 text-white py-1.5 px-10 rounded-full">
-                    Partager
-                </button>
-                <button
-                    class="md:max-w-max text-base border-oblue border-2 self-center active:bg-gray-600 hover:opacity-80 ml-5 transition duration-200 text-oblue py-1.5 px-10 rounded-full">
-                    Annuler
-                </button>
+            <div class="flex items-center flex-col w-full" id="wlc">
+                <img src="/images/Notes.svg" alt="Note Orticle" draggable="false">
+                <h1 style="letter-spacing: 0.1rem" class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+                    Entrez votre source de données et nous nous en occupons du reste                   
+                </h1>
             </div>
         </section>
     </main>
