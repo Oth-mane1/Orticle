@@ -1,37 +1,45 @@
-const orticle = document.getElementById('orticleContent');
-const idee = document.getElementById('idee');
-const title = document.getElementById('titleOrt');
+// Main orticle attributs
+const orticleContent = document.getElementById('orticleContent');
+const title = document.getElementById('titre');
+const source = document.getElementById('source');
+const category = document.getElementById("category")
+
+// Orticle ideas
+const newIdea = document.getElementById('newIdea');
+const titleIdee = document.getElementById('titleOrt');
 const textOrt = document.getElementById('textOrt');
 const reset = document.getElementById('resetOrt');
-const add = document.getElementById('addOrt');
 const charleft = document.getElementById('charLeft');
+
+
+// Buttons
+const add = document.getElementById('addOrt');
+const partage = document.getElementById('parteger');
 
 
 // Reset orticle text
 reset.addEventListener('click', function (e) {
-    title.value = '';
+    titleIdee.value = '';
     textOrt.innerHTML = '';
 })
 
 // Count the input char
-textOrt.addEventListener('keydown', (e)=>{
+textOrt.addEventListener('keydown', (e) => {
     if (charleft.innerText <= 0 && e.code !== 'Backspace' && e.code !== 'Delete') {
         e.preventDefault();
         charleft.style.color = 'red';
     }
-    else
-    {
+    else {
         charleft.style.color = 'black';
         charleft.innerText = 500 - textOrt.innerText.length;
     }
 })
-textOrt.addEventListener('keyup', (e)=>{
+textOrt.addEventListener('keyup', (e) => {
     if (charleft.innerText <= 0 && e.code !== 'Backspace' && e.code !== 'Delete') {
         e.preventDefault();
         charleft.style.color = 'red';
     }
-    else
-    {
+    else {
         charleft.style.color = 'black';
         charleft.innerText = 500 - textOrt.innerText.length;
     }
@@ -39,13 +47,17 @@ textOrt.addEventListener('keyup', (e)=>{
 
 // Add new orticle
 add.addEventListener('click', function (e) {
+    if (!titleIdee.value || !textOrt.innerText) {
+        return swal.fire("Attention", "Veuillez Remplir tous les champs!", "warning")
+    }
+
     var div = document.createElement('div');
     div.classList.add('orticle', 'flex', 'flex-col', 'justify-between', 'bg-oblue', 'p-4', 'rounded-xl', 'overflow-hidden');
     var content = `
         <div>
             <textarea cols="20" rows="2" placeholder="Titre..."
                 class="title w-full overflow-hidden border-white border-dashed border-2 border-opacity-0 focus:border-opacity-100 
-                hover:border-opacity-100 transition duration-500 text-gray-50 bg-transparent text-xl font-semibold p-1.5 outline-none">${title.value}
+                hover:border-opacity-100 transition duration-500 text-gray-50 bg-transparent text-xl font-semibold p-1.5 outline-none">${titleIdee.value}
             </textarea>
             <div cols="20" rows="5" placeholder="Orticle..." contenteditable="true"
                 class="idea w-full overflow-hidden border-black border-dashed border-2 border-opacity-0 focus:border-opacity-100 
@@ -64,11 +76,11 @@ add.addEventListener('click', function (e) {
         </div>
         `
     div.innerHTML = content;
-    orticle.insertBefore(div, idee);
+    orticleContent.insertBefore(div, newIdea);
 
     // Remove an orticle
     const dlt = document.querySelectorAll('.delete');
-    
+
     dlt.forEach(element => {
         element.addEventListener('click', function (e) {
             e.currentTarget.parentElement.parentElement.remove();
@@ -76,6 +88,64 @@ add.addEventListener('click', function (e) {
     });
 
     // Clear the content
-    title.value = '';
+    titleIdee.value = '';
     textOrt.innerHTML = '';
+})
+
+// Add new orticle
+partage.addEventListener('click', (e) => {
+    if (!title.value || !source.value) {
+        swal.fire("Attention", "Veuillez Remplir tous les champs!", "warning")
+    }
+    else {
+        if (--orticleContent.childElementCount < 3) {
+            return swal.fire("Attention", "Vous devez ajouter au moins 3 idées", "info")
+        }
+
+        if (!source.checkValidity()) {
+            return swal.fire("Attention", "Veuillez assurer que vous avez entré un source de donnée valide", "warning")
+        }
+
+        // Inserted ideas
+        const ideas = document.querySelectorAll('.idea');
+        const titleIdeas = document.querySelectorAll('.title');
+        var ideasArr = []
+        for (let i = 0; i < --orticleContent.childElementCount; i++) {
+            ideasArr.push([titleIdeas[i].innerHTML.trim(), ideas[i].innerHTML.trim()])
+        }
+
+        var shortSource = new URL(source.value);
+        partage.disabled = true
+        partage.innerHTML = '<img src="/images/RollingLoader.svg" alt="Waiting icon" draggable="false" style="width: 100%; height: 100%;">'
+        fetch(`http://localhost:5000/app/orticle/add`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: title.value,
+                source: source.value,
+                shortSrc: shortSource.hostname,
+                category: category.options[category.selectedIndex].getAttribute('data-id'),
+                idees: ideasArr
+            })
+        }).then((res) => {
+            if (res.status == 201) {
+                swal.fire({
+                    title: `Merci pour votre contribution!`,
+                    text: `Votre orticle a bien été ajouté`,
+                    icon: 'success'
+                }).then(() => {
+                    window.location.href = 'http://localhost:5000/app/orticle'
+                })
+            } else {
+                swal.fire("Avertissement", "Une erreur s'est produit veuillez réessayer plus tard", "warning")
+            }
+        }).catch((error) => {
+            swal.fire("Erreur", "Une erreur s'est produit au niveau du serveur veuillez réessayer plus tard", "error")
+        }).finally(() => {
+            partage.disabled = false
+            partage.innerHTML = 'Partager'
+        })
+    }
 })
