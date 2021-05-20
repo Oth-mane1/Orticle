@@ -31,7 +31,7 @@ router.route('/')
                 const userArticle = {
                     article: recordsets.recordset
                 }
-                
+
                 res.statusCode = 200;
                 res.render('article', { userArticle });
             });
@@ -78,11 +78,18 @@ router.route('/add')
 
 /* GET article Content */
 router.route('/getContent')
-    .get((req, res, next) => {
+    .post((req, res, next) => {
         const { link } = req.body;
         Mercury.parse(link, { contentType: 'text' }).then((result) => {
             res.statusCode = 200;
-            res.json({ title: result.title, content: result.content })
+            res.json(JSON.stringify(
+                {
+                    title: result.title,
+                    content: result.content,
+                    url: result.url,
+                    domain: result.domain
+                }
+            ))
         })
     })
 
