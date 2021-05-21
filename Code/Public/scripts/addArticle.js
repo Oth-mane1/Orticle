@@ -70,7 +70,7 @@ partage.addEventListener('click', (e) => {
                 title: window.result.title,
                 source: window.result.url,
                 shortSrc: window.result.domain,
-                extrait: window.result.content.substring(0, 500) + '...'
+                extrait: window.result.content.substring(0, 997) + '...'
             })
         }).then((res) => {
             if (res.status == 201) {
