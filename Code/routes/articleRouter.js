@@ -9,36 +9,33 @@ const router = express.Router();
 /* GET article Page */
 router.route('/')
     .get((req, res, next) => {
-        // TODO: Render pages with user article
         const userid = req.session.userid;
 
-        // const pool = new sql.ConnectionPool(dbConfig)
-        // pool.connect(err => {
-        //     if (err) {
-        //         console.log(err)
-        //         res.statusCode = 401;
-        //         return
-        //     }
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return
+            }
 
-        //     var request = new sql.Request(pool);
-        //     request.input('IdUtl', userid);
-        //     request.input('sourceArt', source);
-        //     request.input('titreArt', title);
-        //     request.input('extraitArt', extrait);
-        //     request.execute('createArticle', (err, recordsets) => {
-        //         if (err) {
-        //             console.log(err);
-        //             res.statusCode = 500;
-        //             return res.end();
-        //         }
+            var request = new sql.Request(pool);
+            request.input('id', userid);
+            request.execute('getUserArticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
 
-        //         res.statusCode = 201;
-        //         res.end('l\'Article a bien ete creer')
-        //     });
-        // })
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/html');
-        res.sendFile(path.resolve('public', 'app', 'article.html'));
+                const userArticle = {
+                    article: recordsets.recordset
+                }
+
+                res.statusCode = 200;
+                res.render('article', { userArticle });
+            });
+        })
     })
 
 /* GET add article Page */
@@ -81,11 +78,18 @@ router.route('/add')
 
 /* GET article Content */
 router.route('/getContent')
-    .get((req, res, next) => {
+    .post((req, res, next) => {
         const { link } = req.body;
         Mercury.parse(link, { contentType: 'text' }).then((result) => {
             res.statusCode = 200;
-            res.json({ title: result.title, content: result.content })
+            res.json(JSON.stringify(
+                {
+                    title: result.title,
+                    content: result.content,
+                    url: result.url,
+                    domain: result.domain
+                }
+            ))
         })
     })
 

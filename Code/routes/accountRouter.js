@@ -37,6 +37,7 @@ router.route('/')
                     return
                 }
                 userInfos = {
+                    IdUtl: recordsets.recordset[0].IdUtl,
                     nom: recordsets.recordset[0].nomUtl,
                     prenom: recordsets.recordset[0].prenomUtl,
                     username: recordsets.recordset[0].usernUtl,

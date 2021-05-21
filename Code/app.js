@@ -5,8 +5,7 @@ const fileStore = require('session-file-store')(session);
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const hbs = require('hbs');
-const helpers = require('handlebars-helpers');
-const math = helpers.math();
+const helpers = require('handlebars-helpers')(['math', 'comparison']);
 const logger = require('morgan');
 
 const landingRouter = require('./routes/landingRouter');
@@ -37,7 +36,7 @@ app.use((req, res, next) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-hbs.registerHelper(math)
+hbs.registerHelper(helpers)
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -55,7 +54,7 @@ app.use(session({
     secret: 'orticle-secret-sesseion',
     saveUninitialized: false,
     resave: false,
-    store: new fileStore({logFn:()=>{}})
+    store: new fileStore({ logFn: () => { } })
 }))
 
 app.use('/', landingRouter);
@@ -67,14 +66,14 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use(async (err, req, res, next) => {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    return await res.render('error');
 });
 
 module.exports = app;

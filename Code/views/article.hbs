@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
     <link rel="stylesheet" href="../styles/animatedBorder.css">
-    <title>Orticle 💡 | Orticle•</title>
+    <title>Article 💡 | Orticle•</title>
 </head>
 
 <body class="bg-gray-50">
@@ -44,7 +44,7 @@
 
                     <li>
                         <a href="orticle"
-                            class="active-side flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
                             <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -58,7 +58,7 @@
 
                     <li>
                         <a href="article"
-                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            class="active-side flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
                             <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -141,7 +141,7 @@
             </a>
         </div>
         <div class="p-1 hover:bg-gray-300 rounded-md">
-            <a href="orticle" class="active flex flex-col items-center justify-center w-8 h-8">
+            <a href="orticle" class="flex flex-col items-center justify-center w-8 h-8">
                 <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -153,7 +153,7 @@
             </a>
         </div>
         <div class="p-1 hover:bg-gray-300 rounded-md">
-            <a href="article" class="flex flex-col items-center justify-center w-8 h-8">
+            <a href="article" class="active flex flex-col items-center justify-center w-8 h-8">
                 <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -186,69 +186,78 @@
     <main class="pb-16 md:pb-6 md:ml-64 md:my-0 h-full mt-12 md:mt-0 pt-2 md:pt-0">
         <header class="flex flex-col items-center mx-5 mt-5 mb-10">
             <div class="flex justify-center">
-                <img src="../images/app/ideas.svg" alt="Catégorie icon" draggable="false">
-                <h1 class="font-bold text-4xl text-oblue ml-3">Orticle</h1>
+                <img src="../images/app/article.svg" alt="Catégorie icon" draggable="false">
+                <h1 class="font-bold text-4xl text-oblue ml-3">Article</h1>
             </div>
             <p class="font-semibold text-xl text-center">
-                ✨ Explorer les orticle que vous avez créez et ajouter des autre.
+                ✨ Explorer les article que vous avez créez et ajouter des autre.
             </p>
         </header>
         <section class="m-5">
             <div class="flex flex-col justify-start items-center">
-                <div class="w-10/12 bg-oblue rounded-2xl z-50">
-                    <article
-                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <header class="flex justify-between items-start mb-3">
-                            <div>
-                                <a href="#">
-                                    <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    </h2>
-                                </a>
-                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
-                                </a>
-
-                            </div>
-                            <div class="min-w-max flex items-start mt-1">
-                                <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
-                        </header>
-                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
-                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                                <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
-                                </p>
-                            </div>
-                            <p
-                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
-                            </p>
-                            <p
-                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
-                        </section>
-                    </article>
-                </div>
-                <div id="anime-border" class="-my-1.5"></div>
-                
-                <div class=" bg-ogrey rounded-xl py-8 px-10">
-                    <a href="orticle/add" class="w-full flex flex-col items-center text-center">
+                <div class=" bg-ogrey-light rounded-xl py-8 px-10 z-50">
+                    <a href="article/add" class="w-full flex flex-col items-center text-center">
                         <img src="/images/app/add.svg" alt="Internet Icon" class="w-1/3 md:w-2/5 mb-3">
-                        <h1 class="text-xl font-semibold tracking-wide">Ajouter un orticle</h1>
+                        <h1 class="text-2xl font-semibold tracking-wide">Ajouter un article</h1>
                     </a>
                 </div>
-            </div>
+                {{#if userArticle.article}}
+                {{#each userArticle.article }}
+                <div id="anime-border" class="-my-1.5"></div>
+                <article class="w-10/12 bg-ogrey-light p-4 h-full rounded-xl z-50" data-id="{{ this.IdArticle }}">
+                    <header class="flex justify-between items-start mb-3">
+                        <div>
+                            <h2 class="font-semibold text-2xl">
+                                {{ this.titreUtl }}
+                            </h2>
+                            <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                href="{{ this.sourceUtl }}" target="_blank">
+                                <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
+                            </a>
+                        </div>
+                        <div class="relative group">
+                            <button class="py-1 px-2 mt-1.5">
+                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                    draggable="false">
+                            </button>
+                            <div class="items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                <button class="inline-flex hover:text-oblue px-3 mt-1 rounded-full"
+                                    href="{{ this.sourceUtl }}" target="_blank">
+                                    <img src="../images/app/report.svg" alt="Report Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">Signaler</span>
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+                    <section class="flex flex-col justify-between items-center">
+                        <p class="mb-5 text-lg">
+                            {{ this.extraitArt }}
+                        </p>
+
+                        <a href="{{ this.sourceUtl }}" target="_blank"
+                            class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
+                            <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
+                            <span class="ml-2">Lire la suite</span>
+                        </a>
+                    </section>
+                </article>
+                {{/each}}
+                {{else}}
+                <div id="anime-border" class="-my-1.5"></div>
+                <div class="w-10/12 bg-oblue rounded-2xl z-50">
+                    <div
+                        class="flex items-center flex-col bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+                            Ooops!
+                        </h1>
+                        <p style="letter-spacing: 0.1rem"
+                            class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+                            Vous n'avez pas créé aucune article pour le moment...
+                        </p>
+                    </div>
+                </div>
+                {{/if}}
         </section>
     </main>
 </body>

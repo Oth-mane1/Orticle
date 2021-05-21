@@ -69,6 +69,8 @@ router.route('/')
 
                     req.session.username = user;
                     req.session.userid = recordsets.recordset[0].IdUtl;
+                    req.session.userlastn = recordsets.recordset[0].prenomUtl;
+                    
                     res.status(200).redirect('app/explore');
                 });
             });

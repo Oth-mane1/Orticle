@@ -63,33 +63,6 @@ input {
     font-weight: 450 !important;
 }
 
-.delete:hover path {
-    fill: rgb(196, 34, 34);
-}
-
-#textOrt:empty:not(:focus)::before {
-    content: attr(aria-placeholder);
-    color: #969595;
-}
-
-#textOrt {
-    min-height: 150px;
-}
-
-#resetOrt:hover path {
-    fill: red;
-}
-
-#idee ul, .orticle ul {
-    list-style: disc;
-    margin-left: 15px;
-}
-
-#idee ol, .orticle ol {
-    list-style: decimal;
-    margin-left: 15px;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

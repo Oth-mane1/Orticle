@@ -9,6 +9,7 @@
     "tw:prod": "postcss build ./Source/styles/style.css -o ./Public/styles/orticleStyle.css --env production"
   },
   "dependencies": {
+    "@azure/search-documents": "^11.1.0",
     "@postlight/mercury-parser": "^2.2.0",
     "cookie-parser": "^1.4.5",
     "debug": "^4.3.1",

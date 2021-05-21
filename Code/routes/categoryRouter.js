@@ -34,13 +34,6 @@ router.route('/:idcat')
                     res.end();
                     return
                 }
-
-                if (recordsets.recordset.length === 0) {
-                    res.statusCode = 404;
-                    res.setHeader('Content-Type', 'text/plain');
-                    res.end('categorie ne contient aucune orticle');
-                    return
-                }
                 
                 let ispushed = false
                 recordsets.recordsets[1].forEach(ort => {                    
@@ -66,8 +59,6 @@ router.route('/:idcat')
                     title: recordsets.recordsets[0][0].nomCat,
                     orticle: recordsets.recordsets[1]
                 }
-                // console.log(catInfos)
-                // console.log(catInfos.orticle[3].idee)
                 res.statusCode = 200;
                 res.render('showCategory', { catInfos });
             });
