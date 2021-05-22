@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
     <link rel="stylesheet" href="../styles/animatedBorder.css">
-    <title>Article 💡 | Orticle•</title>
+    <title>Article 📰 | Orticle•</title>
 </head>
 
 <body class="bg-gray-50">
@@ -217,18 +217,24 @@
                             </a>
                         </div>
                         <div class="relative group">
-                            <button class="py-1 px-2 mt-1.5">
-                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
-                                    draggable="false">
-                            </button>
-                            <div class="items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
-                                <button class="inline-flex hover:text-oblue px-3 mt-1 rounded-full"
-                                    href="{{ this.sourceUtl }}" target="_blank">
-                                    <img src="../images/app/report.svg" alt="Report Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">Signaler</span>
-                                </button>
-                            </div>
-                        </div>
+                                    <button class="py-1 px-2">
+                                        <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                            draggable="false">
+                                    </button>
+                                    <div
+                                        class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                        </button>
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/delete.svg" alt="Delete Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Supprimer</span>
+                                        </button>
+                                    </div>
+                                </div>
                     </header>
                     <section class="flex flex-col justify-between items-center">
                         <p class="mb-5 text-lg">

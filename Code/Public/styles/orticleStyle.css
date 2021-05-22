@@ -687,14 +687,8 @@ video {
 .m-14 {
     margin: 3.5rem;
 }
-.m-3 {
-    margin: 0.75rem;
-}
 .m-10 {
     margin: 2.5rem;
-}
-.m-4 {
-    margin: 1rem;
 }
 .my-1 {
     margin-top: 0.25rem;
@@ -735,10 +729,6 @@ video {
 .-my-1 {
     margin-top: -0.25rem;
     margin-bottom: -0.25rem;
-}
-.mx-2 {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
 }
 .my-5 {
     margin-top: 1.25rem;
@@ -812,9 +802,6 @@ video {
 }
 .mt-16 {
     margin-top: 4rem;
-}
-.mt-3 {
-    margin-top: 0.75rem;
 }
 .mt-12 {
     margin-top: 3rem;
@@ -1041,11 +1028,11 @@ video {
 .justify-evenly {
     justify-content: space-evenly;
 }
-.justify-end {
-    justify-content: flex-end;
-}
 .justify-start {
     justify-content: flex-start;
+}
+.justify-around {
+    justify-content: space-around;
 }
 .gap-5 {
     gap: 1.25rem;
@@ -1094,6 +1081,9 @@ video {
 .rounded-3xl {
     border-radius: 1.5rem;
 }
+.rounded {
+    border-radius: 0.25rem;
+}
 .rounded-b-xl {
     border-bottom-right-radius: 0.75rem;
     border-bottom-left-radius: 0.75rem;
@@ -1106,13 +1096,9 @@ video {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
 }
-.rounded-t-lg {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-}
-.rounded-b-lg {
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+.rounded-b {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
 }
 .border-2 {
     border-width: 2px;
@@ -1120,32 +1106,15 @@ video {
 .border {
     border-width: 1px;
 }
-.border-b-0 {
-    border-bottom-width: 0px;
-}
-.border-t-0 {
-    border-top-width: 0px;
-}
-.border-t {
-    border-top-width: 1px;
+.border-l {
+    border-left-width: 1px;
 }
 .border-solid {
     border-style: solid;
 }
-.border-dashed {
-    border-style: dashed;
-}
 .border-oblue {
     --tw-border-opacity: 1;
     border-color: rgba(57, 123, 167, var(--tw-border-opacity));
-}
-.border-white {
-    --tw-border-opacity: 1;
-    border-color: rgba(255, 255, 255, var(--tw-border-opacity));
-}
-.border-black {
-    --tw-border-opacity: 1;
-    border-color: rgba(0, 0, 0, var(--tw-border-opacity));
 }
 .border-gray-500 {
     --tw-border-opacity: 1;
@@ -1157,9 +1126,6 @@ video {
 }
 .border-transparent {
     border-color: transparent;
-}
-.border-opacity-0 {
-    --tw-border-opacity: 0;
 }
 .bg-gray-50 {
     --tw-bg-opacity: 1;
@@ -1197,9 +1163,6 @@ video {
 .bg-no-repeat {
     background-repeat: no-repeat;
 }
-.fill-current {
-    fill: currentColor;
-}
 .p-1 {
     padding: 0.25rem;
 }
@@ -1215,14 +1178,14 @@ video {
 .p-2 {
     padding: 0.5rem;
 }
-.p-4 {
-    padding: 1rem;
-}
 .p-0\.5 {
     padding: 0.125rem;
 }
 .p-0 {
     padding: 0px;
+}
+.p-4 {
+    padding: 1rem;
 }
 .p-3 {
     padding: 0.75rem;
@@ -1298,6 +1261,10 @@ video {
 .px-1 {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+}
+.px-1\.5 {
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
 }
 .pl-8 {
     padding-left: 2rem;
@@ -1442,10 +1409,6 @@ video {
     --tw-text-opacity: 1;
     color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
-.text-black {
-    --tw-text-opacity: 1;
-    color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
 .underline {
     text-decoration: underline;
 }
@@ -1480,17 +1443,11 @@ video {
 .duration-200 {
     transition-duration: 200ms;
 }
-.duration-300 {
-    transition-duration: 300ms;
-}
 .hover\:translate-x-2:hover {
     --tw-translate-x: 0.5rem;
 }
 .hover\:-translate-y-2:hover {
     --tw-translate-y: -0.5rem;
-}
-.hover\:border-opacity-100:hover {
-    --tw-border-opacity: 1;
 }
 .hover\:bg-gray-300:hover {
     --tw-bg-opacity: 1;
@@ -1527,9 +1484,6 @@ video {
 .hover\:shadow-md:hover {
     --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.focus\:border-opacity-100:focus {
-    --tw-border-opacity: 1;
 }
 .focus\:ring-2:focus {
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
