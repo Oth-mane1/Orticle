@@ -5,7 +5,7 @@ const fileStore = require('session-file-store')(session);
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const hbs = require('hbs');
-const helpers = require('handlebars-helpers')(['math', 'comparison']);
+const helpers = require('handlebars-helpers')('math');
 const logger = require('morgan');
 
 const landingRouter = require('./routes/landingRouter');
