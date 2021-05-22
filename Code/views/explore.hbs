@@ -10,7 +10,8 @@
 </head>
 
 <body class="bg-gray-50">
-    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey z-50">
+    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey"
+        style="z-index: 100;">
         <a href="search"><img src="../images/app/search.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
                 alt="Search icon" draggable="false"></a>
         <img src="../images/orticleLogo.svg" class="h-7" alt="Orticle Logo" draggable="false">
@@ -119,14 +120,14 @@
             </div>
         </div>
         <div class="w-full px-3">
-            <a href="/logout"
-                class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
+            <a href="/logout" class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
                 <img src="../images/app/logout.svg" class="h-6 mr-3" alt="log out icon" draggable="false">
                 <label class="text-gray-800 cursor-pointer">Se deconnecter</label>
             </a>
         </div>
     </nav>
-    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey z-50">
+    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey"
+        style="z-index: 100;">
         <div class="p-1 hover:bg-gray-300 rounded-md">
             <a href="explore" class="active flex flex-col items-center justify-center w-8 h-8">
                 <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
@@ -184,336 +185,246 @@
 
     <main class="mb-20 mt-16  md:ml-64 md:my-0">
         <header class="mx-5 mt-16 md:m-5">
-            <h1 class="font-bold text-4xl">👋🏼 Bonjour <span class="text-oblue">{{name}}!</span></h1>
+            <h1 class="font-bold text-4xl">👋🏼 Bonjour <span class="text-oblue">{{ name }}!</span></h1>
             <p class="ml-16">Bon retour! heureux de vous revoir.</p>
         </header>
+        {{!-- Explore --}}
         <section class="m-7">
             <h1 class="inline-block px-5 py-0.5 mb-4 bg-oblue text-lg font-medium text-gray-50 rounded-md">
-                🧭 Explorer
+                ✨ Recommandé pour vous
             </h1>
+            {{#if recOrticle.orticle }}
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
                 <!-- Orticle -->
-                <div class="bg-oblue rounded-2xl">
+                {{#each recOrticle.orticle }}
+                {{log this }}
+                {{#if this.idee}}
+                <div class="bg-oblue rounded-2xl z-50">
                     <article
                         class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                         <header class="flex justify-between items-start mb-3">
                             <div>
-                                <a href="#">
+                                <a href="/app/orticle/{{ this.IdOrt }}">
                                     <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                        {{this.titreOrt}}
                                     </h2>
                                 </a>
                                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                    href="http://{{ this.sourceOrt }}" target="_blank">
+                                    <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                                 </a>
 
                             </div>
                             <div class="min-w-max flex items-start mt-1">
                                 <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
+                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">
+                                    {{this.nomCat}}
+                                </span>
+
+                                <div class="relative group">
+                                    <button class="py-1 px-2">
+                                        <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                            draggable="false">
+                                    </button>
+                                    <div
+                                        class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/report.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Signaler</span>
+                                        </button>
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                        </button>
+                                    </div>
+                                </div>
                         </header>
                         <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
                             <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                                {{#with this.idee}}
                                 <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                                    {{ this.[0].titreIde }} </h2>
                                 <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
+                                    {{ this.[0].corpsIde }}
                                 </p>
                             </div>
                             <p
                                 class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
+                                {{ this.[1].titreIde }}
                             </p>
+
+                            {{/with}}
                             <p
                                 class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
+                                {{ minus this.idee.length 2 }}
+                                autre idées
+                            </p>
                         </section>
                     </article>
                 </div>
-                <!-- Orticle -->
-                <div class="bg-oblue rounded-2xl">
-                    <article
-                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <header class="flex justify-between items-start mb-3">
-                            <div>
-                                <a href="#">
-                                    <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    </h2>
-                                </a>
-                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
-                                </a>
-
-                            </div>
-                            <div class="min-w-max flex items-start mt-1">
-                                <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
-                        </header>
-                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
-                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                                <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
-                                </p>
-                            </div>
-                            <p
-                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
-                            </p>
-                            <p
-                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
-                        </section>
-                    </article>
-                </div>
-                <!-- Orticle -->
-                <div class="bg-oblue rounded-2xl">
-                    <article
-                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <header class="flex justify-between items-start mb-3">
-                            <div>
-                                <a href="#">
-                                    <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    </h2>
-                                </a>
-                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
-                                </a>
-
-                            </div>
-                            <div class="min-w-max flex items-start mt-1">
-                                <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
-                        </header>
-                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
-                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                                <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
-                                </p>
-                            </div>
-                            <p
-                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
-                            </p>
-                            <p
-                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
-                        </section>
-                    </article>
-                </div>
-                <!-- Orticle -->
-                <div class="bg-oblue rounded-2xl">
-                    <article
-                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <header class="flex justify-between items-start mb-3">
-                            <div>
-                                <a href="#">
-                                    <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    </h2>
-                                </a>
-                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
-                                </a>
-
-                            </div>
-                            <div class="min-w-max flex items-start mt-1">
-                                <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
-                        </header>
-                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
-                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                                <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
-                                </p>
-                            </div>
-                            <p
-                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
-                            </p>
-                            <p
-                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
-                        </section>
-                    </article>
-                </div>
-                <!-- Article -->
-                <!-- <div class="bg-oblue rounded-2xl">
-                    <article
-                        class="bg-ogrey-light h-full  p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
-                        <header class="flex justify-between items-start mb-3">
-                            <div>
-                                <h2 class="font-semibold text-2xl">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit.
-                                </h2>
-                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
-                                </a>
-                            </div>
-                            <button class="py-1 px-2 mt-1.5">
-                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
-                                    draggable="false">
-                            </button>
-                        </header>
-                        <section class="flex flex-col justify-between items-center">
-                            <p class="mb-5 text-lg">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat temporibus unde quo
-                                cupiditate
-                                vitae. Impedit, eveniet nisi corrupti asperiores vero deleniti saepe ipsum accusantium!
-                                Illo
-                                et
-                                esse nesciunt aperiam deleniti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Modi
-                                consectetur qui saepe architecto quisquam eius?
-                            </p>
-
-                            <a href="#"
-                                class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
-                                <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
-                                <span class="ml-2">Lire la suite</span>
-                            </a>
-                        </section>
-                    </article>
-                </div> -->
+                {{/if}}
+                {{/each}}
             </div>
+            {{else}}
+            <div class="bg-oblue rounded-2xl z-50">
+                <div
+                    class="flex items-center flex-col bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                    <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+                        Ooops!
+                    </h1>
+                    <p style="letter-spacing: 0.1rem"
+                        class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+                        Nous avons pas d'orticle recommandé pour aujourd'hui, mais c'est sur qu'il vont être demain.
+                    </p>
+                </div>
+            </div>
+            {{/if}}
         </section>
+
+        {{!-- Orticle of the day --}}
         <section class="m-7">
             <h1 class="inline-block px-5 py-0.5 mb-4 bg-oblue text-lg font-medium text-gray-50 rounded-md">
                 💡 Orticle du jour
             </h1>
+            {{#if dayOrticle.orticle }}
+            {{#with dayOrticle.orticle }}
+            {{#if this.idee}}
             <!-- Orticle -->
-            <div class="bg-oblue rounded-2xl">
+            <div class="bg-oblue rounded-2xl z-50">
                 <article
-                    class="bg-ogrey-light p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                    class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                     <header class="flex justify-between items-start mb-3">
                         <div>
-                            <h2 class="font-semibold text-2xl">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            </h2>
+                            <a href="/app/orticle/{{ this.IdOrt }}">
+                                <h2 class="font-semibold text-2xl">
+                                    {{this.titreOrt}}
+                                </h2>
+                            </a>
                             <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                href="#">
-                                <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                href="http://{{ this.sourceOrt }}" target="_blank">
+                                <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                             </a>
 
                         </div>
                         <div class="min-w-max flex items-start mt-1">
                             <span
-                                class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            <button class="py-1 px-2">
-                                <img src="../images/app/options.svg" class="h-5" alt="Menu options" draggable="false">
-                            </button>
-                        </div>
+                                class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">
+                                {{this.nomCat}}
+                            </span>
+
+                            <div class="relative group">
+                                <button class="py-1 px-2">
+                                    <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                        draggable="false">
+                                </button>
+                                <div
+                                    class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/report.svg" alt="Share Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Signaler</span>
+                                    </button>
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                    </button>
+                                </div>
+                            </div>
                     </header>
-                    <section class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                    <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
                         <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                            {{#with this.idee}}
                             <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                                {{ this.[0].titreIde }} </h2>
                             <p>
-                                Ipsa, facere distinctio facilis quas
-                                sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                voluptatum
-                                corrupti recusandae architecto perferendis ipsam.
-                            </p>
-                        </div>
-                        <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
-                            <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
-                            <p>
-                                Ipsa, facere distinctio facilis quas
-                                sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                voluptatum
-                                corrupti recusandae architecto perferendis ipsam.
+                                {{ this.[0].corpsIde }}
                             </p>
                         </div>
                         <p
                             class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                            Lorem ipsum
-                            dolor sit amet consectetur.
+                            {{ this.[1].titreIde }}
                         </p>
+
+                        {{/with}}
                         <p
-                            class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                            3 autre
-                            idées</p>
+                            class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                            {{ minus this.idee.length 2 }}
+                            autre idées
+                        </p>
                     </section>
                 </article>
             </div>
+            {{/if}}
+            {{/with}}
+            {{else}}
+            <div class="bg-oblue rounded-2xl z-50">
+                <div
+                    class="flex items-center flex-col bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                    <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+                        Ooops!
+                    </h1>
+                    <p style="letter-spacing: 0.1rem"
+                        class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+                        Nous avons pas d'orticle recommandé pour aujourd'hui, mais c'est sur qu'il vont être demain.
+                    </p>
+                </div>
+            </div>
+            {{/if}}
         </section>
+
+        {{!-- Article of the day --}}
         <section class="m-7">
             <h1 class="inline-block px-5 py-0.5 mb-4 bg-oblue text-lg font-medium text-gray-50 rounded-md">
                 📑 Article du jour
             </h1>
+            {{#if dayArticle.article }}
+            {{#with dayArticle.article }}
+            {{#if this }}
             <!-- Article -->
             <div class="bg-oblue rounded-2xl">
-                <article class="bg-ogrey-light p-4 rounded-xl transition-transform transform hover:-translate-y-2">
+                <article class="bg-ogrey-light p-4 h-full rounded-xl z-50" data-id="{{ this.IdArticle }}">
                     <header class="flex justify-between items-start mb-3">
                         <div>
-                            <h2 class="font-semibold text-2xl">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            <h2 class="font-semibold text-2xl">
+                                {{ this.titreUtl }}
                             </h2>
                             <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                href="#">
+                                href="{{ this.sourceUtl }}" target="_blank">
                                 <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
                             </a>
                         </div>
-                        <button class="py-1 px-2 mt-1.5">
-                            <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options" draggable="false">
-                        </button>
+                        <div class="relative group">
+                            <button class="py-1 px-2">
+                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                    draggable="false">
+                            </button>
+                            <div
+                                class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                <button
+                                    class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                    <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                </button>
+                                <button
+                                    class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                    <img src="../images/app/delete.svg" alt="Delete Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-3">Supprimer</span>
+                                </button>
+                            </div>
+                        </div>
                     </header>
-                    <section class="flex flex-col justify-between  items-center">
+                    <section class="flex flex-col justify-between items-center">
                         <p class="mb-5 text-lg">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat temporibus unde quo
-                            cupiditate
-                            vitae. Impedit, eveniet nisi corrupti asperiores vero deleniti saepe ipsum accusantium! Illo
-                            et
-                            esse nesciunt aperiam deleniti?Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-                            consectetur qui saepe architecto quisquam eius?
-                            esse nesciunt aperiam deleniti?Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-                            consectetur qui saepe architecto quisquam eius?
+                            {{ this.extraitArt }}
                         </p>
 
-                        <a href="#"
+                        <a href="{{ this.sourceUtl }}" target="_blank"
                             class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
                             <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
                             <span class="ml-2">Lire la suite</span>
@@ -521,91 +432,147 @@
                     </section>
                 </article>
             </div>
+            {{/if}}
+            {{/with}}
+            {{else}}
+            <div class="bg-oblue rounded-2xl z-50">
+                <div
+                    class="flex items-center flex-col bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                    <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+                        Ooops!
+                    </h1>
+                    <p style="letter-spacing: 0.1rem"
+                        class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+                        Nous avons pas d'article recommandé pour aujourd'hui, mais c'est sur qu'il vont être demain.
+                    </p>
+                </div>
+            </div>
+            {{/if}}
         </section>
+
+        {{!-- Suggest --}}
         <section class="m-7">
             <h1 class="inline-block px-5 py-0.5 mb-4 bg-oblue text-lg font-medium text-gray-50 rounded-md">
                 🧭 Explorer
             </h1>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+                {{#if suggest }}
+                {{#with suggest.orticle.[0]}}
+                {{#if this }}
                 <!-- Orticle -->
-                <div class="bg-oblue rounded-2xl">
+                <div class="bg-oblue rounded-2xl z-50">
                     <article
                         class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                         <header class="flex justify-between items-start mb-3">
                             <div>
-                                <a href="#">
+                                <a href="/app/orticle/{{ this.IdOrt }}">
                                     <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                        {{this.titreOrt}}
                                     </h2>
                                 </a>
                                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                    href="http://{{ this.sourceOrt }}" target="_blank">
+                                    <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                                 </a>
 
                             </div>
                             <div class="min-w-max flex items-start mt-1">
                                 <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
+                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">
+                                    {{this.nomCat}}
+                                </span>
+
+                                <div class="relative group">
+                                    <button class="py-1 px-2">
+                                        <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                            draggable="false">
+                                    </button>
+                                    <div
+                                        class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/report.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Signaler</span>
+                                        </button>
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                        </button>
+                                    </div>
+                                </div>
                         </header>
                         <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
                             <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                                {{#with this.idee}}
                                 <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                                    {{ this.[0].titreIde }} </h2>
                                 <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
+                                    {{ this.[0].corpsIde }}
                                 </p>
                             </div>
                             <p
                                 class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
+                                {{ this.[1].titreIde }}
                             </p>
+
+                            {{/with}}
                             <p
                                 class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
+                                {{ minus this.idee.length 2 }}
+                                autre idées
+                            </p>
                         </section>
                     </article>
                 </div>
+                {{/if}}
+                {{/with}}
+
+                {{#with suggest.article.[0]}}
+                {{#if this }}
                 <!-- Article -->
-                <div class="bg-oblue rounded-2xl">
+                <div class="bg-oblue rounded-2xl z-50">
                     <article
-                        class="bg-ogrey-light p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        class="bg-ogrey-light p-4 h-full rounded-xl  transition-transform transform hover:translate-x-2 hover:-translate-y-2"
+                        data-id="{{ this.IdArticle }}">
                         <header class="flex justify-between items-start mb-3">
                             <div>
-                                <h2 class="font-semibold text-2xl">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit.
+                                <h2 class="font-semibold text-2xl">
+                                    {{ this.titreUtl }}
                                 </h2>
                                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
+                                    href="{{ this.sourceUtl }}" target="_blank">
                                     <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
                                 </a>
                             </div>
-                            <button class="py-1 px-2 mt-1.5">
-                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
-                                    draggable="false">
-                            </button>
+                            <div class="relative group">
+                                <button class="py-1 px-2">
+                                    <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                        draggable="false">
+                                </button>
+                                <div
+                                    class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                    </button>
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/delete.svg" alt="Delete Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Supprimer</span>
+                                    </button>
+                                </div>
+                            </div>
                         </header>
                         <section class="flex flex-col justify-between items-center">
                             <p class="mb-5 text-lg">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat temporibus unde quo
-                                cupiditate
-                                vitae. Impedit, eveniet nisi corrupti asperiores vero deleniti saepe ipsum accusantium!
-                                Illo
-                                et
-                                esse nesciunt aperiam deleniti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Modi
-                                consectetur qui saepe architecto quisquam eius?
+                                {{ this.extraitArt }}
                             </p>
 
-                            <a href="#"
+                            <a href="{{ this.sourceUtl }}" target="_blank"
                                 class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
                                 <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
                                 <span class="ml-2">Lire la suite</span>
@@ -613,39 +580,125 @@
                         </section>
                     </article>
                 </div>
-                <!-- Article -->
-                <div class="bg-oblue rounded-2xl">
+                {{/if}}
+                {{/with}}
+
+                {{#with suggest.orticle.[1]}}
+                {{#if this }}
+                <!-- Orticle -->
+                <div class="bg-oblue rounded-2xl z-50">
                     <article
-                        class="bg-ogrey-light p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                         <header class="flex justify-between items-start mb-3">
                             <div>
-                                <h2 class="font-semibold text-2xl">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit.
+                                <a href="/app/orticle/{{ this.IdOrt }}">
+                                    <h2 class="font-semibold text-2xl">
+                                        {{this.titreOrt}}
+                                    </h2>
+                                </a>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="http://{{ this.sourceOrt }}" target="_blank">
+                                    <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
+                                </a>
+
+                            </div>
+                            <div class="min-w-max flex items-start mt-1">
+                                <span
+                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">
+                                    {{this.nomCat}}
+                                </span>
+
+                                <div class="relative group">
+                                    <button class="py-1 px-2">
+                                        <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                            draggable="false">
+                                    </button>
+                                    <div
+                                        class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/report.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Signaler</span>
+                                        </button>
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                        </button>
+                                    </div>
+                                </div>
+                        </header>
+                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                                {{#with this.idee}}
+                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                                    {{ this.[0].titreIde }} </h2>
+                                <p>
+                                    {{ this.[0].corpsIde }}
+                                </p>
+                            </div>
+                            <p
+                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                {{ this.[1].titreIde }}
+                            </p>
+
+                            {{/with}}
+                            <p
+                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                {{ minus this.idee.length 2 }}
+                                autre idées
+                            </p>
+                        </section>
+                    </article>
+                </div>
+                {{/if}}
+                {{/with}}
+
+                {{#with suggest.article.[1]}}
+                {{#if this }}
+                <!-- Article -->
+                <div class="bg-oblue rounded-2xl z-50">
+                    <article
+                        class="bg-ogrey-light p-4 h-full rounded-xl  transition-transform transform hover:translate-x-2 hover:-translate-y-2"
+                        data-id="{{ this.IdArticle }}">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <h2 class="font-semibold text-2xl">
+                                    {{ this.titreUtl }}
                                 </h2>
                                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
+                                    href="{{ this.sourceUtl }}" target="_blank">
                                     <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
                                 </a>
                             </div>
-                            <button class="py-1 px-2 mt-1.5">
-                                <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
-                                    draggable="false">
-                            </button>
+                            <div class="relative group">
+                                <button class="py-1 px-2">
+                                    <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                        draggable="false">
+                                </button>
+                                <div
+                                    class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                    </button>
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/delete.svg" alt="Delete Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Supprimer</span>
+                                    </button>
+                                </div>
+                            </div>
                         </header>
                         <section class="flex flex-col justify-between items-center">
                             <p class="mb-5 text-lg">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat temporibus unde quo
-                                cupiditate
-                                vitae. Impedit, eveniet nisi corrupti asperiores vero deleniti saepe ipsum accusantium!
-                                Illo
-                                et
-                                esse nesciunt aperiam deleniti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Modi
-                                consectetur qui saepe architecto quisquam eius?
+                                {{ this.extraitArt }}
                             </p>
 
-                            <a href="#"
+                            <a href="{{ this.sourceUtl }}" target="_blank"
                                 class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
                                 <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
                                 <span class="ml-2">Lire la suite</span>
@@ -653,52 +706,275 @@
                         </section>
                     </article>
                 </div>
+                {{/if}}
+                {{/with}}
+
+                {{#with suggest.orticle.[2]}}
+                {{#if this }}
                 <!-- Orticle -->
-                <div class="bg-oblue rounded-2xl">
+                <div class="bg-oblue rounded-2xl z-50">
                     <article
                         class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
                         <header class="flex justify-between items-start mb-3">
                             <div>
-                                <a href="#">
+                                <a href="/app/orticle/{{ this.IdOrt }}">
                                     <h2 class="font-semibold text-2xl">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                        {{this.titreOrt}}
                                     </h2>
                                 </a>
                                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="#">
-                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
-                                    <span class="transform -translate-y-0.5 ml-1">www.source.com</span>
+                                    href="http://{{ this.sourceOrt }}" target="_blank">
+                                    <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                                 </a>
 
                             </div>
                             <div class="min-w-max flex items-start mt-1">
                                 <span
-                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">Catégorie</span>
-                            </div>
+                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">
+                                    {{this.nomCat}}
+                                </span>
+
+                                <div class="relative group">
+                                    <button class="py-1 px-2">
+                                        <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                            draggable="false">
+                                    </button>
+                                    <div
+                                        class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/report.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Signaler</span>
+                                        </button>
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                        </button>
+                                    </div>
+                                </div>
                         </header>
                         <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
                             <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                                {{#with this.idee}}
                                 <h2 class="text-gray-50 text-xl font-semibold mb-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                                    {{ this.[0].titreIde }} </h2>
                                 <p>
-                                    Ipsa, facere distinctio facilis quas
-                                    sint fugit aperiam reiciendis eum ut aliquam maxime molestias suscipit officiis
-                                    voluptatum
-                                    corrupti recusandae architecto perferendis ipsam.
+                                    {{ this.[0].corpsIde }}
                                 </p>
                             </div>
                             <p
                                 class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                Lorem ipsum
-                                dolor sit amet consectetur.
+                                {{ this.[1].titreIde }}
                             </p>
+
+                            {{/with}}
                             <p
                                 class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
-                                3 autre
-                                idées</p>
+                                {{ minus this.idee.length 2 }}
+                                autre idées
+                            </p>
                         </section>
                     </article>
                 </div>
+                {{/if}}
+                {{/with}}
+
+                {{#with suggest.article.[2]}}
+                {{#if this }}
+                <!-- Article -->
+                <div class="bg-oblue rounded-2xl z-50">
+                    <article
+                        class="bg-ogrey-light p-4 h-full rounded-xl  transition-transform transform hover:translate-x-2 hover:-translate-y-2"
+                        data-id="{{ this.IdArticle }}">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <h2 class="font-semibold text-2xl">
+                                    {{ this.titreUtl }}
+                                </h2>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="{{ this.sourceUtl }}" target="_blank">
+                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
+                                </a>
+                            </div>
+                            <div class="relative group">
+                                <button class="py-1 px-2">
+                                    <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                        draggable="false">
+                                </button>
+                                <div
+                                    class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                    </button>
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/delete.svg" alt="Delete Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Supprimer</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </header>
+                        <section class="flex flex-col justify-between items-center">
+                            <p class="mb-5 text-lg">
+                                {{ this.extraitArt }}
+                            </p>
+
+                            <a href="{{ this.sourceUtl }}" target="_blank"
+                                class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
+                                <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
+                                <span class="ml-2">Lire la suite</span>
+                            </a>
+                        </section>
+                    </article>
+                </div>
+                {{/if}}
+                {{/with}}
+
+                {{#with suggest.orticle.[3]}}
+                {{#if this }}
+                <!-- Orticle -->
+                <div class="bg-oblue rounded-2xl z-50">
+                    <article
+                        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <a href="/app/orticle/{{ this.IdOrt }}">
+                                    <h2 class="font-semibold text-2xl">
+                                        {{this.titreOrt}}
+                                    </h2>
+                                </a>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="http://{{ this.sourceOrt }}" target="_blank">
+                                    <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
+                                </a>
+
+                            </div>
+                            <div class="min-w-max flex items-start mt-1">
+                                <span
+                                    class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">
+                                    {{this.nomCat}}
+                                </span>
+
+                                <div class="relative group">
+                                    <button class="py-1 px-2">
+                                        <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                            draggable="false">
+                                    </button>
+                                    <div
+                                        class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/report.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Signaler</span>
+                                        </button>
+                                        <button
+                                            class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                            <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                            <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                        </button>
+                                    </div>
+                                </div>
+                        </header>
+                        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                                {{#with this.idee}}
+                                <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                                    {{ this.[0].titreIde }} </h2>
+                                <p>
+                                    {{ this.[0].corpsIde }}
+                                </p>
+                            </div>
+                            <p
+                                class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                {{ this.[1].titreIde }}
+                            </p>
+
+                            {{/with}}
+                            <p
+                                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                                {{ minus this.idee.length 2 }}
+                                autre idées
+                            </p>
+                        </section>
+                    </article>
+                </div>
+                {{/if}}
+                {{/with}}
+
+                {{#with suggest.article.[3]}}
+                {{#if this }}
+                <!-- Article -->
+                <div class="bg-oblue rounded-2xl z-50">
+                    <article
+                        class="bg-ogrey-light p-4 h-full rounded-xl  transition-transform transform hover:translate-x-2 hover:-translate-y-2"
+                        data-id="{{ this.IdArticle }}">
+                        <header class="flex justify-between items-start mb-3">
+                            <div>
+                                <h2 class="font-semibold text-2xl">
+                                    {{ this.titreUtl }}
+                                </h2>
+                                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                                    href="{{ this.sourceUtl }}" target="_blank">
+                                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
+                                </a>
+                            </div>
+                            <div class="relative group">
+                                <button class="py-1 px-2">
+                                    <img src="../images/app/options.svg" class="h-5 w-2" alt="Menu options"
+                                        draggable="false">
+                                </button>
+                                <div
+                                    class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                                    </button>
+                                    <button
+                                        class="signal w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                                        <img src="../images/app/delete.svg" alt="Delete Icon" class="w-4">
+                                        <span class="transform -translate-y-0.5 ml-3">Supprimer</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </header>
+                        <section class="flex flex-col justify-between items-center">
+                            <p class="mb-5 text-lg">
+                                {{ this.extraitArt }}
+                            </p>
+
+                            <a href="{{ this.sourceUtl }}" target="_blank"
+                                class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
+                                <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
+                                <span class="ml-2">Lire la suite</span>
+                            </a>
+                        </section>
+                    </article>
+                </div>
+                {{/if}}
+                {{/with}}
+
+                {{else}}
+                <div class="bg-oblue rounded-2xl z-50">
+                    <div
+                        class="flex items-center flex-col bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+                        <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+                            Ooops!
+                        </h1>
+                        <p style="letter-spacing: 0.1rem"
+                            class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+                            Nous avons pas d'article recommandé pour aujourd'hui, mais c'est sur qu'il vont être demain.
+                        </p>
+                    </div>
+                </div>
+                {{/if}}
             </div>
         </section>
     </main>
