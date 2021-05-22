@@ -104,6 +104,77 @@ AS
 	WHERE Article.IdUtl = @id
 GO
 
+-- Explore --
+CREATE PROCEDURE getUserExplore @idUser INT, @min INT = 0, @max INT = null
+AS
+	IF (@max is null)
+	BEGIN
+		SET @max = (SELECT COUNT(*) FROM Orticle)
+	END
+
+	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
+	FROM Orticle o
+	JOIN categorie c ON c.idCat = o.IdCat
+	WHERE o.IdCat IN (SELECT IdCat FROM UtilisateurFav WHERE idUtl = @idUser)
+	ORDER BY o.dateOrt DESC
+	offset @min rows fetch next @max rows only
+
+	SELECT i.IdOrt, i.titreIde, i.corpsIde
+	FROM idee i
+	WHERE i.IdOrt IN (
+		SELECT IdOrt FROM Orticle o 
+		WHERE o.IdCat IN (SELECT IdCat FROM UtilisateurFav WHERE idUtl = @idUser) 
+		ORDER BY dateOrt DESC 
+		offset @min rows fetch next @max rows only
+	)
+GO
+
+CREATE PROCEDURE getDayOrticle
+AS
+	SELECT TOP(1) o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
+	FROM Orticle o, categorie c
+	WHERE nblike = (SELECT MAX(nbLike) FROM orticle)
+	ORDER BY dateOrt DESC
+
+	SELECT i.IdOrt, i.titreIde, i.corpsIde
+	FROM idee i
+	WHERE i.IdOrt = (SELECT TOP(1) IdOrt FROM Orticle ORDER BY dateOrt DESC)
+GO
+
+CREATE PROCEDURE getDayArticle
+AS
+	SELECT TOP(1) *
+	FROM Article
+	ORDER BY dateArt DESC
+GO
+
+CREATE PROCEDURE getUserSuggest @min INT = 0, @max INT = null
+AS
+	IF (@max is null)
+	BEGIN
+		SET @max = (SELECT COUNT(*) FROM Orticle)
+	END
+
+	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
+	FROM Orticle o
+	JOIN categorie c ON c.idCat = o.IdCat
+	ORDER BY o.dateOrt DESC
+	offset @min rows fetch next @max rows only
+
+	SELECT i.IdOrt, i.titreIde, i.corpsIde
+	FROM idee i
+	WHERE i.IdOrt IN (
+		SELECT IdOrt FROM Orticle
+		ORDER BY dateOrt DESC 
+		offset @min rows fetch next @max rows only
+	)
+	
+	SELECT *
+	FROM Article
+	ORDER BY dateArt DESC
+	offset @min rows fetch next @max rows only
+GO
+
 -- Article --
 CREATE PROCEDURE getArticle @id INT
 AS
@@ -112,8 +183,11 @@ AS
 GO
 
 CREATE PROCEDURE createArticle 
-@IdUtl int, @sourceArt NVARCHAR(255), @shortsrcArt NVARCHAR(255), @titreArt NVARCHAR(255), @dateArt Date, @extraitArt NVARCHAR(255)
+@IdUtl int, @sourceArt NVARCHAR(255), @shortsrcArt NVARCHAR(255), @titreArt NVARCHAR(255), @dateArt DateTime, @extraitArt NVARCHAR(255)
 AS
+	IF (@dateArt is null)
+		SET @dateArt = GETDATE()
+
 	INSERT INTO Article
 	VALUES(
 			@IdUtl,
@@ -186,12 +260,12 @@ AS
 	FROM Orticle o
 	JOIN categorie c ON c.idCat = @id
 	WHERE o.IdCat = @id
-	ORDER BY o.dateOrt
+	ORDER BY o.dateOrt DESC
 	offset @min rows fetch next @max rows only
 
 	SELECT i.IdOrt, i.titreIde, i.corpsIde
 	FROM idee i
-	WHERE i.IdOrt IN (SELECT IdOrt FROM Orticle WHERE IdCat = @id ORDER BY idOrt offset @min rows fetch next @max rows only)
+	WHERE i.IdOrt IN (SELECT IdOrt FROM Orticle WHERE IdCat = @id ORDER BY dateOrt DESC offset @min rows fetch next @max rows only)
 GO
 
 --Idée--
