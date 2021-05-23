@@ -5,6 +5,7 @@ module.exports = {
     enabled: true,
     content: [
       'Public/app/*.html',
+      'Public/scripts/*.js',
       'views/*.hbs'
     ],
     keyframes: true,
