@@ -1031,9 +1031,6 @@ video {
 .justify-start {
     justify-content: flex-start;
 }
-.justify-around {
-    justify-content: space-around;
-}
 .gap-5 {
     gap: 1.25rem;
 }
@@ -1081,9 +1078,6 @@ video {
 .rounded-3xl {
     border-radius: 1.5rem;
 }
-.rounded {
-    border-radius: 0.25rem;
-}
 .rounded-b-xl {
     border-bottom-right-radius: 0.75rem;
     border-bottom-left-radius: 0.75rem;
@@ -1096,18 +1090,8 @@ video {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
 }
-.rounded-b {
-    border-bottom-right-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
 .border-2 {
     border-width: 2px;
-}
-.border {
-    border-width: 1px;
-}
-.border-l {
-    border-left-width: 1px;
 }
 .border-solid {
     border-style: solid;
