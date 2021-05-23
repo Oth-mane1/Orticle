@@ -92,7 +92,7 @@ router.route('/add')
                 table.create = false
                 table.columns.add('IdOrt', sql.Int, { nullable: false })
                 table.columns.add('titreIde', sql.NVarChar(255), { nullable: false })
-                table.columns.add('corpsIde', sql.NVarChar(255), { nullable: false })
+                table.columns.add('corpsIde', sql.NVarChar(2000), { nullable: true })
                 idees.forEach(element => {
                     table.rows.add(idOrt, element[0], element[1])
                 });
