@@ -47,5 +47,5 @@ document.getElementById("textOrt").addEventListener("paste", function(e) {
     var text = (e.originalEvent || e).clipboardData.getData('text/plain');
 
     // insert text manually
-    document.execCommand("insertHTML", false, text);
+    document.execCommand("insertHTML", false, text.substring(0, 500));
 });
