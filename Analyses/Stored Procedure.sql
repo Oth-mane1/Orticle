@@ -131,14 +131,23 @@ GO
 
 CREATE PROCEDURE getDayOrticle
 AS
-	SELECT TOP(1) o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
-	FROM Orticle o, categorie c
+	DECLARE @id INT
+	SET @id = 
+	(SELECT TOP(1) o.IdOrt
+	FROM Orticle o
 	WHERE nblike = (SELECT MAX(nbLike) FROM orticle)
-	ORDER BY dateOrt DESC
+	ORDER BY dateOrt DESC)
+
+	print @id
+	
+	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
+	FROM Orticle o
+	JOIN categorie c ON c.idCat = o.IdCat
+	WHERE o.IdOrt = @id
 
 	SELECT i.IdOrt, i.titreIde, i.corpsIde
 	FROM idee i
-	WHERE i.IdOrt = (SELECT TOP(1) IdOrt FROM Orticle ORDER BY dateOrt DESC)
+	WHERE i.IdOrt = @id
 GO
 
 CREATE PROCEDURE getDayArticle
@@ -183,7 +192,7 @@ AS
 GO
 
 CREATE PROCEDURE createArticle 
-@IdUtl int, @sourceArt NVARCHAR(255), @shortsrcArt NVARCHAR(255), @titreArt NVARCHAR(255), @dateArt DateTime, @extraitArt NVARCHAR(255)
+@IdUtl int, @sourceArt NVARCHAR(255), @shortsrcArt NVARCHAR(255), @titreArt NVARCHAR(255), @dateArt DateTime = null, @extraitArt NVARCHAR(505)
 AS
 	IF (@dateArt is null)
 		SET @dateArt = GETDATE()
@@ -203,6 +212,7 @@ CREATE PROCEDURE deleteArticle @id INT
 AS
 	DELETE FROM Article
 	WHERE Article.IdArticle = @id
+	RETURN 1
 GO
 
 --Orticle--
@@ -224,8 +234,11 @@ AS
 GO
 
 CREATE PROCEDURE dbo.createOrticle 
-@IdCat int, @IdUtl int, @sourceOrt nvarchar(255), @shortsrcOrt nvarchar(255), @titreOrt nvarchar(255), @nbLike int = 0, @date DATE = GETDATE
+@IdCat int, @IdUtl int, @sourceOrt nvarchar(255), @shortsrcOrt nvarchar(255), @titreOrt nvarchar(255), @nbLike int = 0, @date DATETIME = null
 AS
+	IF (@date is null)
+		set @date = GETDATE()
+
 	INSERT INTO Orticle
 	VALUES(
 			@IdCat,
@@ -236,6 +249,8 @@ AS
 			@nbLike,
 			@sourceOrt
 		)
+
+	RETURN SCOPE_IDENTITY()
 GO
 
 CREATE PROCEDURE deleteOrticle @id INT
@@ -250,6 +265,8 @@ AS
 	IF (@max is null)
 	BEGIN
 		SET @max = (SELECT COUNT(*) FROM Orticle)
+		IF (@max = 0)
+			SET @max = 1
 	END
 	
 	SELECT nomCat
