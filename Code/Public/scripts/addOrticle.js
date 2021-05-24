@@ -90,6 +90,8 @@ add.addEventListener('click', function (e) {
     // Clear the content
     titleIdee.value = '';
     textOrt.innerHTML = '';
+    // Reset the counter
+    charleft.innerText = 500;
 })
 
 // Add new orticle

@@ -219,5 +219,39 @@ router.route('/get/:id')
         })
     })
 
+/* DELETE article by id */
+router.route('/delete/:id')
+    .delete((req, res, next) => {
+        const idArt = req.params.id
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return
+            }
+
+            var request = new sql.Request(pool);
+            request.input('id', idArt);
+            request.execute('deleteOrticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
+
+                if (!recordsets.rowsAffected[0]) {
+                    res.statusCode = 404;
+                    return res.end(`Orticle ${idArt} introuvable`)
+                }
+
+                res.statusCode = 204;
+                res.setHeader('Content-Type', 'text/plain');
+                res.end(`Orticle ${idArt} a bien été supprimer.`);
+            });
+        })
+    })
+
 
 module.exports = router;
