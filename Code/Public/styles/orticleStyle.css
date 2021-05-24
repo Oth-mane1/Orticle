@@ -67,6 +67,16 @@ input {
     font-weight: 450 !important;
 }
 
+article ul {
+    list-style: disc !important;
+    margin-left: 15px !important;
+}
+
+article ol {
+    list-style: decimal !important;
+    margin-left: 15px !important;
+}
+
 /* ! tailwindcss v2.1.1 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */

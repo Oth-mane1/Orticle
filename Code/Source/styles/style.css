@@ -63,6 +63,16 @@ input {
     font-weight: 450 !important;
 }
 
+article ul {
+    list-style: disc !important;
+    margin-left: 15px !important;
+}
+
+article ol {
+    list-style: decimal !important;
+    margin-left: 15px !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
