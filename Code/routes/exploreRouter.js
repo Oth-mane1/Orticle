@@ -16,6 +16,7 @@ router.route('/')
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
+                res.end();
                 return
             }
 
@@ -132,16 +133,14 @@ router.route('/')
                                 });
                             });
 
-                            const suggest = {
-                                orticle: recordsets.recordsets[0],
-                                article: recordsets.recordsets[2]
+                            const suggest = []
+                            for (let i = 0; i < 6; i++) {
+                                suggest.push([recordsets.recordsets[0][i], recordsets.recordsets[2][i]])
                             }
-
+                            
                             res.statusCode = 200;
                             res.render('explore', { name, dayOrticle, dayArticle, recOrticle, suggest });
                         })
-
-
                     })
                 })
             });
