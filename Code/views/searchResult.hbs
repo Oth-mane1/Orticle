@@ -16,7 +16,7 @@
             </div>
             <div class="min-w-max flex items-start mt-1">
                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                    href="http://{{ this.sourceOrt }}" target="_blank">
+                    href="{{ this.sourceOrt }}" target="_blank">
                     <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
                     <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                 </a>
@@ -50,7 +50,7 @@
                 {{ this.titreUtl }}
             </h2>
             <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                href="http://{{ this.sourceUtl }}" target="_blank">
+                href="{{ this.sourceUtl }}" target="_blank">
                 <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
                 <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
             </a>
@@ -59,7 +59,7 @@
             <p class="mb-5 text-lg">
                 {{ this.extraitArt }}
             </p>
-            <a href="http://{{ this.sourceUtl }}" target="_blank"
+            <a href="{{ this.sourceUtl }}" target="_blank"
                 class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
                 <img src="/images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
                 <span class="ml-2">Lire la suite</span>
