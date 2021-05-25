@@ -1,5 +1,6 @@
 node_modules/
 .vscode
+Connection.cs
 
 # dotenv environment variables file
 .env
