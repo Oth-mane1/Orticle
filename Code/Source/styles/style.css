@@ -73,6 +73,10 @@ article ol {
     margin-left: 15px !important;
 }
 
+.liked svg path {
+    fill: #558EB4;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
