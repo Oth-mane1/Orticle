@@ -116,7 +116,7 @@ partage.addEventListener('click', (e) => {
             ideasArr.push([titleIdeas[i].innerHTML.trim(), ideas[i].innerHTML.trim()])
         }
 
-        var shortSource = new URL(source.value);
+        const shortSource = new URL(source.value);
         partage.disabled = true
         partage.innerHTML = '<img src="/images/RollingLoader.svg" alt="Waiting icon" draggable="false" style="width: 100%; height: 100%;">'
         fetch(`http://localhost:5000/app/orticle/add`, {
