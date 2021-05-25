@@ -65,13 +65,12 @@ router.route('/')
                         }
 
                         article.count = recordsets.recordset[0].ArticleCount;
+                        res.statusCode = 200;
+                        res.render('account', { user: userInfos, orticle, article });
                     });
-
-                    res.statusCode = 200;
-                    res.render('account', { user: userInfos, orticle, article });
                 });
             });
-        })
+        });
     });
 
 module.exports = router;
