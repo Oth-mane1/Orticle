@@ -3,7 +3,7 @@
 <p class="text-left"><b>{{ count }} </b>résultats pour <b>« {{ text }} »</b></p>
 {{#each results }}
 <!-- Orticle -->
-<div class="bg-oblue rounded-2xl my-5">
+<div class="bg-oblue rounded-2xl my-7">
     <article class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:-translate-y-2"
         data-id="{{ this.IdOrt }}">
         <header class="flex flex-col md:flex-row justify-between items-center md:items-start mb-3">
@@ -42,15 +42,13 @@
 <p class="text-left"><b>{{ count }} </b>résultats pour <b>« {{ text }} »</b></p>
 {{#each results }}
 <!-- Article -->
-<div class="bg-oblue rounded-2xl my-5">
+<div class="bg-oblue rounded-2xl my-7">
     <article class="bg-ogrey-light p-4 h-full rounded-xl z-50 transition-transform transform hover:-translate-y-2"
         data-id="{{ this.IdArticle }}">
         <header class="flex flex-col md:flex-row justify-between items-center md:items-start mb-3">
-            <div>
-                <h2 class="font-semibold text-2xl truncate">
-                    {{ this.titreUtl }}
-                </h2>
-            </div>
+            <h2 class="font-semibold text-2xl">
+                {{ this.titreUtl }}
+            </h2>
             <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
                 href="http://{{ this.sourceUtl }}" target="_blank">
                 <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
