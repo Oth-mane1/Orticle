@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/styles/orticleStyle.css">
+    <script src="/scripts/orticleReact.js" defer></script>
+    <script src="/scripts/sweetAlert.js" defer></script>
     <title>{{ orticle.infos.titreOrt }} | Orticle•</title>
 </head>
 
@@ -204,7 +206,7 @@
                 </div>
             </header>
             <!-- Orticle -->
-            <article class="bg-ogrey-light h-full p-4 rounded-xl" data-id="{{ orticle.infos.IdOrt }}">
+            <article id="art" class="bg-ogrey-light h-full p-4 rounded-xl" data-id="{{ orticle.infos.IdOrt }}">
                 <section class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {{#if orticle.idee}}
                     {{#each orticle.idee }}
@@ -227,7 +229,8 @@
                         </a>
                     </div>
                     <div class="col-span-1 md:col-span-2 flex justify-between items-center">
-                        <button id="olike" class="px-1 rounded-md hover:bg-gray-400">
+                        <button id="olike" {{#if orticle.isliked}} class="liked px-1 rounded-md hover:bg-gray-400"
+                            {{else}}class="px-1 rounded-md hover:bg-gray-400" {{/if}}>
                             <svg class="w-7" width="36" height="32" viewBox="0 0 36 32" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
