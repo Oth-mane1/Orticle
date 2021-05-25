@@ -1,0 +1,103 @@
+{{#if suggest }}
+{{#each suggest }}
+{{#with this.[0]}}
+{{#if this }}
+<!-- Orticle -->
+<div class="bg-oblue rounded-2xl z-50">
+    <article
+        class="bg-ogrey-light h-full p-4 rounded-xl transition-transform transform hover:translate-x-2 hover:-translate-y-2">
+        <header class="flex justify-between items-start mb-3">
+            <div>
+                <a href="/app/orticle/{{ this.IdOrt }}">
+                    <h2 class="font-semibold text-2xl">
+                        {{this.titreOrt}}
+                    </h2>
+                </a>
+                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                    href="{{ this.sourceOrt }}" target="_blank">
+                    <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
+                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
+                </a>
+
+            </div>
+            <div class="min-w-max flex items-start mt-1">
+                <span class="border-gray-500 text-gray-500 text-sm border-2 mt-0.5 px-2 pb-0.5 rounded-full">
+                    {{this.nomCat}}
+                </span>
+        </header>
+        <section class="grid grid-cols-2 md:grid-cols-3 gap-2">
+            <div class="col-span-2 row-span-2 bg-oblue p-3 rounded-xl overflow-hidden">
+                {{#with this.idee}}
+                <h2 class="text-gray-50 text-xl font-semibold mb-2">
+                    {{ this.[0].titreIde }} </h2>
+                <p>
+                    {{ this.[0].corpsIde }}
+                </p>
+            </div>
+            <p class="bg-oblue text-gray-50 text-xl font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                {{ this.[1].titreIde }}
+            </p>
+
+            {{/with}}
+            <p
+                class="bg-oblue text-gray-50  text-xl text-center font-semibold p-3 flex items-center rounded-xl overflow-hidden">
+                {{ minus this.idee.length 2 }}
+                autre idées
+            </p>
+        </section>
+    </article>
+</div>
+{{/if}}
+{{/with}}
+
+{{#with this.[1]}}
+{{#if this }}
+<!-- Article -->
+<div class="bg-oblue rounded-2xl z-50">
+    <article
+        class="bg-ogrey-light p-4 h-full rounded-xl  transition-transform transform hover:translate-x-2 hover:-translate-y-2"
+        data-id="{{ this.IdArticle }}">
+        <header class="flex justify-between items-start mb-3">
+            <div>
+                <h2 class="font-semibold text-2xl">
+                    {{ this.titreUtl }}
+                </h2>
+                <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
+                    href="{{ this.sourceUtl }}" target="_blank">
+                    <img src="../images/app/internet.svg" alt="Internet Icon" class="w-4">
+                    <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcArt }}</span>
+                </a>
+            </div>
+            <div class="relative group">
+                <button class="py-1 px-2">
+                    <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 6C4.65 6 6 4.65 6 3C6 1.35 4.65 0 3 0C1.35 0 0 1.35 0 3C0 4.65 1.35 6 3 6ZM3 9C1.35 9 0 10.35 0 12C0 13.65 1.35 15 3 15C4.65 15 6 13.65 6 12C6 10.35 4.65 9 3 9ZM3 18C1.35 18 0 19.35 0 21C0 22.65 1.35 24 3 24C4.65 24 6 22.65 6 21C6 19.35 4.65 18 3 18Z"
+                            fill="#323232" />
+                    </svg>
+                </button>
+                <div class="rounded-md items-center absolute bg-white p-2 invisible group-hover:visible w-32 right-0">
+                    <button class="share w-full inline-flex items-center hover:text-oblue px-1.5 mt-1 rounded-full">
+                        <img src="../images/app/share.svg" alt="Share Icon" class="w-4">
+                        <span class="transform -translate-y-0.5 ml-3">Partager</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <section class="flex flex-col justify-between items-center">
+            <p class="mb-5 text-lg">
+                {{ this.extraitArt }}
+            </p>
+
+            <a href="{{ this.sourceUtl }}" target="_blank"
+                class="flex justify-center w-40 p-1 pt-0.5 rounded-full bg-oblue text-gray-50 transition-shadow hover:shadow-md">
+                <img src="../images/app/arrow.svg" class="w-3" alt="Arrow" draggable="false">
+                <span class="ml-2">Lire la suite</span>
+            </a>
+        </section>
+    </article>
+</div>
+{{/if}}
+{{/with}}
+{{/each}}
+{{/if}}
