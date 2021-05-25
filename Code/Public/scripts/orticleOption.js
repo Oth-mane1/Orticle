@@ -16,7 +16,7 @@ supprimer.forEach(element => {
                     if (res.status == 204) {
                         swal.fire({
                             title: 'Suppression terminer',
-                            text: `L'article a bien été Supprimer`,
+                            text: `L'orticle a bien été Supprimer`,
                             icon: 'success'
                         }).then(() => {
                             location.reload();
@@ -36,7 +36,7 @@ supprimer.forEach(element => {
     })
 });
 
-// Partage an article
+// Partage an orticle
 const partage = document.querySelectorAll('.partager');
 
 partage.forEach(element => {
@@ -45,7 +45,7 @@ partage.forEach(element => {
         navigator.clipboard.writeText(head.children[0].children[1].getAttribute('href')).then(() => {
             Swal.fire({
                 title: 'Partager!',
-                text: 'Lien vers l\'article est copié dans le presse papier.',
+                text: 'Lien vers l\'orticle est copié dans le presse papier.',
                 timer: 2000,
                 icon: 'success',
                 showConfirmButton: false,
