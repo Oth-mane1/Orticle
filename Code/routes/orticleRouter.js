@@ -15,7 +15,7 @@ router.route('/')
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
-                return
+                return res.end();
             }
             var request = new sql.Request(pool);
             request.input('id', userid);
@@ -72,7 +72,7 @@ router.route('/add')
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
-                return
+                return res.end();
             }
 
             var request = new sql.Request(pool);
@@ -117,27 +117,30 @@ router.route('/add')
 router.route('/:id')
     .get((req, res, next) => {
         const idOrt = req.params.id
+        const userid = req.session.userid;
 
         const pool = new sql.ConnectionPool(dbConfig)
         pool.connect(err => {
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
-                return
+                return res.end();
             }
 
             var request = new sql.Request(pool);
             request.input('id', idOrt);
+            request.input('idUser', userid);
             request.execute('getOrticle', (err, recordsets) => {
                 if (err) {
                     console.log(err);
                     res.statusCode = 500;
                     return res.end();
                 }
-
+                
                 const orticle = {
                     infos: recordsets.recordsets[0][0],
-                    idee: recordsets.recordsets[1]
+                    idee: recordsets.recordsets[1],
+                    isliked: recordsets.rowsAffected[2] == 1? true : false
                 }
 
                 var requestSim = new sql.Request(pool);
@@ -192,7 +195,7 @@ router.route('/get/:id')
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
-                return
+                return res.end();
             }
 
             var request = new sql.Request(pool);
@@ -219,21 +222,80 @@ router.route('/get/:id')
         })
     })
 
-/* DELETE article by id */
-router.route('/delete/:id')
-    .delete((req, res, next) => {
-        const idArt = req.params.id
+/* GET orticle by id */
+router.route('/set/like/:id')
+    .post((req, res, next) => {
+        const idOrt = req.params.id
+        const userid = req.session.userid;
 
         const pool = new sql.ConnectionPool(dbConfig)
         pool.connect(err => {
             if (err) {
                 console.log(err)
                 res.statusCode = 401;
-                return
+                return res.end();
             }
 
             var request = new sql.Request(pool);
-            request.input('id', idArt);
+            request.input('idOrt', idOrt);
+            request.input('idUser', userid);
+            request.execute(`likeOrticle`, (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
+
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'text/plain');
+                res.end(`Orticle ${idOrt} a reçu recu un O2`);
+            });
+        })
+    })
+    .delete((req, res, next) => {
+        const idOrt = req.params.id
+        const userid = req.session.userid;
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return res.end();
+            }
+
+            var request = new sql.Request(pool);
+            request.input('idOrt', idOrt);
+            request.input('idUser', userid);
+            request.execute(`dislikeOrticle`, (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
+
+                res.statusCode = 204;
+                res.setHeader('Content-Type', 'text/plain');
+                res.end(`Orticle ${idOrt} a perdu un O2`);
+            });
+        })
+    })
+
+/* DELETE article by id */
+router.route('/delete/:id')
+    .delete((req, res, next) => {
+        const idOrt = req.params.id
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return res.end();
+            }
+
+            var request = new sql.Request(pool);
+            request.input('id', idOrt);
             request.execute('deleteOrticle', (err, recordsets) => {
                 if (err) {
                     console.log(err);
@@ -243,12 +305,45 @@ router.route('/delete/:id')
 
                 if (!recordsets.rowsAffected[0]) {
                     res.statusCode = 404;
-                    return res.end(`Orticle ${idArt} introuvable`)
+                    return res.end(`Orticle ${idOrt} introuvable`)
                 }
 
                 res.statusCode = 204;
                 res.setHeader('Content-Type', 'text/plain');
-                res.end(`Orticle ${idArt} a bien été supprimer.`);
+                res.end(`Orticle ${idOrt} a bien été supprimer.`);
+            });
+        })
+    })
+
+/* DELETE article by id */
+router.route('/signal/:id')
+    .post((req, res, next) => {
+        const idOrt = req.params.id;
+        const idUser = req.session.userid;
+        const { descSig } = req.body;
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return res.end();
+            }
+
+            var request = new sql.Request(pool);
+            request.input('idOrt', idOrt);
+            request.input('idUtl', idUser);
+            request.input('descSig', descSig);
+            request.execute('signalOrticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }                
+
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'text/plain');
+                res.end(`Orticle ${idOrt} a bien été Signaler.`);
             });
         })
     })
