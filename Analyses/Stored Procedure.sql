@@ -135,10 +135,8 @@ AS
 	SET @id = 
 	(SELECT TOP(1) o.IdOrt
 	FROM Orticle o
-	WHERE nblike = (SELECT MAX(nbLike) FROM orticle)
+	WHERE dateOrt >= CAST(GETDATE() AS Date) AND nblike = (SELECT MAX(nbLike) FROM orticle WHERE dateOrt >= CAST(GETDATE() AS Date))
 	ORDER BY dateOrt DESC)
-
-	print @id
 	
 	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
 	FROM Orticle o
@@ -154,6 +152,7 @@ CREATE PROCEDURE getDayArticle
 AS
 	SELECT TOP(1) *
 	FROM Article
+	WHERE dateArt >= CAST(GETDATE() AS Date )
 	ORDER BY dateArt DESC
 GO
 
@@ -222,7 +221,7 @@ AS
 	WHERE Orticle.IdOrt = @id
 GO
 
-CREATE PROCEDURE getOrticle @id INT
+CREATE PROCEDURE getOrticle @id INT, @iduser INT
 AS
 	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.idCat, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
 	FROM Orticle o, categorie c
@@ -231,6 +230,10 @@ AS
 	SELECT i.titreIde, i.corpsIde
 	FROM idee i
 	WHERE i.IdOrt = @id
+
+	SELECT *
+	FROM likedOrt
+	WHERE IdOrt = @id AND IdUtl = @iduser
 GO
 
 CREATE PROCEDURE dbo.createOrticle 
@@ -247,7 +250,7 @@ AS
 			@titreOrt,
 			@date,
 			@nbLike,
-			@sourceOrt
+			@shortsrcOrt
 		)
 
 	RETURN SCOPE_IDENTITY()
@@ -257,6 +260,22 @@ CREATE PROCEDURE deleteOrticle @id INT
 AS
 	DELETE FROM Orticle
 	WHERE Orticle.IdOrt = @id
+GO
+
+CREATE PROCEDURE likeOrticle @idOrt INT, @idUser INT
+AS
+	UPDATE Orticle SET nbLike += 1 WHERE IdOrt = @idOrt
+	INSERT INTO likedOrt
+	VALUES(
+		@idUser,
+		@idOrt
+	)
+GO
+
+CREATE PROCEDURE dislikeOrticle @idOrt INT, @idUser INT
+AS
+	UPDATE Orticle SET nbLike -= 1 WHERE IdOrt = @idOrt
+	DELETE FROM likedOrt WHERE idUtl = @idUser AND idOrt = @idOrt
 GO
 
 --Catégorie--
@@ -385,4 +404,31 @@ AS
 	END
 	ELSE
 		THROW 55555, 'E-mail incorrect', 2
+GO
+
+-- Signal --
+CREATE PROCEDURE signalOrticle
+@IdOrt int, @IdUtl int, @descSig nvarchar(255), @dateSig DATETIME = null
+AS
+	IF (@dateSig is null) SET @dateSig = GETDATE()
+
+    DECLARE @nbSig INT = 0
+    DECLARE @statusSig INT = 0
+
+    IF EXISTS (SELECT IdOrt FROM signalOrt WHERE IdOrt = @IdOrt)
+    BEGIN
+        UPDATE signalOrt SET nbSug += 1 WHERE IdOrt = @IdOrt     
+    END
+    ELSE
+    BEGIN
+        INSERT INTO signalOrt
+        VALUES(
+                @IdOrt,
+                @IdUtl,
+                @nbSig,
+                @statusSig,
+                @dateSig,
+                @descSig
+            )
+    END	
 GO
