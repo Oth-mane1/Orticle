@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/orticleStyle.css">
     <script src="/scripts/exploreOption.js" defer></script>
+    <script src="/scripts/explore.js" defer></script>
     <script src="/scripts/sweetAlert.js" defer></script>
     <title>Explorer des A/Orticle | Orticle•</title>
 </head>
@@ -211,7 +212,7 @@
                                     </h2>
                                 </a>
                                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="http://{{ this.sourceOrt }}" target="_blank">
+                                    href="{{ this.sourceOrt }}" target="_blank">
                                     <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
                                     <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                                 </a>
@@ -285,7 +286,7 @@
                                 </h2>
                             </a>
                             <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                href="http://{{ this.sourceOrt }}" target="_blank">
+                                href="{{ this.sourceOrt }}" target="_blank">
                                 <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
                                 <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                             </a>
@@ -417,7 +418,7 @@
             <h1 class="inline-block px-5 py-0.5 mb-4 bg-oblue text-lg font-medium text-gray-50 rounded-md">
                 🧭 Explorer
             </h1>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+            <div id="suggestResult" class="grid grid-cols-1 lg:grid-cols-2 gap-7">
                 {{#if suggest }}
                 {{#each suggest }}
                 {{#with this.[0]}}
@@ -434,7 +435,7 @@
                                     </h2>
                                 </a>
                                 <a class="inline-flex border-oblue hover:shadow-md text-oblue border-2 px-3 mt-1 transition-shadow rounded-full"
-                                    href="http://{{ this.sourceOrt }}" target="_blank">
+                                    href="{{ this.sourceOrt }}" target="_blank">
                                     <img src="/images/app/internet.svg" alt="Internet Icon" class="w-4">
                                     <span class="transform -translate-y-0.5 ml-1">{{ this.shortSrcOrt }}</span>
                                 </a>
@@ -526,6 +527,17 @@
                 {{/with}}
                 {{/each}}
                 {{/if}}
+            </div>
+            <div id="suggestRoller" class="flex justify-center items-center my-6">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    style="width: 100px; height:100px; margin: auto; background: none; display: block; shape-rendering: auto;"
+                    viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                    <circle cx="50" cy="50" fill="none" stroke="#397BA7" stroke-width="10" r="32"
+                        stroke-dasharray="150.79644737231007 52.26548245743669">
+                        <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
+                            dur="1.8518518518518516s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+                    </circle>
+                </svg>
             </div>
         </section>
     </main>
