@@ -43,6 +43,15 @@ CREATE TABLE Orticle(
 	CONSTRAINT orticle_idutl_foreign FOREIGN KEY(IdUtl) REFERENCES Utilisateur(IdUtl)
 );
 
+CREATE TABLE likedOrt(
+    IdUtl INT NOT NULL,
+    IdOrt INT NOT NULL,
+
+	CONSTRAINT PK_LikedUtl PRIMARY KEY (idUtl, IdOrt),
+	CONSTRAINT liked_idUtl_primary FOREIGN KEY(IdUtl) REFERENCES Utilisateur(IdUtl),
+	CONSTRAINT liked_idort_foreign FOREIGN KEY(IdOrt) REFERENCES Orticle(IdOrt)
+);
+
 CREATE TABLE Article(
     IdArticle INT NOT NULL identity(1,1) ,
     IdUtl INT NOT NULL,
