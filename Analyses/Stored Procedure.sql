@@ -156,31 +156,26 @@ AS
 	ORDER BY dateArt DESC
 GO
 
-CREATE PROCEDURE getUserSuggest @min INT = 0, @max INT = null
+CREATE PROCEDURE getUserSuggest @offset INT, @count INT
 AS
-	IF (@max is null)
-	BEGIN
-		SET @max = (SELECT COUNT(*) FROM Orticle)
-	END
-
 	SELECT o.IdOrt, o.dateOrt, o.nbLike, c.nomCat, o.sourceOrt, o.shortSrcOrt, o.titreOrt
 	FROM Orticle o
 	JOIN categorie c ON c.idCat = o.IdCat
 	ORDER BY o.dateOrt DESC
-	offset @min rows fetch next @max rows only
+	offset @offset rows fetch next @count rows only
 
 	SELECT i.IdOrt, i.titreIde, i.corpsIde
 	FROM idee i
 	WHERE i.IdOrt IN (
 		SELECT IdOrt FROM Orticle
 		ORDER BY dateOrt DESC 
-		offset @min rows fetch next @max rows only
+		offset @offset rows fetch next @count rows only
 	)
 	
 	SELECT *
 	FROM Article
 	ORDER BY dateArt DESC
-	offset @min rows fetch next @max rows only
+	offset @offset rows fetch next @count rows only
 GO
 
 -- Article --
