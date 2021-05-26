@@ -17,7 +17,7 @@ namespace ControlPanel
         {
             InitializeComponent();
         }
-        static SqlConnection cnx = new SqlConnection("Server=tcp:orticle.database.windows.net,1433;Initial Catalog=dbOrticle;Persist Security Info=False;User ID= publicloginUser; Password= pub1.lic2.lo3.gi4.n;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;");
+        static SqlConnection cnx = new SqlConnection(Connection.ConnectionString);
         SqlCommand cmd = new SqlCommand("", cnx);
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -26,12 +26,12 @@ namespace ControlPanel
 
         private void btnReduire_Click(object sender, EventArgs e)
         {
-            Form1.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            MainForm.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
         private void article_Load(object sender, EventArgs e)
         {
-            this.articleTableAdapter.Fill(this.dbOrticleDataSet.Article);
+            articleTableAdapter.Fill(dbOrticleDataSet1.Article);
         }
 
         private void btnVider_Click(object sender, EventArgs e)
@@ -42,6 +42,7 @@ namespace ControlPanel
             txtTitre.Text = "";
             txtDate.Text = "";
             txtExtrait.Text = "";
+            txtShortSrc.Text = "";
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -52,11 +53,11 @@ namespace ControlPanel
                 cnx.Open();
                 cmd.ExecuteNonQuery();
                 cnx.Close();
-                this.articleTableAdapter.Fill(this.dbOrticleDataSet.Article);
+                articleTableAdapter.Fill(dbOrticleDataSet1.Article);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,33 +65,43 @@ namespace ControlPanel
         {
             try
             {
-                cmd.CommandText = "exec createArticle " + txtIdUtl.Text + ",'" + txtSource.Text + "','" + txtTitre.Text + "','" + txtDate.Text + "','" + txtExtrait.Text + "'";
+                cmd.Parameters.Clear();
+                cmd.CommandText = "insert into article values(" + txtIdUtl.Text + ",'" + txtSource.Text + "','" + txtTitre.Text + "',@date,'" + txtExtrait.Text + "'"+",'"+txtShortSrc.Text+"')";
+                cmd.Parameters.Add("@date", SqlDbType.DateTime).Value =txtDate.Text;
                 cnx.Open();
                 cmd.ExecuteNonQuery();
-                cnx.Close();
-                this.articleTableAdapter.Fill(this.dbOrticleDataSet.Article);
+
+                articleTableAdapter.Fill(dbOrticleDataSet1.Article);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cnx.Close();
             }
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-        try
-        {
-            cmd.CommandText = "update Article set IdUtl=" + txtIdUtl.Text + ",sourceUtl='" + txtSource.Text + "',titreUtl='" + txtTitre.Text + "',dateArt='" + txtDate.Text + "',extraitArt='" + txtExtrait.Text + "' where IdArticle=" + txtIdArt.Text;
-            cnx.Open();
-            cmd.ExecuteNonQuery();
-            cnx.Close();
-            this.articleTableAdapter.Fill(this.dbOrticleDataSet.Article);
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "update Article set IdUtl=" + txtIdUtl.Text + ",sourceUtl='" + txtSource.Text + "',titreUtl='" + txtTitre.Text + "',dateArt=@date,extraitArt='" + txtExtrait.Text + "',shortSrcArt='"+txtShortSrc.Text+"' where IdArticle=" + txtIdArt.Text;
+                cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = txtDate.Text;
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+                articleTableAdapter.Fill(dbOrticleDataSet1.Article);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cnx.Close();
+            }
         }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Erreur : " + ex.Message);
-        }
-
     }
-}
 }

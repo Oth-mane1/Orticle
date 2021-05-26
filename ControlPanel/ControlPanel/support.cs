@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net.Mail;
+using System.Net;
 
 namespace ControlPanel
 {
@@ -18,19 +20,30 @@ namespace ControlPanel
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnReduire_Click(object sender, EventArgs e)
-        {
-            Form1.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-        }
-
         private void support_Load(object sender, EventArgs e)
         {
-            this.supportTableAdapter.Fill(this.dbOrticleDataSet.support);
+            supportTableAdapter.Fill(dbOrticleDataSet.support);
+        }
+
+        private void sendEmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("contact.orticle@gmail.com");
+                mail.To.Add(txtEmail.Text);
+                mail.Subject = "Réponse à votre message";
+                mail.Body = ResponseTb.Text;
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential("contact.orticle@gmail.com", "orticl19.orticla20");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                MessageBox.Show("Mail envoyé","Envoie Effectué",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }

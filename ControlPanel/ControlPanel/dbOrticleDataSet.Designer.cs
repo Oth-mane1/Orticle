@@ -953,6 +953,8 @@ namespace ControlPanel {
             
             private global::System.Data.DataColumn columnextraitArt;
             
+            private global::System.Data.DataColumn columnshortSrcArt;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ArticleDataTable() {
@@ -1036,6 +1038,14 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn shortSrcArtColumn {
+                get {
+                    return this.columnshortSrcArt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1071,7 +1081,7 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ArticleRow AddArticleRow(UtilisateurRow parentUtilisateurRowByarticle_idutl_foreign, string sourceUtl, string titreUtl, System.DateTime dateArt, string extraitArt) {
+            public ArticleRow AddArticleRow(UtilisateurRow parentUtilisateurRowByarticle_idutl_foreign, string sourceUtl, string titreUtl, System.DateTime dateArt, string extraitArt, string shortSrcArt) {
                 ArticleRow rowArticleRow = ((ArticleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1079,7 +1089,8 @@ namespace ControlPanel {
                         sourceUtl,
                         titreUtl,
                         dateArt,
-                        extraitArt};
+                        extraitArt,
+                        shortSrcArt};
                 if ((parentUtilisateurRowByarticle_idutl_foreign != null)) {
                     columnValuesArray[1] = parentUtilisateurRowByarticle_idutl_foreign[0];
                 }
@@ -1118,6 +1129,7 @@ namespace ControlPanel {
                 this.columntitreUtl = base.Columns["titreUtl"];
                 this.columndateArt = base.Columns["dateArt"];
                 this.columnextraitArt = base.Columns["extraitArt"];
+                this.columnshortSrcArt = base.Columns["shortSrcArt"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1135,6 +1147,8 @@ namespace ControlPanel {
                 base.Columns.Add(this.columndateArt);
                 this.columnextraitArt = new global::System.Data.DataColumn("extraitArt", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnextraitArt);
+                this.columnshortSrcArt = new global::System.Data.DataColumn("shortSrcArt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnshortSrcArt);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdArticle}, true));
                 this.columnIdArticle.AutoIncrement = true;
@@ -1151,6 +1165,7 @@ namespace ControlPanel {
                 this.columndateArt.AllowDBNull = false;
                 this.columnextraitArt.AllowDBNull = false;
                 this.columnextraitArt.MaxLength = 255;
+                this.columnshortSrcArt.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1884,6 +1899,8 @@ namespace ControlPanel {
             
             private global::System.Data.DataColumn columnnbLike;
             
+            private global::System.Data.DataColumn columnshortSrcOrt;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public OrticleDataTable() {
@@ -1975,6 +1992,14 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn shortSrcOrtColumn {
+                get {
+                    return this.columnshortSrcOrt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2010,7 +2035,7 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrticleRow AddOrticleRow(categorieRow parentcategorieRowByorticle_idcat_foreign, UtilisateurRow parentUtilisateurRowByorticle_idutl_foreign, string sourceOrt, string titreOrt, System.DateTime dateOrt, int nbLike) {
+            public OrticleRow AddOrticleRow(categorieRow parentcategorieRowByorticle_idcat_foreign, UtilisateurRow parentUtilisateurRowByorticle_idutl_foreign, string sourceOrt, string titreOrt, System.DateTime dateOrt, int nbLike, string shortSrcOrt) {
                 OrticleRow rowOrticleRow = ((OrticleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2019,7 +2044,8 @@ namespace ControlPanel {
                         sourceOrt,
                         titreOrt,
                         dateOrt,
-                        nbLike};
+                        nbLike,
+                        shortSrcOrt};
                 if ((parentcategorieRowByorticle_idcat_foreign != null)) {
                     columnValuesArray[1] = parentcategorieRowByorticle_idcat_foreign[0];
                 }
@@ -2062,6 +2088,7 @@ namespace ControlPanel {
                 this.columntitreOrt = base.Columns["titreOrt"];
                 this.columndateOrt = base.Columns["dateOrt"];
                 this.columnnbLike = base.Columns["nbLike"];
+                this.columnshortSrcOrt = base.Columns["shortSrcOrt"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2081,6 +2108,8 @@ namespace ControlPanel {
                 base.Columns.Add(this.columndateOrt);
                 this.columnnbLike = new global::System.Data.DataColumn("nbLike", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnbLike);
+                this.columnshortSrcOrt = new global::System.Data.DataColumn("shortSrcOrt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnshortSrcOrt);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdOrt}, true));
                 this.columnIdOrt.AutoIncrement = true;
@@ -2097,6 +2126,7 @@ namespace ControlPanel {
                 this.columntitreOrt.MaxLength = 255;
                 this.columndateOrt.AllowDBNull = false;
                 this.columnnbLike.AllowDBNull = false;
+                this.columnshortSrcOrt.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2238,9 +2268,11 @@ namespace ControlPanel {
             
             private global::System.Data.DataColumn columnnbSug;
             
-            private global::System.Data.DataColumn columndateOrt;
-            
             private global::System.Data.DataColumn columnstatusSig;
+            
+            private global::System.Data.DataColumn columndateSig;
+            
+            private global::System.Data.DataColumn columndescSig;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -2309,17 +2341,25 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn dateOrtColumn {
+            public global::System.Data.DataColumn statusSigColumn {
                 get {
-                    return this.columndateOrt;
+                    return this.columnstatusSig;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn statusSigColumn {
+            public global::System.Data.DataColumn dateSigColumn {
                 get {
-                    return this.columnstatusSig;
+                    return this.columndateSig;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn descSigColumn {
+                get {
+                    return this.columndescSig;
                 }
             }
             
@@ -2360,15 +2400,16 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public signalOrtRow AddsignalOrtRow(OrticleRow parentOrticleRowBysignalort_idort_foreign, UtilisateurRow parentUtilisateurRowBysignalort_idutl_foreign, int nbSug, System.DateTime dateOrt, int statusSig) {
+            public signalOrtRow AddsignalOrtRow(OrticleRow parentOrticleRowBysignalort_idort_foreign, UtilisateurRow parentUtilisateurRowBysignalort_idutl_foreign, int nbSug, int statusSig, System.DateTime dateSig, string descSig) {
                 signalOrtRow rowsignalOrtRow = ((signalOrtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         nbSug,
-                        dateOrt,
-                        statusSig};
+                        statusSig,
+                        dateSig,
+                        descSig};
                 if ((parentOrticleRowBysignalort_idort_foreign != null)) {
                     columnValuesArray[1] = parentOrticleRowBysignalort_idort_foreign[0];
                 }
@@ -2408,8 +2449,9 @@ namespace ControlPanel {
                 this.columnIdOrt = base.Columns["IdOrt"];
                 this.columnIdUtl = base.Columns["IdUtl"];
                 this.columnnbSug = base.Columns["nbSug"];
-                this.columndateOrt = base.Columns["dateOrt"];
                 this.columnstatusSig = base.Columns["statusSig"];
+                this.columndateSig = base.Columns["dateSig"];
+                this.columndescSig = base.Columns["descSig"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2423,10 +2465,12 @@ namespace ControlPanel {
                 base.Columns.Add(this.columnIdUtl);
                 this.columnnbSug = new global::System.Data.DataColumn("nbSug", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnbSug);
-                this.columndateOrt = new global::System.Data.DataColumn("dateOrt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndateOrt);
                 this.columnstatusSig = new global::System.Data.DataColumn("statusSig", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstatusSig);
+                this.columndateSig = new global::System.Data.DataColumn("dateSig", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndateSig);
+                this.columndescSig = new global::System.Data.DataColumn("descSig", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescSig);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdSig}, true));
                 this.columnIdSig.AutoIncrement = true;
@@ -2438,8 +2482,10 @@ namespace ControlPanel {
                 this.columnIdOrt.AllowDBNull = false;
                 this.columnIdUtl.AllowDBNull = false;
                 this.columnnbSug.AllowDBNull = false;
-                this.columndateOrt.AllowDBNull = false;
                 this.columnstatusSig.AllowDBNull = false;
+                this.columndateSig.AllowDBNull = false;
+                this.columndescSig.AllowDBNull = false;
+                this.columndescSig.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3656,6 +3702,22 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string shortSrcArt {
+                get {
+                    try {
+                        return ((string)(this[this.tableArticle.shortSrcArtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'shortSrcArt\' dans la table \'Article\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableArticle.shortSrcArtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public UtilisateurRow UtilisateurRow {
                 get {
                     return ((UtilisateurRow)(this.GetParentRow(this.Table.ParentRelations["article_idutl_foreign"])));
@@ -3663,6 +3725,18 @@ namespace ControlPanel {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["article_idutl_foreign"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsshortSrcArtNull() {
+                return this.IsNull(this.tableArticle.shortSrcArtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetshortSrcArtNull() {
+                this[this.tableArticle.shortSrcArtColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3888,6 +3962,22 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string shortSrcOrt {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrticle.shortSrcOrtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'shortSrcOrt\' dans la table \'Orticle\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrticle.shortSrcOrtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public categorieRow categorieRow {
                 get {
                     return ((categorieRow)(this.GetParentRow(this.Table.ParentRelations["orticle_idcat_foreign"])));
@@ -3906,6 +3996,18 @@ namespace ControlPanel {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["orticle_idutl_foreign"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsshortSrcOrtNull() {
+                return this.IsNull(this.tableOrticle.shortSrcOrtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetshortSrcOrtNull() {
+                this[this.tableOrticle.shortSrcOrtColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3991,23 +4093,34 @@ namespace ControlPanel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime dateOrt {
-                get {
-                    return ((global::System.DateTime)(this[this.tablesignalOrt.dateOrtColumn]));
-                }
-                set {
-                    this[this.tablesignalOrt.dateOrtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int statusSig {
                 get {
                     return ((int)(this[this.tablesignalOrt.statusSigColumn]));
                 }
                 set {
                     this[this.tablesignalOrt.statusSigColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime dateSig {
+                get {
+                    return ((global::System.DateTime)(this[this.tablesignalOrt.dateSigColumn]));
+                }
+                set {
+                    this[this.tablesignalOrt.dateSigColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string descSig {
+                get {
+                    return ((string)(this[this.tablesignalOrt.descSigColumn]));
+                }
+                set {
+                    this[this.tablesignalOrt.descSigColumn] = value;
                 }
             }
             
@@ -5131,43 +5244,54 @@ SELECT IdAdm, nomAdm, prenomAdm, emailAdm, mdpAdm FROM Administrateur WHERE (IdA
             tableMapping.ColumnMappings.Add("titreUtl", "titreUtl");
             tableMapping.ColumnMappings.Add("dateArt", "dateArt");
             tableMapping.ColumnMappings.Add("extraitArt", "extraitArt");
+            tableMapping.ColumnMappings.Add("shortSrcArt", "shortSrcArt");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Article] WHERE (([IdArticle] = @Original_IdArticle) AND ([IdUtl] = @Original_IdUtl) AND ([sourceUtl] = @Original_sourceUtl) AND ([titreUtl] = @Original_titreUtl) AND ([dateArt] = @Original_dateArt) AND ([extraitArt] = @Original_extraitArt))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Article] WHERE (([IdArticle] = @Original_IdArticle) AND ([IdUtl] = @Original_IdUtl) AND ([sourceUtl] = @Original_sourceUtl) AND ([titreUtl] = @Original_titreUtl) AND ((@IsNull_dateArt = 1 AND [dateArt] IS NULL) OR ([dateArt] = @Original_dateArt)) AND ((@IsNull_extraitArt = 1 AND [extraitArt] IS NULL) OR ([extraitArt] = @Original_extraitArt)) AND ((@IsNull_shortSrcArt = 1 AND [shortSrcArt] IS NULL) OR ([shortSrcArt] = @Original_shortSrcArt)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdArticle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdArticle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sourceUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_titreUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateArt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dateArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateArt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_extraitArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extraitArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extraitArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extraitArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shortSrcArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shortSrcArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Article] ([IdUtl], [sourceUtl], [titreUtl], [dateArt], [extraitArt]) VALUES (@IdUtl, @sourceUtl, @titreUtl, @dateArt, @extraitArt);
-SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article WHERE (IdArticle = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Article] ([IdUtl], [sourceUtl], [titreUtl], [dateArt], [extraitArt], [shortSrcArt]) VALUES (@IdUtl, @sourceUtl, @titreUtl, @dateArt, @extraitArt, @shortSrcArt);
+SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt, shortSrcArt FROM Article WHERE (IdArticle = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sourceUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@titreUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateArt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateArt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extraitArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extraitArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shortSrcArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Article] SET [IdUtl] = @IdUtl, [sourceUtl] = @sourceUtl, [titreUtl] = @titreUtl, [dateArt] = @dateArt, [extraitArt] = @extraitArt WHERE (([IdArticle] = @Original_IdArticle) AND ([IdUtl] = @Original_IdUtl) AND ([sourceUtl] = @Original_sourceUtl) AND ([titreUtl] = @Original_titreUtl) AND ([dateArt] = @Original_dateArt) AND ([extraitArt] = @Original_extraitArt));
-SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article WHERE (IdArticle = @IdArticle)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Article] SET [IdUtl] = @IdUtl, [sourceUtl] = @sourceUtl, [titreUtl] = @titreUtl, [dateArt] = @dateArt, [extraitArt] = @extraitArt, [shortSrcArt] = @shortSrcArt WHERE (([IdArticle] = @Original_IdArticle) AND ([IdUtl] = @Original_IdUtl) AND ([sourceUtl] = @Original_sourceUtl) AND ([titreUtl] = @Original_titreUtl) AND ((@IsNull_dateArt = 1 AND [dateArt] IS NULL) OR ([dateArt] = @Original_dateArt)) AND ((@IsNull_extraitArt = 1 AND [extraitArt] IS NULL) OR ([extraitArt] = @Original_extraitArt)) AND ((@IsNull_shortSrcArt = 1 AND [shortSrcArt] IS NULL) OR ([shortSrcArt] = @Original_shortSrcArt)));
+SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt, shortSrcArt FROM Article WHERE (IdArticle = @IdArticle)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sourceUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@titreUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateArt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateArt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extraitArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extraitArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shortSrcArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcArt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdArticle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdArticle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sourceUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_titreUtl", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateArt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dateArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateArt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_extraitArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extraitArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_extraitArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "extraitArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shortSrcArt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcArt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shortSrcArt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcArt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdArticle", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdArticle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5184,8 +5308,8 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM dbo.Articl" +
-                "e";
+            this._commandCollection[0].CommandText = "SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt, shortSrcArt FR" +
+                "OM Article";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5246,7 +5370,7 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IdArticle, int Original_IdUtl, string Original_sourceUtl, string Original_titreUtl, System.DateTime Original_dateArt, string Original_extraitArt) {
+        public virtual int Delete(int Original_IdArticle, int Original_IdUtl, string Original_sourceUtl, string Original_titreUtl, global::System.Nullable<global::System.DateTime> Original_dateArt, string Original_extraitArt, string Original_shortSrcArt) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IdArticle));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_IdUtl));
             if ((Original_sourceUtl == null)) {
@@ -5261,12 +5385,29 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_titreUtl));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_dateArt));
-            if ((Original_extraitArt == null)) {
-                throw new global::System.ArgumentNullException("Original_extraitArt");
+            if ((Original_dateArt.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_dateArt.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_extraitArt));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_extraitArt == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_extraitArt));
+            }
+            if ((Original_shortSrcArt == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_shortSrcArt));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5288,7 +5429,7 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int IdUtl, string sourceUtl, string titreUtl, System.DateTime dateArt, string extraitArt) {
+        public virtual int Insert(int IdUtl, string sourceUtl, string titreUtl, global::System.Nullable<global::System.DateTime> dateArt, string extraitArt, string shortSrcArt) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IdUtl));
             if ((sourceUtl == null)) {
                 throw new global::System.ArgumentNullException("sourceUtl");
@@ -5302,12 +5443,23 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(titreUtl));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(dateArt));
+            if ((dateArt.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(dateArt.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             if ((extraitArt == null)) {
-                throw new global::System.ArgumentNullException("extraitArt");
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(extraitArt));
+            }
+            if ((shortSrcArt == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(shortSrcArt));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5329,7 +5481,7 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdUtl, string sourceUtl, string titreUtl, System.DateTime dateArt, string extraitArt, int Original_IdArticle, int Original_IdUtl, string Original_sourceUtl, string Original_titreUtl, System.DateTime Original_dateArt, string Original_extraitArt, int IdArticle) {
+        public virtual int Update(int IdUtl, string sourceUtl, string titreUtl, global::System.Nullable<global::System.DateTime> dateArt, string extraitArt, string shortSrcArt, int Original_IdArticle, int Original_IdUtl, string Original_sourceUtl, string Original_titreUtl, global::System.Nullable<global::System.DateTime> Original_dateArt, string Original_extraitArt, string Original_shortSrcArt, int IdArticle) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IdUtl));
             if ((sourceUtl == null)) {
                 throw new global::System.ArgumentNullException("sourceUtl");
@@ -5343,35 +5495,63 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(titreUtl));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(dateArt));
+            if ((dateArt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(dateArt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             if ((extraitArt == null)) {
-                throw new global::System.ArgumentNullException("extraitArt");
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(extraitArt));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_IdArticle));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IdUtl));
+            if ((shortSrcArt == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(shortSrcArt));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IdArticle));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_IdUtl));
             if ((Original_sourceUtl == null)) {
                 throw new global::System.ArgumentNullException("Original_sourceUtl");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_sourceUtl));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_sourceUtl));
             }
             if ((Original_titreUtl == null)) {
                 throw new global::System.ArgumentNullException("Original_titreUtl");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_titreUtl));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_titreUtl));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_dateArt));
-            if ((Original_extraitArt == null)) {
-                throw new global::System.ArgumentNullException("Original_extraitArt");
+            if ((Original_dateArt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_dateArt.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_extraitArt));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(IdArticle));
+            if ((Original_extraitArt == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_extraitArt));
+            }
+            if ((Original_shortSrcArt == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_shortSrcArt));
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(IdArticle));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5392,8 +5572,8 @@ SELECT IdArticle, IdUtl, sourceUtl, titreUtl, dateArt, extraitArt FROM Article W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdUtl, string sourceUtl, string titreUtl, System.DateTime dateArt, string extraitArt, int Original_IdArticle, int Original_IdUtl, string Original_sourceUtl, string Original_titreUtl, System.DateTime Original_dateArt, string Original_extraitArt) {
-            return this.Update(IdUtl, sourceUtl, titreUtl, dateArt, extraitArt, Original_IdArticle, Original_IdUtl, Original_sourceUtl, Original_titreUtl, Original_dateArt, Original_extraitArt, Original_IdArticle);
+        public virtual int Update(int IdUtl, string sourceUtl, string titreUtl, global::System.Nullable<global::System.DateTime> dateArt, string extraitArt, string shortSrcArt, int Original_IdArticle, int Original_IdUtl, string Original_sourceUtl, string Original_titreUtl, global::System.Nullable<global::System.DateTime> Original_dateArt, string Original_extraitArt, string Original_shortSrcArt) {
+            return this.Update(IdUtl, sourceUtl, titreUtl, dateArt, extraitArt, shortSrcArt, Original_IdArticle, Original_IdUtl, Original_sourceUtl, Original_titreUtl, Original_dateArt, Original_extraitArt, Original_shortSrcArt, Original_IdArticle);
         }
     }
     
@@ -6202,47 +6382,56 @@ SELECT IdIdee, IdOrt, titreIde, corpsIde FROM idee WHERE (IdIdee = @IdIdee)";
             tableMapping.ColumnMappings.Add("titreOrt", "titreOrt");
             tableMapping.ColumnMappings.Add("dateOrt", "dateOrt");
             tableMapping.ColumnMappings.Add("nbLike", "nbLike");
+            tableMapping.ColumnMappings.Add("shortSrcOrt", "shortSrcOrt");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Orticle] WHERE (([IdOrt] = @Original_IdOrt) AND ([IdCat] = @Original_IdCat) AND ([IdUtl] = @Original_IdUtl) AND ([sourceOrt] = @Original_sourceOrt) AND ([titreOrt] = @Original_titreOrt) AND ([dateOrt] = @Original_dateOrt) AND ([nbLike] = @Original_nbLike))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Orticle] WHERE (([IdOrt] = @Original_IdOrt) AND ([IdCat] = @Original_IdCat) AND ([IdUtl] = @Original_IdUtl) AND ([sourceOrt] = @Original_sourceOrt) AND ([titreOrt] = @Original_titreOrt) AND ((@IsNull_dateOrt = 1 AND [dateOrt] IS NULL) OR ([dateOrt] = @Original_dateOrt)) AND ([nbLike] = @Original_nbLike) AND ((@IsNull_shortSrcOrt = 1 AND [shortSrcOrt] IS NULL) OR ([shortSrcOrt] = @Original_shortSrcOrt)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdCat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sourceOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_titreOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dateOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateOrt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nbLike", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbLike", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shortSrcOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcOrt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shortSrcOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Orticle] ([IdCat], [IdUtl], [sourceOrt], [titreOrt], [dateOrt], [nbLike]) VALUES (@IdCat, @IdUtl, @sourceOrt, @titreOrt, @dateOrt, @nbLike);
-SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WHERE (IdOrt = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Orticle] ([IdCat], [IdUtl], [sourceOrt], [titreOrt], [dateOrt], [nbLike], [shortSrcOrt]) VALUES (@IdCat, @IdUtl, @sourceOrt, @titreOrt, @dateOrt, @nbLike, @shortSrcOrt);
+SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike, shortSrcOrt FROM Orticle WHERE (IdOrt = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdCat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sourceOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@titreOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateOrt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nbLike", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbLike", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shortSrcOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Orticle] SET [IdCat] = @IdCat, [IdUtl] = @IdUtl, [sourceOrt] = @sourceOrt, [titreOrt] = @titreOrt, [dateOrt] = @dateOrt, [nbLike] = @nbLike WHERE (([IdOrt] = @Original_IdOrt) AND ([IdCat] = @Original_IdCat) AND ([IdUtl] = @Original_IdUtl) AND ([sourceOrt] = @Original_sourceOrt) AND ([titreOrt] = @Original_titreOrt) AND ([dateOrt] = @Original_dateOrt) AND ([nbLike] = @Original_nbLike));
-SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WHERE (IdOrt = @IdOrt)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Orticle] SET [IdCat] = @IdCat, [IdUtl] = @IdUtl, [sourceOrt] = @sourceOrt, [titreOrt] = @titreOrt, [dateOrt] = @dateOrt, [nbLike] = @nbLike, [shortSrcOrt] = @shortSrcOrt WHERE (([IdOrt] = @Original_IdOrt) AND ([IdCat] = @Original_IdCat) AND ([IdUtl] = @Original_IdUtl) AND ([sourceOrt] = @Original_sourceOrt) AND ([titreOrt] = @Original_titreOrt) AND ((@IsNull_dateOrt = 1 AND [dateOrt] IS NULL) OR ([dateOrt] = @Original_dateOrt)) AND ([nbLike] = @Original_nbLike) AND ((@IsNull_shortSrcOrt = 1 AND [shortSrcOrt] IS NULL) OR ([shortSrcOrt] = @Original_shortSrcOrt)));
+SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike, shortSrcOrt FROM Orticle WHERE (IdOrt = @IdOrt)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdCat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sourceOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@titreOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateOrt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nbLike", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbLike", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shortSrcOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdCat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sourceOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sourceOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_titreOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "titreOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dateOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateOrt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nbLike", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbLike", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_shortSrcOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcOrt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_shortSrcOrt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "shortSrcOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdOrt", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6259,8 +6448,8 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM dbo.Orticle" +
-                "";
+            this._commandCollection[0].CommandText = "SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike, shortSrcOrt FRO" +
+                "M Orticle";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6321,7 +6510,7 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IdOrt, int Original_IdCat, int Original_IdUtl, string Original_sourceOrt, string Original_titreOrt, System.DateTime Original_dateOrt, int Original_nbLike) {
+        public virtual int Delete(int Original_IdOrt, int Original_IdCat, int Original_IdUtl, string Original_sourceOrt, string Original_titreOrt, global::System.Nullable<global::System.DateTime> Original_dateOrt, int Original_nbLike, string Original_shortSrcOrt) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IdOrt));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_IdCat));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IdUtl));
@@ -6337,8 +6526,23 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_titreOrt));
             }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_dateOrt));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_nbLike));
+            if ((Original_dateOrt.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_dateOrt.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_nbLike));
+            if ((Original_shortSrcOrt == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_shortSrcOrt));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6359,7 +6563,7 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int IdCat, int IdUtl, string sourceOrt, string titreOrt, System.DateTime dateOrt, int nbLike) {
+        public virtual int Insert(int IdCat, int IdUtl, string sourceOrt, string titreOrt, global::System.Nullable<global::System.DateTime> dateOrt, int nbLike, string shortSrcOrt) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IdCat));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(IdUtl));
             if ((sourceOrt == null)) {
@@ -6374,8 +6578,19 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(titreOrt));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(dateOrt));
+            if ((dateOrt.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(dateOrt.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             this.Adapter.InsertCommand.Parameters[5].Value = ((int)(nbLike));
+            if ((shortSrcOrt == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(shortSrcOrt));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6396,7 +6611,23 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdCat, int IdUtl, string sourceOrt, string titreOrt, System.DateTime dateOrt, int nbLike, int Original_IdOrt, int Original_IdCat, int Original_IdUtl, string Original_sourceOrt, string Original_titreOrt, System.DateTime Original_dateOrt, int Original_nbLike, int IdOrt) {
+        public virtual int Update(
+                    int IdCat, 
+                    int IdUtl, 
+                    string sourceOrt, 
+                    string titreOrt, 
+                    global::System.Nullable<global::System.DateTime> dateOrt, 
+                    int nbLike, 
+                    string shortSrcOrt, 
+                    int Original_IdOrt, 
+                    int Original_IdCat, 
+                    int Original_IdUtl, 
+                    string Original_sourceOrt, 
+                    string Original_titreOrt, 
+                    global::System.Nullable<global::System.DateTime> Original_dateOrt, 
+                    int Original_nbLike, 
+                    string Original_shortSrcOrt, 
+                    int IdOrt) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IdCat));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IdUtl));
             if ((sourceOrt == null)) {
@@ -6411,26 +6642,52 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(titreOrt));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(dateOrt));
+            if ((dateOrt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(dateOrt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(nbLike));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IdOrt));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_IdCat));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_IdUtl));
+            if ((shortSrcOrt == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(shortSrcOrt));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_IdOrt));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_IdCat));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_IdUtl));
             if ((Original_sourceOrt == null)) {
                 throw new global::System.ArgumentNullException("Original_sourceOrt");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_sourceOrt));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_sourceOrt));
             }
             if ((Original_titreOrt == null)) {
                 throw new global::System.ArgumentNullException("Original_titreOrt");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_titreOrt));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_titreOrt));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_dateOrt));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_nbLike));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(IdOrt));
+            if ((Original_dateOrt.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_dateOrt.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_nbLike));
+            if ((Original_shortSrcOrt == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_shortSrcOrt));
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(IdOrt));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6451,8 +6708,8 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdCat, int IdUtl, string sourceOrt, string titreOrt, System.DateTime dateOrt, int nbLike, int Original_IdOrt, int Original_IdCat, int Original_IdUtl, string Original_sourceOrt, string Original_titreOrt, System.DateTime Original_dateOrt, int Original_nbLike) {
-            return this.Update(IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike, Original_IdOrt, Original_IdCat, Original_IdUtl, Original_sourceOrt, Original_titreOrt, Original_dateOrt, Original_nbLike, Original_IdOrt);
+        public virtual int Update(int IdCat, int IdUtl, string sourceOrt, string titreOrt, global::System.Nullable<global::System.DateTime> dateOrt, int nbLike, string shortSrcOrt, int Original_IdOrt, int Original_IdCat, int Original_IdUtl, string Original_sourceOrt, string Original_titreOrt, global::System.Nullable<global::System.DateTime> Original_dateOrt, int Original_nbLike, string Original_shortSrcOrt) {
+            return this.Update(IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike, shortSrcOrt, Original_IdOrt, Original_IdCat, Original_IdUtl, Original_sourceOrt, Original_titreOrt, Original_dateOrt, Original_nbLike, Original_shortSrcOrt, Original_IdOrt);
         }
     }
     
@@ -6581,48 +6838,50 @@ SELECT IdOrt, IdCat, IdUtl, sourceOrt, titreOrt, dateOrt, nbLike FROM Orticle WH
             tableMapping.ColumnMappings.Add("IdOrt", "IdOrt");
             tableMapping.ColumnMappings.Add("IdUtl", "IdUtl");
             tableMapping.ColumnMappings.Add("nbSug", "nbSug");
-            tableMapping.ColumnMappings.Add("dateOrt", "dateOrt");
             tableMapping.ColumnMappings.Add("statusSig", "statusSig");
+            tableMapping.ColumnMappings.Add("dateSig", "dateSig");
+            tableMapping.ColumnMappings.Add("descSig", "descSig");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[signalOrt] WHERE (([IdSig] = @Original_IdSig) AND ([IdOrt] = @" +
-                "Original_IdOrt) AND ([IdUtl] = @Original_IdUtl) AND ([nbSug] = @Original_nbSug) " +
-                "AND ([dateOrt] = @Original_dateOrt) AND ([statusSig] = @Original_statusSig))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [signalOrt] WHERE (([IdSig] = @Original_IdSig) AND ([IdOrt] = @Original_IdOrt) AND ([IdUtl] = @Original_IdUtl) AND ([nbSug] = @Original_nbSug) AND ([statusSig] = @Original_statusSig) AND ([dateSig] = @Original_dateSig) AND ([descSig] = @Original_descSig))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdSig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nbSug", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbSug", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_statusSig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateSig", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descSig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[signalOrt] ([IdOrt], [IdUtl], [nbSug], [dateOrt], [statusSig])" +
-                " VALUES (@IdOrt, @IdUtl, @nbSug, @dateOrt, @statusSig);\r\nSELECT IdSig, IdOrt, Id" +
-                "Utl, nbSug, dateOrt, statusSig FROM signalOrt WHERE (IdSig = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [signalOrt] ([IdOrt], [IdUtl], [nbSug], [statusSig], [dateSig], [descSig]) VALUES (@IdOrt, @IdUtl, @nbSug, @statusSig, @dateSig, @descSig);
+SELECT IdSig, IdOrt, IdUtl, nbSug, statusSig, dateSig, descSig FROM signalOrt WHERE (IdSig = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nbSug", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbSug", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusSig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusSig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateSig", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateSig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descSig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descSig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[signalOrt] SET [IdOrt] = @IdOrt, [IdUtl] = @IdUtl, [nbSug] = @nbSug, [dateOrt] = @dateOrt, [statusSig] = @statusSig WHERE (([IdSig] = @Original_IdSig) AND ([IdOrt] = @Original_IdOrt) AND ([IdUtl] = @Original_IdUtl) AND ([nbSug] = @Original_nbSug) AND ([dateOrt] = @Original_dateOrt) AND ([statusSig] = @Original_statusSig));
-SELECT IdSig, IdOrt, IdUtl, nbSug, dateOrt, statusSig FROM signalOrt WHERE (IdSig = @IdSig)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [signalOrt] SET [IdOrt] = @IdOrt, [IdUtl] = @IdUtl, [nbSug] = @nbSug, [statusSig] = @statusSig, [dateSig] = @dateSig, [descSig] = @descSig WHERE (([IdSig] = @Original_IdSig) AND ([IdOrt] = @Original_IdOrt) AND ([IdUtl] = @Original_IdUtl) AND ([nbSug] = @Original_nbSug) AND ([statusSig] = @Original_statusSig) AND ([dateSig] = @Original_dateSig) AND ([descSig] = @Original_descSig));
+SELECT IdSig, IdOrt, IdUtl, nbSug, statusSig, dateSig, descSig FROM signalOrt WHERE (IdSig = @IdSig)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nbSug", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbSug", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusSig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusSig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateSig", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateSig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descSig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descSig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdSig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdOrt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUtl", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtl", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nbSug", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nbSug", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateOrt", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateOrt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_statusSig", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateSig", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descSig", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descSig", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdSig", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdSig", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6639,7 +6898,7 @@ SELECT IdSig, IdOrt, IdUtl, nbSug, dateOrt, statusSig FROM signalOrt WHERE (IdSi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdSig, IdOrt, IdUtl, nbSug, dateOrt, statusSig FROM dbo.signalOrt";
+            this._commandCollection[0].CommandText = "SELECT IdSig, IdOrt, IdUtl, nbSug, statusSig, dateSig, descSig FROM signalOrt";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6700,13 +6959,19 @@ SELECT IdSig, IdOrt, IdUtl, nbSug, dateOrt, statusSig FROM signalOrt WHERE (IdSi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IdSig, int Original_IdOrt, int Original_IdUtl, int Original_nbSug, System.DateTime Original_dateOrt, int Original_statusSig) {
+        public virtual int Delete(int Original_IdSig, int Original_IdOrt, int Original_IdUtl, int Original_nbSug, int Original_statusSig, System.DateTime Original_dateSig, string Original_descSig) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IdSig));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_IdOrt));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IdUtl));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_nbSug));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_dateOrt));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_statusSig));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_statusSig));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_dateSig));
+            if ((Original_descSig == null)) {
+                throw new global::System.ArgumentNullException("Original_descSig");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_descSig));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6727,12 +6992,18 @@ SELECT IdSig, IdOrt, IdUtl, nbSug, dateOrt, statusSig FROM signalOrt WHERE (IdSi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int IdOrt, int IdUtl, int nbSug, System.DateTime dateOrt, int statusSig) {
+        public virtual int Insert(int IdOrt, int IdUtl, int nbSug, int statusSig, System.DateTime dateSig, string descSig) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IdOrt));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(IdUtl));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(nbSug));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(dateOrt));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(statusSig));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(statusSig));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(dateSig));
+            if ((descSig == null)) {
+                throw new global::System.ArgumentNullException("descSig");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(descSig));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6753,19 +7024,31 @@ SELECT IdSig, IdOrt, IdUtl, nbSug, dateOrt, statusSig FROM signalOrt WHERE (IdSi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdOrt, int IdUtl, int nbSug, System.DateTime dateOrt, int statusSig, int Original_IdSig, int Original_IdOrt, int Original_IdUtl, int Original_nbSug, System.DateTime Original_dateOrt, int Original_statusSig, int IdSig) {
+        public virtual int Update(int IdOrt, int IdUtl, int nbSug, int statusSig, System.DateTime dateSig, string descSig, int Original_IdSig, int Original_IdOrt, int Original_IdUtl, int Original_nbSug, int Original_statusSig, System.DateTime Original_dateSig, string Original_descSig, int IdSig) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IdOrt));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IdUtl));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(nbSug));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(dateOrt));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(statusSig));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_IdSig));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IdOrt));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_IdUtl));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_nbSug));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_dateOrt));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(statusSig));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(dateSig));
+            if ((descSig == null)) {
+                throw new global::System.ArgumentNullException("descSig");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(descSig));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_IdSig));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_IdOrt));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_IdUtl));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_nbSug));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_statusSig));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(IdSig));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_dateSig));
+            if ((Original_descSig == null)) {
+                throw new global::System.ArgumentNullException("Original_descSig");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_descSig));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(IdSig));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6786,8 +7069,8 @@ SELECT IdSig, IdOrt, IdUtl, nbSug, dateOrt, statusSig FROM signalOrt WHERE (IdSi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int IdOrt, int IdUtl, int nbSug, System.DateTime dateOrt, int statusSig, int Original_IdSig, int Original_IdOrt, int Original_IdUtl, int Original_nbSug, System.DateTime Original_dateOrt, int Original_statusSig) {
-            return this.Update(IdOrt, IdUtl, nbSug, dateOrt, statusSig, Original_IdSig, Original_IdOrt, Original_IdUtl, Original_nbSug, Original_dateOrt, Original_statusSig, Original_IdSig);
+        public virtual int Update(int IdOrt, int IdUtl, int nbSug, int statusSig, System.DateTime dateSig, string descSig, int Original_IdSig, int Original_IdOrt, int Original_IdUtl, int Original_nbSug, int Original_statusSig, System.DateTime Original_dateSig, string Original_descSig) {
+            return this.Update(IdOrt, IdUtl, nbSug, statusSig, dateSig, descSig, Original_IdSig, Original_IdOrt, Original_IdUtl, Original_nbSug, Original_statusSig, Original_dateSig, Original_descSig, Original_IdSig);
         }
     }
     

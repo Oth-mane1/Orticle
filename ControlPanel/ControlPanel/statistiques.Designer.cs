@@ -31,10 +31,10 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(statistiques));
-            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaGroupBox3 = new Guna.UI.WinForms.GunaGroupBox();
             this.nbArticle = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,23 +45,13 @@
             this.nbUtl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnReduire = new Guna.UI.WinForms.GunaImageButton();
-            this.btnClose = new Guna.UI.WinForms.GunaImageButton();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gunaGroupBox3.SuspendLayout();
             this.gunaGroupBox2.SuspendLayout();
             this.gunaGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gunaLabel5
-            // 
-            this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F);
-            this.gunaLabel5.Location = new System.Drawing.Point(622, 10);
-            this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(223, 51);
-            this.gunaLabel5.TabIndex = 33;
-            this.gunaLabel5.Text = "ORTICLE•";
             // 
             // gunaGroupBox3
             // 
@@ -71,7 +61,8 @@
             this.gunaGroupBox3.Controls.Add(this.nbArticle);
             this.gunaGroupBox3.Controls.Add(this.label6);
             this.gunaGroupBox3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaGroupBox3.Location = new System.Drawing.Point(1034, 113);
+            this.gunaGroupBox3.Location = new System.Drawing.Point(1039, 26);
+            this.gunaGroupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaGroupBox3.Name = "gunaGroupBox3";
             this.gunaGroupBox3.Radius = 15;
             this.gunaGroupBox3.Size = new System.Drawing.Size(335, 148);
@@ -91,7 +82,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(119, 35);
+            this.label6.Location = new System.Drawing.Point(119, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 35);
             this.label6.TabIndex = 16;
@@ -105,7 +96,8 @@
             this.gunaGroupBox2.Controls.Add(this.nbOrticle);
             this.gunaGroupBox2.Controls.Add(this.label2);
             this.gunaGroupBox2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaGroupBox2.Location = new System.Drawing.Point(564, 113);
+            this.gunaGroupBox2.Location = new System.Drawing.Point(568, 26);
+            this.gunaGroupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaGroupBox2.Name = "gunaGroupBox2";
             this.gunaGroupBox2.Radius = 15;
             this.gunaGroupBox2.Size = new System.Drawing.Size(335, 148);
@@ -125,7 +117,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(110, 35);
+            this.label2.Location = new System.Drawing.Point(109, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 35);
             this.label2.TabIndex = 16;
@@ -139,7 +131,8 @@
             this.gunaGroupBox1.Controls.Add(this.nbUtl);
             this.gunaGroupBox1.Controls.Add(this.label3);
             this.gunaGroupBox1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaGroupBox1.Location = new System.Drawing.Point(84, 113);
+            this.gunaGroupBox1.Location = new System.Drawing.Point(88, 26);
+            this.gunaGroupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaGroupBox1.Name = "gunaGroupBox1";
             this.gunaGroupBox1.Radius = 15;
             this.gunaGroupBox1.Size = new System.Drawing.Size(335, 148);
@@ -159,7 +152,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(87, 35);
+            this.label3.Location = new System.Drawing.Point(87, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 35);
             this.label3.TabIndex = 16;
@@ -167,68 +160,57 @@
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(280, 319);
+            this.chart1.Location = new System.Drawing.Point(20, 231);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Utilisateurs";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Orticles";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Articles";
             this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(936, 476);
+            this.chart1.Size = new System.Drawing.Size(710, 476);
             this.chart1.TabIndex = 34;
             this.chart1.Text = "chart1";
             // 
-            // btnReduire
+            // chart2
             // 
-            this.btnReduire.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnReduire.Image = ((System.Drawing.Image)(resources.GetObject("btnReduire.Image")));
-            this.btnReduire.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnReduire.Location = new System.Drawing.Point(1353, 3);
-            this.btnReduire.Name = "btnReduire";
-            this.btnReduire.OnHoverImage = null;
-            this.btnReduire.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.btnReduire.Size = new System.Drawing.Size(50, 50);
-            this.btnReduire.TabIndex = 98;
-            this.btnReduire.Click += new System.EventHandler(this.btnReduire_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnClose.Location = new System.Drawing.Point(1409, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.OnHoverImage = null;
-            this.btnClose.OnHoverImageOffset = new System.Drawing.Point(0, 0);
-            this.btnClose.Size = new System.Drawing.Size(50, 50);
-            this.btnClose.TabIndex = 97;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.chart2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
+            this.chart2.Location = new System.Drawing.Point(720, 231);
+            this.chart2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chart2.Name = "chart2";
+            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Articles";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Orticles";
+            this.chart2.Series.Add(series2);
+            this.chart2.Series.Add(series3);
+            this.chart2.Size = new System.Drawing.Size(721, 476);
+            this.chart2.TabIndex = 34;
+            this.chart2.Text = "chart1";
             // 
             // statistiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnReduire);
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.gunaGroupBox3);
             this.Controls.Add(this.gunaGroupBox2);
             this.Controls.Add(this.gunaGroupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "statistiques";
-            this.Size = new System.Drawing.Size(1462, 830);
+            this.Size = new System.Drawing.Size(1461, 738);
             this.Load += new System.EventHandler(this.statistiques_Load);
             this.gunaGroupBox3.ResumeLayout(false);
             this.gunaGroupBox3.PerformLayout();
@@ -237,14 +219,12 @@
             this.gunaGroupBox1.ResumeLayout(false);
             this.gunaGroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaGroupBox gunaGroupBox3;
         private System.Windows.Forms.Label nbArticle;
         private System.Windows.Forms.Label label6;
@@ -255,7 +235,6 @@
         private System.Windows.Forms.Label nbUtl;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private Guna.UI.WinForms.GunaImageButton btnReduire;
-        private Guna.UI.WinForms.GunaImageButton btnClose;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }

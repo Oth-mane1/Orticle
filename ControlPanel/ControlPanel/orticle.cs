@@ -17,7 +17,7 @@ namespace ControlPanel
         {
             InitializeComponent();
         }
-        static SqlConnection cnx = new SqlConnection("Server=tcp:orticle.database.windows.net,1433;Initial Catalog=dbOrticle;Persist Security Info=False;User ID= publicloginUser; Password= pub1.lic2.lo3.gi4.n;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;");
+        static SqlConnection cnx = new SqlConnection(Connection.ConnectionString);
         SqlCommand cmd = new SqlCommand("", cnx);
         private void orticle_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace ControlPanel
 
         private void btnReduire_Click(object sender, EventArgs e)
         {
-            Form1.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            MainForm.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
         private void btnVider_Click(object sender, EventArgs e)
@@ -43,21 +43,26 @@ namespace ControlPanel
             txtTitre.Text = "";
             txtDate.Text = "";
             txtNbLikes.Text = "";
+            txtShortSrc.Text = "";
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             try
             {
-                cmd.CommandText = "delete orticle where  IdOrt=" + txtIdOrt.Text;
+                cmd.CommandText = "delete orticle where IdOrt=" + txtIdOrt.Text;
                 cnx.Open();
                 cmd.ExecuteNonQuery();
-                cnx.Close();
+                
                 this.orticleTableAdapter.Fill(this.dbOrticleDataSet.Orticle);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cnx.Close();
             }
         }
 
@@ -65,32 +70,41 @@ namespace ControlPanel
         {
             try
             {
-                cmd.CommandText = "insert into orticle values('" + txtIdCat.Text + "','" + txtIdUtl.Text + "','" + txtSource.Text + "','" + txtTitre.Text + "','" + txtDate.Text + "'," + txtNbLikes.Text + ")";
+                cmd.Parameters.Clear();
+                cmd.CommandText = "insert into orticle values(" + txtIdCat.Text + "," + txtIdUtl.Text + ",'" + txtSource.Text + "','" + txtTitre.Text + "',@date," + txtNbLikes.Text +",'"+txtShortSrc.Text+"')";
+                cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = txtDate.Text;
                 cnx.Open();
                 cmd.ExecuteNonQuery();
-                cnx.Close();
                 this.orticleTableAdapter.Fill(this.dbOrticleDataSet.Orticle);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            finally
+            {
+                cnx.Close();
+            }
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
             try
             {
-                cmd.CommandText = "update orticle set IdCat=" + txtIdCat.Text + ",IdUtl=" + txtIdUtl.Text + ",sourceOrt='" + txtSource.Text + "',titreOrt='" + txtTitre.Text + "',dateOrt='" + txtDate.Text + "',nbLike=" + txtNbLikes.Text + " where IdOrt=" + txtIdOrt.Text;
+                cmd.Parameters.Clear();
+                cmd.CommandText = "update orticle set IdCat=" + txtIdCat.Text + ",IdUtl=" + txtIdUtl.Text + ",sourceOrt='" + txtSource.Text + "',titreOrt='" + txtTitre.Text + "',dateOrt=@date,nbLike=" + txtNbLikes.Text + ",shortSrcOrt='"+txtShortSrc.Text+"' where IdOrt=" + txtIdOrt.Text;
+                cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = txtDate.Text;
                 cnx.Open();
                 cmd.ExecuteNonQuery();
-                cnx.Close();
                 this.orticleTableAdapter.Fill(this.dbOrticleDataSet.Orticle);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cnx.Close();
             }
         }
     }
