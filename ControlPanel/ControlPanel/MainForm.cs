@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControlPanel
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -75,9 +75,27 @@ namespace ControlPanel
         private void btnStatistiques_Click(object sender, EventArgs e)
         {
             main.Controls.Clear();
-            main.Controls.Add(new statistiques());
+            main.Controls.Add(new statistiques()
+            {
+                Dock = DockStyle.Fill
+            });
             sidePanel.Height = btnStatistiques.Height;
             sidePanel.Top = btnStatistiques.Top;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnReduire_Click(object sender, EventArgs e)
+        {
+            MainForm.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+        }
+
+        private void gunaImageButton8_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

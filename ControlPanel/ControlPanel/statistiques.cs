@@ -17,7 +17,7 @@ namespace ControlPanel
         {
             InitializeComponent();
         }
-        static SqlConnection cnx = new SqlConnection("Server=tcp:orticle.database.windows.net,1433;Initial Catalog=dbOrticle;Persist Security Info=False;User ID= publicloginUser; Password= pub1.lic2.lo3.gi4.n;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;");
+        static SqlConnection cnx = new SqlConnection(Connection.ConnectionString);
         SqlCommand cmd = new SqlCommand("", cnx);
         private void statistiques_Load(object sender, EventArgs e)
         {
@@ -31,8 +31,8 @@ namespace ControlPanel
             cnx.Close();
 
             chart1.Series["Utilisateurs"].Points.AddXY(DateTime.Now, nbUtl.Text);
-            chart1.Series["Orticles"].Points.AddXY(DateTime.Now, nbOrticle.Text);
-            chart1.Series["Articles"].Points.AddXY(DateTime.Now, nbArticle.Text);
+            chart2.Series["Orticles"].Points.AddXY(DateTime.Now, nbOrticle.Text);
+            chart2.Series["Articles"].Points.AddXY(DateTime.Now, nbArticle.Text);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace ControlPanel
 
         private void btnReduire_Click(object sender, EventArgs e)
         {
-            Form1.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            MainForm.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
     }
 }

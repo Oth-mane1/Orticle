@@ -31,7 +31,7 @@ namespace ControlPanel
 
         private void btnReduire_Click(object sender, EventArgs e)
         {
-            Form1.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            MainForm.ActiveForm.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
         private void btnVider_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace ControlPanel
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -74,7 +74,7 @@ namespace ControlPanel
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -90,7 +90,7 @@ namespace ControlPanel
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message);
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
