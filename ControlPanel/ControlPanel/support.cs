@@ -32,11 +32,12 @@ namespace ControlPanel
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress("contact.orticle@gmail.com");
                 mail.To.Add(txtEmail.Text);
-                mail.Subject = "Réponse à votre message";
-                mail.Body = ResponseTb.Text;
+                mail.Subject = "Suite à votre message de support";
+                mail.Body = "Merci pour contacter notre support!<br><br>"+ ResponseTb.Text + "<br><br>Cordialement.";
+                mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new NetworkCredential("contact.orticle@gmail.com", "orticl19.orticla20");
-                smtp.EnableSsl = true;
+                smtp.EnableSsl = true;      
                 smtp.Send(mail);
                 MessageBox.Show("Mail envoyé","Envoie Effectué",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
