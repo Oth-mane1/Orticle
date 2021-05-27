@@ -1,6 +1,6 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
-
+  
 name: Build and deploy Node.js app to Azure Web App - OrticleApp
 
 on:
@@ -12,9 +12,20 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-
+    
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.5
+      with:
+        PORT: '5000'
+        SERVER: 'orticle.database.windows.net'
+        DATABASE: 'dbOrticle'
+        USER: 'publicloginUser'
+        PASSWORD: 'pub1.lic2.lo3.gi4.n'
+        SEARCH_API_KEY: DD2C87E39EA1C04C45C8989ED8AEB603
+        SEARCH_API_ENDPOINT: https://orticlesearch.search.windows.net
 
     - name: Set up Node.js version
       uses: actions/setup-node@v1
@@ -24,7 +35,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --if-present
+        npm run start
         npm run test --if-present
 
     - name: Upload artifact for deployment job
