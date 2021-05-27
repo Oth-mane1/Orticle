@@ -33,10 +33,10 @@ jobs:
         node-version: '14.x'
 
     - name: npm install, build, and test
+      
       run: |
-        npm install
-        npm run start
-        npm run test --if-present
+        npm --prefix /Code/ install
+        npm --prefix /Code/ run start
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
