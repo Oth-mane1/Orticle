@@ -1,7 +1,7 @@
 {
   "name": "orticle",
   "version": "1.0.0",
-  "description": "",
+  "description": "O² ARTICLE Rafraîchissez votre esprit, Explorez de nouvelles idées avec la communauté",
   "main": "index.js",
   "scripts": {
     "start": "@powershell $env:DEBUG='orticle:server'; node bin/www",
