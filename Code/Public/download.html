@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles/landingStyle.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Orticle•" />
+    <meta name="apple-mobile-web-app-title" content="Orticle•" />
+    <meta name="msapplication-starturl" content="/" />
+    <script src="scripts/download.js" defer></script>
     <script src="scripts/menu.js" defer></script>
     <title>Télécharger | Orticle•</title>
 </head>
@@ -62,14 +68,13 @@
                     le téléchargement n'était jamais assez facile qu'aujourd'hui. 
                     Profitez d'une expérience riche et native de notre application! Cliquez sur le bouton télécharger pour l'installer depuis votre navigateur.
                 </p>
-                <button href="download"
+                <button id="download"
                     class="bg-oblue text-center md:max-w-max text-lg active:bg-gray-600 hover:opacity-80 transition duration-200 text-white py-1.5 px-10 rounded-full">
                     Télécharger
                 </button>
             </div>
         </div>
     </main>
-
     <footer>
         <img src="images/wave_.svg" class="-mb-px" alt="wave" draggable="false" />
         <section class="bg-ogrey">
