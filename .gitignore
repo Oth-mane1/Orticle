@@ -1,5 +1,13 @@
+#node modules
 node_modules/
+
+#visual studio code files
 .vscode
+
+#Licence file
+*.pem
+
+#Connection string
 Connection.cs
 
 # dotenv environment variables file
