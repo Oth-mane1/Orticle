@@ -35,8 +35,8 @@ jobs:
     - name: npm install, build, and test
       
       run: |
-        npm install
-        npm run start
+        npm --prefix D:\a\Orticle\Orticle\Code\package.json install
+        npm --prefix D:\a\Orticle\Orticle\Code\package.json run start
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
