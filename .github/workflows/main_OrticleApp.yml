@@ -35,8 +35,8 @@ jobs:
     - name: npm install, build, and test
       
       run: |
-        npm --prefix /Code/ install
-        npm --prefix /Code/ run start
+        npm --prefix Code/ install
+        npm --prefix Code/ run start
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
