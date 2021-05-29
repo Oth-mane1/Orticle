@@ -47,6 +47,10 @@ app.use(cookieParser());
 app.use('/styles', express.static(path.join(__dirname, 'public', 'styles')));
 app.use('/scripts', express.static(path.join(__dirname, 'public', 'scripts')));
 app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
+app.use('/icons', express.static(path.join(__dirname, 'icons')));
+app.use('/manifest.json', express.static(path.join(__dirname, 'manifest.json')));
+app.use('/pwa.js', express.static(path.join(__dirname, 'pwa.js')));
+app.use('/service-worker.js', express.static(path.join(__dirname, 'service-worker.js')));
 
 // Session setup
 app.use(session({
