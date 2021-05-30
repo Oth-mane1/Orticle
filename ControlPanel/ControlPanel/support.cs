@@ -33,7 +33,8 @@ namespace ControlPanel
                 mail.From = new MailAddress("contact.orticle@gmail.com");
                 mail.To.Add(txtEmail.Text);
                 mail.Subject = "Suite à votre message de support";
-                mail.Body = "Merci pour contacter notre support!<br><br>"+ ResponseTb.Text + "<br><br>Cordialement.";
+                mail.Body = "Merci pour contacter notre support!<br><br>"+ ResponseTb.Text +
+                    "<br><br>Si vous avez d'autres questions veuillez <a href=\"https://orticle.herokuapp.com/support\">contacter notre support</a><br><br>Cordialement.";
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new NetworkCredential("contact.orticle@gmail.com", "orticl19.orticla20");
