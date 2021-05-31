@@ -92,6 +92,7 @@ add.addEventListener('click', function (e) {
     textOrt.innerHTML = '';
     // Reset the counter
     charleft.innerText = 500;
+    charleft.style.color = 'black';
 })
 
 // Add new orticle
