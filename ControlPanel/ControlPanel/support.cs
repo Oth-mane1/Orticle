@@ -13,6 +13,7 @@ using System.Net;
 
 namespace ControlPanel
 {
+
     public partial class support : UserControl
     {
         public support()
@@ -24,7 +25,8 @@ namespace ControlPanel
         {
             supportTableAdapter.Fill(dbOrticleDataSet.support);
         }
-
+        static SqlConnection cnx = new SqlConnection(Connection.ConnectionString);
+        SqlCommand cmd = new SqlCommand("", cnx);
         private void sendEmail_Click(object sender, EventArgs e)
         {
             try
@@ -41,6 +43,13 @@ namespace ControlPanel
                 smtp.EnableSsl = true;      
                 smtp.Send(mail);
                 MessageBox.Show("Mail envoyé","Envoie Effectué",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                int idsup = int.Parse(gunaDataGridView1.CurrentRow.Cells[0].Value.ToString());
+                cnx.Open();
+                cmd.CommandText = "delete support where IdSup=" + idsup;
+                cmd.ExecuteNonQuery();
+                supportTableAdapter.Fill(dbOrticleDataSet.support);
+                ResponseTb.Text = "";
             }
             catch (Exception ex)
             {
