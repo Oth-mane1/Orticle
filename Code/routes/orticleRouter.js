@@ -56,6 +56,105 @@ router.route('/')
         })
     })
 
+/* GET edit orticle Page */
+router.route('/edit/:id')
+    .get((req, res, next) => {
+        const idOrt = req.params.id
+        const userid = req.session.userid;
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return res.end();
+            }
+
+            var request = new sql.Request(pool);
+            request.input('id', idOrt);
+            request.input('idUser', userid);
+            request.execute('getOrticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
+
+                const orticle = {
+                    infos: recordsets.recordsets[0][0],
+                    idee: recordsets.recordsets[1]
+                }
+
+                res.statusCode = 200;
+                res.render('editOrticle', { orticle });
+            });
+        })
+    })
+    .put((req, res) => {
+        const { idOrt, title, source, shortSrc, category, idees } = req.body;
+        const userid = req.session.userid;
+
+        const pool = new sql.ConnectionPool(dbConfig)
+        pool.connect(err => {
+            if (err) {
+                console.log(err)
+                res.statusCode = 401;
+                return res.end();
+            }
+
+            var requestDel = new sql.Request(pool);
+            requestDel.input('id', idOrt);
+            requestDel.execute('deleteOrticle', (err, recordsets) => {
+                if (err) {
+                    console.log(err);
+                    res.statusCode = 500;
+                    return res.end();
+                }
+
+                if (!recordsets.rowsAffected[0]) {
+                    res.statusCode = 404;
+                    return res.end(`Orticle ${idOrt} introuvable`)
+                }
+
+                var request = new sql.Request(pool);
+                request.input('IdCat', category);
+                request.input('IdUtl', userid);
+                request.input('sourceOrt', source);
+                request.input('shortsrcOrt', shortSrc);
+                request.input('titreOrt', title);
+                request.execute('createOrticle', (err, recordsets) => {
+                    if (err) {
+                        console.log(err);
+                        res.statusCode = 500;
+                        return res.end();
+                    }
+                    const idOrt = recordsets.returnValue;
+                    const table = new sql.Table('idee')
+                    table.create = false
+                    table.columns.add('IdOrt', sql.Int, { nullable: false })
+                    table.columns.add('titreIde', sql.NVarChar(255), { nullable: false })
+                    table.columns.add('corpsIde', sql.NVarChar(2000), { nullable: true })
+                    idees.forEach(element => {
+                        table.rows.add(idOrt, element[0], element[1])
+                    });
+
+                    var requestIdee = new sql.Request(pool);
+                    requestIdee.bulk(table, (err, recordsets) => {
+                        if (err) {
+                            console.log(err);
+                            res.statusCode = 500;
+                            return res.end();
+                        }
+
+                        res.statusCode = 204;
+                        res.setHeader('Content-Type', 'text/plain');
+                        res.end(`L'orticle ${idOrt} a bien été modifier.`);
+                    });
+                });
+            })
+        });
+    })
+
 /* GET add orticle Page */
 router.route('/add')
     .get((req, res, next) => {
@@ -136,11 +235,11 @@ router.route('/:id')
                     res.statusCode = 500;
                     return res.end();
                 }
-                
+
                 const orticle = {
                     infos: recordsets.recordsets[0][0],
                     idee: recordsets.recordsets[1],
-                    isliked: recordsets.rowsAffected[2] == 1? true : false
+                    isliked: recordsets.rowsAffected[2] == 1 ? true : false
                 }
 
                 var requestSim = new sql.Request(pool);
@@ -339,7 +438,7 @@ router.route('/signal/:id')
                     console.log(err);
                     res.statusCode = 500;
                     return res.end();
-                }                
+                }
 
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'text/plain');
