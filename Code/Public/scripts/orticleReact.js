@@ -38,8 +38,7 @@ olike.addEventListener('click', function (e) {
 // Partage an orticle
 const partage = document.getElementById('share');
 partage.addEventListener('click', function (e) {
-    var art = document.getElementById('art').children[0]
-    var link = partage.parentElement.parentElement.parentElement.children[art.childElementCount - 2].children[0].getAttribute('href')
+    var link = window.location.href;
     navigator.clipboard.writeText(link).then(() => {
         Swal.fire({
             title: 'Partager!',
