@@ -121,7 +121,7 @@ partage.addEventListener('click', (e) => {
         const titleIdeas = document.querySelectorAll('.title');
         var ideasArr = []
         for (let i = 0; i < --orticleContent.childElementCount; i++) {
-            ideasArr.push([titleIdeas[i].innerText.trim(), ideas[i].innerHTML.trim()])
+            ideasArr.push([titleIdeas[i].value.trim(), ideas[i].innerHTML.trim()])
         }
 
         const shortSource = new URL(source.value);
