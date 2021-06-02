@@ -1,4 +1,4 @@
-const CACHE_NAME = "OrticleV11";
+const CACHE_NAME = "OrticleV1.0.0";
 
 const cache = async (request, response) => {
     if (response.type === "error" || response.type === "opaque") {
@@ -30,12 +30,12 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
     // Do not look in the chache if the method isn't GET
     if (event.request.method != 'GET') {
-        return console.error('Method unsupported')
+        return console.warn('Method unsupported')
     }
 
     // Request pages with /app from the server not from the cache
     if (event.request.url.includes("/app/") && !event.request.url.includes("/images/app/")) {
-        return console.error('Response with a request')
+        return console.info('Response with a request')
     }
 
     // Cache-First Strategy
