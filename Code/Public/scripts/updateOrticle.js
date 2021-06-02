@@ -143,7 +143,7 @@ partage.addEventListener('click', (e) => {
         }).then((res) => {
             if (res.status == 204) {
                 swal.fire({
-                    title: `C;est fait!`,
+                    title: `C'est fait!`,
                     text: `Votre orticle a bien été modifié.`,
                     icon: 'success'
                 }).then(() => {
