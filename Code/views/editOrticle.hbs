@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles/orticleStyle.css">
+    <link rel="stylesheet" href="/styles/orticleEditor.css">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Orticle•" />
+    <meta name="apple-mobile-web-app-title" content="Orticle•" />
+    <meta name="msapplication-starturl" content="/" />
+    <script src="/scripts/download.js" defer></script>
+    <script src="/scripts/updateOrticle.js" defer></script>
+    <script src="/scripts/orticleEditor.js" defer></script>
+    <script src="/scripts/sweetAlert.js" defer></script>
+    <title>{{ orticle.infos.titreOrt }} | Orticle•</title>
+</head>
+
+<body>
+    <nav class="fixed flex justify-between items-center md:hidden w-full top-0 h-12 rounded-b-xl px-5 bg-ogrey z-50">
+        <a href="/app/search"><img src="/images/app/search.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
+                alt="Search icon" draggable="false"></a>
+        <img src="/images/orticleLogo.svg" class="h-7" alt="Orticle Logo" draggable="false">
+        <a href="/app/account"><img src="/images/app/account.svg" class="w-9 p-1 hover:bg-gray-300 rounded-md"
+                alt="Search icon" draggable="false"></a>
+    </nav>
+    <nav class="hidden md:flex flex-col justify-between items-center py-3 md:fixed top-0 left-0 w-64 rounded-r-2xl h-screen bg-ogrey"
+        style="min-height: 450px;">
+        <div class="w-full flex flex-col justify-center items-center">
+            <a href="/app" class="mb-10">
+                <img src="/images/orticleLogo.svg" class="h-8" alt="Orticle Logo" draggable="false">
+            </a>
+
+            <div class="w-full px-3">
+                <ul>
+                    <li>
+                        <a href="/app/explore"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16 14.24C15.024 14.24 14.24 15.024 14.24 16C14.24 16.976 15.024 17.76 16 17.76C16.976 17.76 17.76 16.976 17.76 16C17.76 15.024 16.976 14.24 16 14.24ZM16 0C7.168 0 0 7.168 0 16C0 24.832 7.168 32 16 32C24.832 32 32 24.832 32 16C32 7.168 24.832 0 16 0ZM19.504 19.504L6.4 25.6L12.496 12.496L25.6 6.4L19.504 19.504Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Explorer</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/app/orticle"
+                            class="active-side flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6 21.8607C2.41463 19.8357 0 16.05 0 11.7143C0 5.24643 5.37439 0 12 0C18.6256 0 24 5.24643 24 11.7143C24 16.05 21.5854 19.8357 18 21.8607V26C18 26.6321 17.4768 27.1429 16.8293 27.1429H7.17073C6.52317 27.1429 6 26.6321 6 26V21.8607ZM7.60976 29.4286H16.3902C16.5512 29.4286 16.6829 29.5571 16.6829 29.7143V30.8571C16.6829 31.4893 16.1598 32 15.5122 32H8.48781C7.84024 32 7.31707 31.4893 7.31707 30.8571V29.7143C7.31707 29.5571 7.44878 29.4286 7.60976 29.4286Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Orticles</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/app/article"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M30.2223 32H1.77777C1.30628 32 0.854097 31.8315 0.520699 31.5313C0.187301 31.2313 0 30.8244 0 30.4V1.6C0 1.17565 0.187301 0.768687 0.520699 0.468629C0.854097 0.168571 1.30628 0 1.77777 0H30.2223C30.6937 0 31.1459 0.168571 31.4793 0.468629C31.8127 0.768687 32 1.17565 32 1.6V30.4C32 30.8244 31.8127 31.2313 31.4793 31.5313C31.1459 31.8315 30.6937 32 30.2223 32ZM7.11111 6.4V12.8H14.2223V6.4H7.11111ZM7.11111 16V19.2H24.8889V16H7.11111ZM7.11111 22.4V25.6H24.8889V22.4H7.11111ZM17.7777 8V11.2H24.8889V8H17.7777Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Articles</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/app/category"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.7264 0.805035L7.46112 11.0021C6.7706 12.1091 7.57901 13.5515 8.89271 13.5515H21.4064C22.7201 13.5515 23.5285 12.1091 22.838 11.0021L16.5896 0.805035C15.9327 -0.268345 14.3832 -0.268345 13.7264 0.805035Z"
+                                    fill="#397BA7" />
+                                <path
+                                    d="M24.4211 32C28.6068 32 32 28.6211 32 24.4528C32 20.2847 28.6068 16.9056 24.4211 16.9056C20.2353 16.9056 16.8421 20.2847 16.8421 24.4528C16.8421 28.6211 20.2353 32 24.4211 32Z"
+                                    fill="#397BA7" />
+                                <path
+                                    d="M1.68421 31.1615H11.7895C12.7158 31.1615 13.4737 30.4068 13.4737 29.4843V19.4213C13.4737 18.4989 12.7158 17.7443 11.7895 17.7443H1.68421C0.757896 17.7443 0 18.4989 0 19.4213V29.4843C0 30.4068 0.757896 31.1615 1.68421 31.1615Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Catégories</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/app/search"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23.4641 20.6365H21.9813L21.4557 20.13C23.7081 17.5037 24.872 13.9207 24.2337 10.1125C23.3516 4.89737 18.9968 0.732789 13.7411 0.0949704C5.80123 -0.880517 -0.881035 5.79783 0.0950263 13.7331C0.73322 18.9857 4.90025 23.3379 10.1184 24.2196C13.9288 24.8573 17.514 23.6943 20.1419 21.4432L20.6487 21.9684V23.4504L28.626 31.4232C29.3956 32.1923 30.6532 32.1923 31.4228 31.4232C32.1924 30.654 32.1924 29.3972 31.4228 28.628L23.4641 20.6365ZM12.2019 20.6365C7.52811 20.6365 3.75525 16.8659 3.75525 12.1948C3.75525 7.52369 7.52811 3.75305 12.2019 3.75305C16.8757 3.75305 20.6487 7.52369 20.6487 12.1948C20.6487 16.8659 16.8757 20.6365 12.2019 20.6365Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Chercher</label>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/app/account"
+                            class="flex items-center w-full my-1 pl-8 py-1.5 transition hover:bg-gray-300 active:bg-gray-400 rounded-lg">
+                            <svg width="32" height="32" class="w-6" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16 0C7.168 0 0 7.168 0 16C0 24.832 7.168 32 16 32C24.832 32 32 24.832 32 16C32 7.168 24.832 0 16 0ZM16 4.8C18.656 4.8 20.8 6.944 20.8 9.6C20.8 12.256 18.656 14.4 16 14.4C13.344 14.4 11.2 12.256 11.2 9.6C11.2 6.944 13.344 4.8 16 4.8ZM16 27.52C12 27.52 8.464 25.472 6.4 22.368C6.448 19.184 12.8 17.44 16 17.44C19.184 17.44 25.552 19.184 25.6 22.368C23.536 25.472 20 27.52 16 27.52Z"
+                                    fill="#397BA7" />
+                            </svg>
+
+                            <label class="text-oblue text-2xl pl-10 cursor-pointer">Compte</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w-full px-3">
+            <a href="/logout" class="flex justify-center items-center py-2 transition hover:bg-gray-300 rounded-lg">
+                <img src="/images/app/logout.svg" class="h-6 mr-3" alt="log out icon" draggable="false">
+                <label class="text-gray-800 cursor-pointer">Se deconnecter</label>
+            </a>
+        </div>
+    </nav>
+    <nav class="fixed flex justify-evenly items-center md:hidden w-full bottom-0 h-14 rounded-t-xl bg-ogrey z-50">
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="/app/explore" class="flex flex-col items-center justify-center w-8 h-8">
+                <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16 14.24C15.024 14.24 14.24 15.024 14.24 16C14.24 16.976 15.024 17.76 16 17.76C16.976 17.76 17.76 16.976 17.76 16C17.76 15.024 16.976 14.24 16 14.24ZM16 0C7.168 0 0 7.168 0 16C0 24.832 7.168 32 16 32C24.832 32 32 24.832 32 16C32 7.168 24.832 0 16 0ZM19.504 19.504L6.4 25.6L12.496 12.496L25.6 6.4L19.504 19.504Z"
+                        fill="#1E1E24" />
+                </svg>
+                <label class="hidden h-5 tracking-wide font-semibold">Explorer</label>
+            </a>
+        </div>
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="/app/orticle" class="flex flex-col items-center justify-center w-8 h-8">
+                <svg width="24" height="32" class="h-7" viewBox="0 0 24 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6 21.8607C2.41463 19.8357 0 16.05 0 11.7143C0 5.24643 5.37439 0 12 0C18.6256 0 24 5.24643 24 11.7143C24 16.05 21.5854 19.8357 18 21.8607V26C18 26.6321 17.4768 27.1429 16.8293 27.1429H7.17073C6.52317 27.1429 6 26.6321 6 26V21.8607ZM7.60976 29.4286H16.3902C16.5512 29.4286 16.6829 29.5571 16.6829 29.7143V30.8571C16.6829 31.4893 16.1598 32 15.5122 32H8.48781C7.84024 32 7.31707 31.4893 7.31707 30.8571V29.7143C7.31707 29.5571 7.44878 29.4286 7.60976 29.4286Z"
+                        fill="#1E1E24" />
+                </svg>
+
+                <label class="hidden h-5 tracking-wide font-semibold">Orticle</label>
+            </a>
+        </div>
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="/app/article" class="active flex flex-col items-center justify-center w-8 h-8">
+                <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M30.2223 32H1.77777C1.30628 32 0.854097 31.8315 0.520699 31.5313C0.187301 31.2313 0 30.8244 0 30.4V1.6C0 1.17565 0.187301 0.768687 0.520699 0.468629C0.854097 0.168571 1.30628 0 1.77777 0H30.2223C30.6937 0 31.1459 0.168571 31.4793 0.468629C31.8127 0.768687 32 1.17565 32 1.6V30.4C32 30.8244 31.8127 31.2313 31.4793 31.5313C31.1459 31.8315 30.6937 32 30.2223 32ZM7.11111 6.4V12.8H14.2223V6.4H7.11111ZM7.11111 16V19.2H24.8889V16H7.11111ZM7.11111 22.4V25.6H24.8889V22.4H7.11111ZM17.7777 8V11.2H24.8889V8H17.7777Z"
+                        fill="#1E1E24" />
+                </svg>
+
+                <label class="hidden h-5 tracking-wide font-semibold">Article</label>
+            </a>
+        </div>
+        <div class="p-1 hover:bg-gray-300 rounded-md">
+            <a href="/app/category" class="flex flex-col items-center justify-center w-8 h-8">
+                <svg width="32" height="32" class="h-7" viewBox="0 0 32 32" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.7264 0.805035L7.46112 11.0021C6.7706 12.1091 7.57901 13.5515 8.89271 13.5515H21.4064C22.7201 13.5515 23.5285 12.1091 22.838 11.0021L16.5896 0.805035C15.9327 -0.268345 14.3832 -0.268345 13.7264 0.805035Z"
+                        fill="#1E1E24" />
+                    <path
+                        d="M24.4211 32C28.6068 32 32 28.6211 32 24.4528C32 20.2847 28.6068 16.9056 24.4211 16.9056C20.2353 16.9056 16.8421 20.2847 16.8421 24.4528C16.8421 28.6211 20.2353 32 24.4211 32Z"
+                        fill="#1E1E24" />
+                    <path
+                        d="M1.68421 31.1615H11.7895C12.7158 31.1615 13.4737 30.4068 13.4737 29.4843V19.4213C13.4737 18.4989 12.7158 17.7443 11.7895 17.7443H1.68421C0.757896 17.7443 0 18.4989 0 19.4213V29.4843C0 30.4068 0.757896 31.1615 1.68421 31.1615Z"
+                        fill="#1E1E24" />
+                </svg>
+
+                <label class="hidden h-5 tracking-wide font-semibold">Catégories</label>
+            </a>
+        </div>
+    </nav>
+
+    <main class="mb-20 mt-16 md:ml-64 md:my-0">
+        {{#if orticle.infos}}
+        <header class="flex justify-center mx-5 mt-16 md:m-5">
+            <img src="/images/app/ideas.svg" alt="Catégorie icon" draggable="false">
+            <h1 class="font-bold text-4xl text-oblue ml-3">Modifier un Orticle</h1>
+        </header>
+        <section class="m-7">
+            <div>
+                <label for="titre" class="block font-semibold text-2xl text-oblack mb-2">✨ Titre :</label>
+                <input type="text"
+                    class="w-full text-xl text-oblack p-2 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
+                    id="titre" placeholder="Entrer le titre d'orticle" value="{{ orticle.infos.titreOrt }}">
+            </div>
+            <div class="md:flex md:justify-between mt-4">
+                <div class="w-full md:w-7/12 mb-3">
+                    <label for="source" class="block font-semibold text-xl text-gray-700 mb-2">🌐 Source :</label>
+                    <input type="url"
+                        class="w-full text-lg py-1 px-2 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md"
+                        id="source" placeholder="Entrer la source d'orticle" value="{{ orticle.infos.sourceOrt }}">
+                </div>
+                <div class="w-full md:w-4/12">
+                    <label for="category" class="block font-semibold text-xl text-gray-700 mb-2">🔣 Catégorie :</label>
+                    <select id="category"
+                        class="w-full h-9 text-lg text-oblue py-1 px-3 bg-ogrey-light ring-offset-1 focus:ring-2 rounded-md outline-none">
+                        {{#switch orticle.infos.idCat }}
+                        {{#case 1}}<option data-id="1" selected>🖥 Technologie</option>{{/case}}
+                        {{#case 2}}<option data-id="2" selected>📈 Économie</option>{{/case}}
+                        {{#case 3}}<option data-id="3" selected>🍎 Santé</option>{{/case}}
+                        {{#case 4}}<option data-id="4" selected>🌻 Développement personnel</option>{{/case}}
+                        {{#case 5}}<option data-id="5" selected>👨🏼‍⚕️ Psychologie</option>{{/case}}
+                        {{#case 6}}<option data-id="6" selected>🌍 Envirenement</option>{{/case}}
+                        {{#case 7}}<option data-id="7" selected>🔬 Science</option>{{/case}}
+                        {{#case 8}}<option data-id="8" selected>👨🏼‍💼 Politique</option>{{/case}}
+                        {{#case 9}}<option data-id="9" selected>📰 Presse</option>{{/case}}
+                        {{/switch}}
+                        <option data-id="1">🖥 Technologie</option>
+                        <option data-id="2">📈 Économie</option>
+                        <option data-id="3">🍎 Santé</option>
+                        <option data-id="4">🌻 Développement personnel</option>
+                        <option data-id="5">👨🏼‍⚕️ Psychologie</option>
+                        <option data-id="6">🌍 Envirenement</option>
+                        <option data-id="7">🔬 Science</option>
+                        <option data-id="8">👨🏼‍💼 Politique</option>
+                        <option data-id="9">📰 Presse</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section class="m-7">
+            <h2 class="text-2xl mb-2 font-semibold">💡 Orticles</h2>
+            <article id="orticleContent" class="grid gap-5 grid-cols-1 md:grid-cols-2"
+                data-id="{{ orticle.infos.IdOrt }}">
+                {{#if orticle.idee}}
+                {{#each orticle.idee }}
+                {{#if this.corpsIde}}
+                <div class="orticle flex flex-col justify-between bg-oblue p-4 rounded-xl overflow-hidden">
+                    <div>
+                        <textarea cols="20" rows="2" placeholder="Titre..."
+                            class="title w-full overflow-hidden border-white border-dashed border-2 border-opacity-0 focus:border-opacity-100 hover:border-opacity-100 transition duration-500 text-gray-50 bg-transparent text-xl font-semibold p-1.5 outline-none">{{ this.titreIde }}</textarea>
+                        <div cols="20" rows="5" placeholder="Orticle..." contenteditable="true" 
+                            class="idea w-full overflow-hidden border-black border-dashed border-2 border-opacity-0 focus:border-opacity-100 hover:border-opacity-100 transition duration-500 text-gray-900 bg-transparent text-lg p-1.5 mb-2 outline-none">
+                            {{{ this.corpsIde }}}</div>
+                    </div>
+                    <div class="mt-3 flex justify-end">
+                        <button class="delete">
+                            <svg class="h-5" width="17" height="24" viewBox="0 0 17 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M1.21429 21.3333C1.21429 22.8 2.30714 24 3.64286 24H13.3571C14.6929 24 15.7857 22.8 15.7857 21.3333V8C15.7857 6.53333 14.6929 5.33333 13.3571 5.33333H3.64286C2.30714 5.33333 1.21429 6.53333 1.21429 8V21.3333ZM15.7857 1.33333H12.75L11.8879 0.386667C11.6693 0.146667 11.3536 0 11.0379 0H5.96214C5.64643 0 5.33071 0.146667 5.11214 0.386667L4.25 1.33333H1.21429C0.546429 1.33333 0 1.93333 0 2.66667C0 3.4 0.546429 4 1.21429 4H15.7857C16.4536 4 17 3.4 17 2.66667C17 1.93333 16.4536 1.33333 15.7857 1.33333Z"
+                                    fill="#323232"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+                {{/if}}
+
+                <!-- Orticle Editable -->
+                <div id="newIdea" class="flex flex-col justify-between bg-ogrey-light p-5 rounded-xl overflow-hidden">
+                    <div>
+                        <textarea
+                            class="block w-full p-1.5 mb-4 text-xl font-semibold border-2 border-oblue rounded-md bg-transparent outline-none"
+                            type="text" id="titleOrt" cols="30" rows="1" placeholder="Titre..."></textarea>
+                        <div class="w-full p-1.5 border-2 border-oblue rounded-md bg-transparent outline-none"
+                            id="textOrt" aria-placeholder="Orticle..." contenteditable="true"></div>
+                    </div>
+                    <div class="flex justify-between pt-1 px-3 rounded-full bg-oblue my-3">
+                        <div>
+                            <!-- Undo  -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="undo">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.625 10C12.3125 10 9.3125 11.2375 7 13.25L4.6375 10.8875C3.85 10.1 2.5 10.65 2.5 11.7625V18.75C2.5 19.4375 3.0625 20 3.75 20H10.7375C11.85 20 12.4125 18.65 11.625 17.8625L9.2375 15.475C10.975 14.025 13.1875 13.125 15.6375 13.125C19.5875 13.125 23 15.425 24.625 18.75C24.9625 19.45 25.7625 19.8 26.5 19.55C27.3875 19.2625 27.8375 18.25 27.4375 17.4C25.2875 13.025 20.8125 10 15.625 10Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Redo -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="redo">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M23.0001 13.25C20.6876 11.2375 17.6876 10 14.3751 10C9.17505 10 4.70005 13.025 2.57505 17.4125C2.17505 18.25 2.62505 19.25 3.51255 19.55C4.25005 19.8 5.05005 19.45 5.38755 18.75C7.01255 15.425 10.4251 13.125 14.3751 13.125C16.8126 13.125 19.0376 14.025 20.7751 15.475L18.3876 17.8625C17.6001 18.65 18.1501 20 19.2626 20H26.2501C26.9376 20 27.5001 19.4375 27.5001 18.75V11.7625C27.5001 10.65 26.1501 10.0875 25.3626 10.875L23.0001 13.25Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div>
+                            <!-- Bold -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="bold">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.7999 14.3867C22.0933 13.4933 22.9999 12.0267 22.9999 10.6667C22.9999 7.65334 20.6666 5.33334 17.6666 5.33334H10.6666C9.93325 5.33334 9.33325 5.93334 9.33325 6.66668V22.6667C9.33325 23.4 9.93325 24 10.6666 24H18.3733C21.1333 24 23.6533 21.7467 23.6666 18.9733C23.6799 16.9333 22.5333 15.1867 20.7999 14.3867V14.3867ZM13.3333 8.66668H17.3333C18.4399 8.66668 19.3333 9.56001 19.3333 10.6667C19.3333 11.7733 18.4399 12.6667 17.3333 12.6667H13.3333V8.66668ZM17.9999 20.6667H13.3333V16.6667H17.9999C19.1066 16.6667 19.9999 17.56 19.9999 18.6667C19.9999 19.7733 19.1066 20.6667 17.9999 20.6667Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Italic -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="italic">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.3333 7.33334C13.3333 8.44001 14.2267 9.33334 15.3333 9.33334H16.28L11.72 20H10C8.89333 20 8 20.8933 8 22C8 23.1067 8.89333 24 10 24H16.6667C17.7733 24 18.6667 23.1067 18.6667 22C18.6667 20.8933 17.7733 20 16.6667 20H15.72L20.28 9.33334H22C23.1067 9.33334 24 8.44001 24 7.33334C24 6.22668 23.1067 5.33334 22 5.33334H15.3333C14.2267 5.33334 13.3333 6.22668 13.3333 7.33334Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Underline -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="underline">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.0534 22.6C21.0934 22.08 24.0001 18.4533 24.0001 14.3867V5.66667C24.0001 4.74667 23.2534 4 22.3334 4C21.4134 4 20.6667 4.74667 20.6667 5.66667V14.5333C20.6667 16.76 19.1601 18.7867 16.9734 19.2267C13.9734 19.8533 11.3334 17.56 11.3334 14.6667V5.66667C11.3334 4.74667 10.5867 4 9.66675 4C8.74675 4 8.00008 4.74667 8.00008 5.66667V14.6667C8.00008 19.4267 12.1734 23.2267 17.0534 22.6ZM6.66675 26.6667C6.66675 27.4 7.26675 28 8.00008 28H24.0001C24.7334 28 25.3334 27.4 25.3334 26.6667C25.3334 25.9333 24.7334 25.3333 24.0001 25.3333H8.00008C7.26675 25.3333 6.66675 25.9333 6.66675 26.6667Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Line through -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="linethrough">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16 25.3333C17.4667 25.3333 18.6667 24.1333 18.6667 22.6667V21.3333H13.3333V22.6667C13.3333 24.1333 14.5333 25.3333 16 25.3333ZM6.66667 7.33334C6.66667 8.44001 7.56 9.33334 8.66667 9.33334H13.3333V13.3333H18.6667V9.33334H23.3333C24.44 9.33334 25.3333 8.44001 25.3333 7.33334C25.3333 6.22668 24.44 5.33334 23.3333 5.33334H8.66667C7.56 5.33334 6.66667 6.22668 6.66667 7.33334ZM5.33333 18.6667H26.6667C27.4 18.6667 28 18.0667 28 17.3333C28 16.6 27.4 16 26.6667 16H5.33333C4.6 16 4 16.6 4 17.3333C4 18.0667 4.6 18.6667 5.33333 18.6667Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div>
+                            <!-- Ordred List -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="ol">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 8.75H25C25.6875 8.75 26.25 8.1875 26.25 7.5C26.25 6.8125 25.6875 6.25 25 6.25H10C9.3125 6.25 8.75 6.8125 8.75 7.5C8.75 8.1875 9.3125 8.75 10 8.75ZM25 21.25H10C9.3125 21.25 8.75 21.8125 8.75 22.5C8.75 23.1875 9.3125 23.75 10 23.75H25C25.6875 23.75 26.25 23.1875 26.25 22.5C26.25 21.8125 25.6875 21.25 25 21.25ZM25 13.75H10C9.3125 13.75 8.75 14.3125 8.75 15C8.75 15.6875 9.3125 16.25 10 16.25H25C25.6875 16.25 26.25 15.6875 26.25 15C26.25 14.3125 25.6875 13.75 25 13.75ZM5.625 20H3.125C2.775 20 2.5 20.275 2.5 20.625C2.5 20.975 2.775 21.25 3.125 21.25H5V21.875H4.375C4.025 21.875 3.75 22.15 3.75 22.5C3.75 22.85 4.025 23.125 4.375 23.125H5V23.75H3.125C2.775 23.75 2.5 24.025 2.5 24.375C2.5 24.725 2.775 25 3.125 25H5.625C5.975 25 6.25 24.725 6.25 24.375V20.625C6.25 20.275 5.975 20 5.625 20ZM3.125 6.25H3.75V9.375C3.75 9.725 4.025 10 4.375 10C4.725 10 5 9.725 5 9.375V5.625C5 5.275 4.725 5 4.375 5H3.125C2.775 5 2.5 5.275 2.5 5.625C2.5 5.975 2.775 6.25 3.125 6.25ZM5.625 12.5H3.125C2.775 12.5 2.5 12.775 2.5 13.125C2.5 13.475 2.775 13.75 3.125 13.75H4.75L2.65 16.2C2.55 16.3125 2.5 16.4625 2.5 16.6V16.875C2.5 17.225 2.775 17.5 3.125 17.5H5.625C5.975 17.5 6.25 17.225 6.25 16.875C6.25 16.525 5.975 16.25 5.625 16.25H4L6.1 13.8C6.2 13.6875 6.25 13.5375 6.25 13.4V13.125C6.25 12.775 5.975 12.5 5.625 12.5V12.5Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                            <!-- Unordred List -->
+                            <button class="p-0.5 rounded-full bg-gray-50 bg-opacity-0 hover:bg-opacity-30 transition"
+                                id="ul">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5 13.125C3.9625 13.125 3.125 13.9625 3.125 15C3.125 16.0375 3.9625 16.875 5 16.875C6.0375 16.875 6.875 16.0375 6.875 15C6.875 13.9625 6.0375 13.125 5 13.125ZM5 5.625C3.9625 5.625 3.125 6.4625 3.125 7.5C3.125 8.5375 3.9625 9.375 5 9.375C6.0375 9.375 6.875 8.5375 6.875 7.5C6.875 6.4625 6.0375 5.625 5 5.625ZM5 20.625C3.9625 20.625 3.125 21.475 3.125 22.5C3.125 23.525 3.975 24.375 5 24.375C6.025 24.375 6.875 23.525 6.875 22.5C6.875 21.475 6.0375 20.625 5 20.625ZM10 23.75H25C25.6875 23.75 26.25 23.1875 26.25 22.5C26.25 21.8125 25.6875 21.25 25 21.25H10C9.3125 21.25 8.75 21.8125 8.75 22.5C8.75 23.1875 9.3125 23.75 10 23.75ZM10 16.25H25C25.6875 16.25 26.25 15.6875 26.25 15C26.25 14.3125 25.6875 13.75 25 13.75H10C9.3125 13.75 8.75 14.3125 8.75 15C8.75 15.6875 9.3125 16.25 10 16.25ZM8.75 7.5C8.75 8.1875 9.3125 8.75 10 8.75H25C25.6875 8.75 26.25 8.1875 26.25 7.5C26.25 6.8125 25.6875 6.25 25 6.25H10C9.3125 6.25 8.75 6.8125 8.75 7.5Z"
+                                        fill="#FFFFFF" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <button id="resetOrt">
+                            <svg width="21" height="19" viewBox="0 0 21 19" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.25 0.999958C7.16002 0.859958 2.99002 4.93996 2.99002 9.99996H1.20002C0.750021 9.99996 0.530021 10.54 0.850021 10.85L3.64002 13.65C3.84002 13.85 4.15002 13.85 4.35002 13.65L7.14002 10.85C7.46002 10.54 7.23002 9.99996 6.79002 9.99996H4.99002C4.99002 6.09996 8.17002 2.94996 12.09 2.99996C15.81 3.04996 18.94 6.17996 18.99 9.89996C19.04 13.81 15.89 17 11.99 17C10.38 17 8.89002 16.45 7.71002 15.52C7.31002 15.21 6.75002 15.24 6.39002 15.6C5.97002 16.03 6.00002 16.73 6.47002 17.1C7.99002 18.29 9.91002 19 11.99 19C17.04 19 21.13 14.83 20.99 9.73996C20.86 5.04996 16.94 1.12996 12.25 0.999958ZM11.74 5.99996C11.33 5.99996 10.99 6.33996 10.99 6.74996V10.43C10.99 10.78 11.18 11.11 11.48 11.29L14.6 13.14C14.96 13.35 15.42 13.23 15.63 12.88C15.84 12.52 15.72 12.06 15.37 11.85L12.49 10.14V6.73996C12.49 6.33996 12.16 5.99996 11.74 5.99996Z"
+                                    fill="#323232" />
+                            </svg>
+                        </button>
+                        <p><span id="charLeft">500</span>/500</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button id="addOrt"
+                            class="bg-oblue text-lg active:bg-gray-600 hover:opacity-90 transition text-white py-0.5 px-5 rounded-full">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <div class="flex w-full justify-center my-10">
+                <button id="parteger"
+                    class="w-36 h-10 bg-oblue md:max-w-max text-base self-center active:bg-gray-600 hover:opacity-80 ml-5 transition duration-200 text-white py-1.5 px-10 rounded-full">
+                    Partager
+                </button>
+                <button onclick="window.history.back()"
+                    class="md:max-w-max text-base border-oblue border-2 self-center active:bg-oblue active:text-white hover:opacity-80 ml-5 transition duration-200 text-oblue py-1.5 px-10 rounded-full">
+                    Annuler
+                </button>
+            </div>
+        </section>
+        {{else}}
+        <section class="flex items-center flex-col w-full p-5">
+            <h1 style="letter-spacing: 0.1rem" class="text-4xl font-bold text-center px-5">
+                Ooops!
+            </h1>
+            <p style="letter-spacing: 0.1rem" class="text-xl md:text-2xl text-center font-normal px-4 mb-7 mt-1.5">
+                Cette orticle n'existe pas!
+            </p>
+            <img src="/images/app/empty.svg" class="md:w-6/12" alt="empty Orticle" draggable="false">
+        </section>
+        {{/if}}
+    </main>
+</body>
+
+</html>
