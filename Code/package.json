@@ -1,6 +1,6 @@
 {
   "name": "orticle",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "O² ARTICLE Rafraîchissez votre esprit, Explorez de nouvelles idées avec la communauté",
   "main": "index.js",
   "scripts": {

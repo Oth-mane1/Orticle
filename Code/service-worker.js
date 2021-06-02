@@ -1,4 +1,4 @@
-const CACHE_NAME = "OrticleV1.0.0";
+const CACHE_NAME = "OrticleV1.1.0";
 
 const cache = async (request, response) => {
     if (response.type === "error" || response.type === "opaque") {
