@@ -13,29 +13,23 @@ const appRouter = require('./routes/appRouter');
 
 const app = express();
 
-// Debug middleware for render | send
-app.use((req, res, next) => {
-    const render = res.render;
-    const send = res.send;
-    res.render = function renderWrapper(...args) {
-        Error.captureStackTrace(this);
-        return render.apply(this, args);
-    };
-
-    res.send = function sendWrapper(...args) {
-        try {
-            send.apply(this, args);
-        } catch (err) {
-            console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
-        }
-    };
-    next();
-});
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// Register switch helper
+hbs.registerHelper('switch', function (value, options) {
+    this.switch_value = value;
+    return options.fn(this);
+});
+
+hbs.registerHelper('case', function (value, options) {
+    if (value == this.switch_value) {
+        return options.fn(this);
+    }
+});
+
+// Register helpers
 hbs.registerHelper(helpers)
 
 app.use(logger('dev'));
