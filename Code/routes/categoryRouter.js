@@ -27,7 +27,6 @@ router.route('/:idcat')
             }
             var request = new sql.Request(pool);
             request.input('id', idcat);
-            request.input('max', 1);
             request.execute('getCategory', (err, recordsets) => {
                 if (err) {
                     console.log(err);
